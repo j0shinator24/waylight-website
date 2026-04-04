@@ -167,9 +167,52 @@ export default function HomePage() {
               </div>
             </div>
             <div className="mt-8">
-              <Link href="/contact">
+              <Link href="/contact?role=sc">
                 <Button size="lg">
                   Refer a participant
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* For Families & Carers */}
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <Badge variant="outline" className="mb-3">For Families &amp; Carers</Badge>
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
+              You will always know where the funding stands
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              If you help manage a family member&apos;s NDIS plan, you need a plan manager who keeps you in the loop. Waylight sends monthly statements, answers your questions directly, and makes sure you are never left guessing about budgets or claims.
+            </p>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+              <div>
+                <p className="text-sm font-semibold mb-1">Monthly statements</p>
+                <p className="text-sm text-muted-foreground">
+                  Clear breakdowns of spending by category, sent to you and the participant.
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold mb-1">Direct access</p>
+                <p className="text-sm text-muted-foreground">
+                  Call, email, or message. You talk to the same person every time.
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold mb-1">Plan review support</p>
+                <p className="text-sm text-muted-foreground">
+                  Before a plan review, we prepare a funding summary so you know exactly what was used and what to request.
+                </p>
+              </div>
+            </div>
+            <div className="mt-8">
+              <Link href="/contact?role=family">
+                <Button size="lg">
+                  Talk to us about your family member&apos;s plan
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -268,11 +311,12 @@ export default function HomePage() {
       <section className="bg-primary/5 py-20">
         <div className="mx-auto max-w-6xl px-4 md:px-8 text-center">
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Ready to get started?
+            One of our first participants gets our full attention
           </h2>
           <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">
-            Whether you are a participant, support coordinator, or provider. We
-            are here to help.
+            We are deliberately starting small so every participant gets
+            dedicated, personal plan management. Get in early while caseloads
+            are low.
           </p>
           <Link href="/contact">
             <Button size="lg" className="mt-8">

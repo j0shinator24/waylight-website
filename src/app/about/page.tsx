@@ -2,7 +2,8 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Heart, Target, Handshake, ArrowRight } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Heart, Target, Handshake, ArrowRight, PhoneOff, FileQuestion, Clock } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "About",
@@ -49,6 +50,15 @@ export default function AboutPage() {
                 plan managers who could not be reached, invoices that sat in
                 queues for weeks, participants who had no idea where their
                 funding stood. He built Waylight to fix that.
+              </p>
+              <p>
+                That frontline experience changes how Waylight operates. Joshua
+                catches invoice errors that desk-only plan managers miss because
+                he understands what services actually look like on the ground. He
+                spots underspend patterns because he knows which supports
+                participants tend to underuse. The combination of plan management
+                and hands-on NDIS experience is rare, and it is the reason
+                Waylight exists.
               </p>
               <p>
                 As your plan manager, Joshua works directly with every

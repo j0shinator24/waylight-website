@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Geist } from "next/font/google"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { BASE_URL } from "@/lib/constants"
 import "./globals.css"
 
 const geistSans = Geist({
@@ -10,7 +11,7 @@ const geistSans = Geist({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://waylightpm.com.au"),
+  metadataBase: new URL(BASE_URL),
   title: {
     default: "Waylight Plan Management | NDIS Plan Manager QLD",
     template: "%s | Waylight Plan Management",
