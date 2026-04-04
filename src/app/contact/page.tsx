@@ -18,13 +18,31 @@ import { submitContactForm } from "./actions"
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    const form = e.currentTarget
-    const formData = new FormData(form)
-    await submitContactForm(formData)
-    setSubmitted(true)
+    setError(null)
+    setSubmitting(true)
+
+    try {
+      const form = e.currentTarget
+      const formData = new FormData(form)
+      const result = await submitContactForm(formData)
+
+      if (result.success) {
+        setSubmitted(true)
+      } else {
+        setError(result.error ?? "Something went wrong. Please try again.")
+      }
+    } catch {
+      setError(
+        "Unable to send your message. Please try again or email us directly."
+      )
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -70,6 +88,25 @@ export default function ContactPage() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
+                      {/* Honeypot — hidden from real users, bots fill it */}
+                      <input
+                        type="text"
+                        name="website"
+                        style={{ display: "none" }}
+                        tabIndex={-1}
+                        autoComplete="off"
+                        aria-hidden="true"
+                      />
+
+                      {error && (
+                        <div
+                          role="alert"
+                          className="rounded-md border border-destructive/50 bg-destructive/10 px-4 py-3 text-sm text-destructive"
+                        >
+                          {error}
+                        </div>
+                      )}
+
                       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                         <div className="space-y-2">
                           <Label htmlFor="name">Name</Label>
@@ -78,6 +115,7 @@ export default function ContactPage() {
                             name="name"
                             placeholder="Your name"
                             required
+                            maxLength={200}
                           />
                         </div>
                         <div className="space-y-2">
@@ -104,7 +142,7 @@ export default function ContactPage() {
 
                       <div className="space-y-2">
                         <Label htmlFor="role">I am a...</Label>
-                        <Select name="role">
+                        <Select name="role" required>
                           <SelectTrigger id="role">
                             <SelectValue placeholder="Select your role" />
                           </SelectTrigger>
@@ -136,11 +174,17 @@ export default function ContactPage() {
                           placeholder="Tell us about your situation and what you need help with."
                           rows={5}
                           required
+                          maxLength={5000}
                         />
                       </div>
 
-                      <Button type="submit" size="lg" className="w-full sm:w-auto">
-                        Send message
+                      <Button
+                        type="submit"
+                        size="lg"
+                        className="w-full sm:w-auto"
+                        disabled={submitting}
+                      >
+                        {submitting ? "Sending..." : "Send message"}
                       </Button>
 
                       <p className="text-xs text-muted-foreground">

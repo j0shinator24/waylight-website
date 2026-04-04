@@ -40,6 +40,7 @@ export default function HomePage() {
               Plan management is funded by the NDIS at no cost to your other
               supports.
             </p>
+            <p className="mt-2 text-sm text-muted-foreground">Built by a practising NDIS support worker who saw the problems from the inside.</p>
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
                 <Button size="lg" className="w-full sm:w-auto">
