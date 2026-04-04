@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { FeatureCard } from "@/components/feature-card"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -75,59 +76,26 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Card className="border-border/50 bg-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <FileText className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Invoice Processing</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  We process provider invoices, handle reimbursements, and pay
-                  claims against your NDIS plan. Accurate and on time.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 bg-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <BarChart3 className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Budget Tracking</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Monthly statements with category breakdowns. Clear visibility
-                  of your plan balance so you always know where you stand.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 bg-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <Bell className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Budget Alerts</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Your plan has a fixed timeline. We track your spending
-                  trajectory and notify you and your providers if funding is
-                  running ahead or behind schedule.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 bg-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <Users className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Provider Choice</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  With plan management, you can use both registered and
-                  unregistered providers, giving you more choice and
-                  flexibility.
-                </p>
-              </CardContent>
-            </Card>
+            <FeatureCard
+              icon={FileText}
+              title="Invoice Processing"
+              description="We process provider invoices, handle reimbursements, and pay claims against your NDIS plan. Accurate and on time."
+            />
+            <FeatureCard
+              icon={BarChart3}
+              title="Budget Tracking"
+              description="Monthly statements with category breakdowns. Clear visibility of your plan balance so you always know where you stand."
+            />
+            <FeatureCard
+              icon={Bell}
+              title="Budget Alerts"
+              description="Your plan has a fixed timeline. We track your spending trajectory and notify you and your providers if funding is running ahead or behind schedule."
+            />
+            <FeatureCard
+              icon={Users}
+              title="Provider Choice"
+              description="With plan management, you can use both registered and unregistered providers, giving you more choice and flexibility."
+            />
           </div>
         </div>
       </section>
