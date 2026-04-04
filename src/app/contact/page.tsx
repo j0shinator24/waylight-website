@@ -37,7 +37,7 @@ function ContactPageInner() {
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [selectedRole, setSelectedRole] = useState<string | undefined>(undefined)
+  const [selectedRole, setSelectedRole] = useState("")
 
   useEffect(() => {
     const roleParam = searchParams.get("role")
