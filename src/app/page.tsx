@@ -13,6 +13,9 @@ import {
   ShieldCheck,
   BookOpen,
   Bell,
+  CheckCircle2,
+  Phone,
+  Clock,
 } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -24,26 +27,38 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background py-20 md:py-32">
+      {/* Hero — big, bold, PayPaPlane-inspired */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/8 via-background to-accent/5 py-28 md:py-40">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-              Your NDIS plan,{" "}
+          <div className="max-w-3xl">
+            <p className="text-sm font-medium tracking-widest uppercase text-primary mb-4">
+              NDIS Plan Management
+            </p>
+            <h1 className="text-5xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl leading-[1.1]">
+              Your plan,{" "}
               <span className="text-primary">managed personally</span>
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed md:text-xl">
-              Waylight handles the financial side of your NDIS plan so you can
-              focus on what matters: your goals, your supports, your life.
+            <p className="mt-8 text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              One dedicated plan manager who knows your name, answers your calls,
+              and handles every invoice. No call centres. No ticket systems.
             </p>
-            <p className="mt-3 text-sm text-muted-foreground">
-              Plan management is funded by the NDIS at no cost to your other
-              supports.
-            </p>
-            <p className="mt-2 text-sm text-muted-foreground">Built by a practising NDIS support worker who saw the problems from the inside.</p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <div className="mt-6 flex flex-col sm:flex-row items-start gap-3 text-sm text-muted-foreground">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
+                Funded by your NDIS plan
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
+                No cost to your other supports
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="h-4 w-4 text-primary" />
+                Queensland based
+              </span>
+            </div>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
-                <Button size="lg" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto text-base px-8 py-6">
                   Get in touch
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -52,7 +67,7 @@ export default function HomePage() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto text-base px-8 py-6"
                 >
                   How it works
                 </Button>
@@ -62,15 +77,39 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* What we do */}
-      <section className="py-20 md:py-28">
+      {/* Social proof — trust signal early */}
+      <section className="border-y border-border/50 bg-muted/20 py-10">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            <div>
+              <p className="text-3xl font-bold text-foreground">2 days</p>
+              <p className="text-sm text-muted-foreground mt-1">Onboarding turnaround</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold text-foreground">1 person</p>
+              <p className="text-sm text-muted-foreground mt-1">Your dedicated plan manager</p>
+            </div>
+            <div>
+              <p className="text-3xl font-bold text-foreground">0 call centres</p>
+              <p className="text-sm text-muted-foreground mt-1">Direct communication, always</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What we do — progressive reveal with stronger hierarchy */}
+      <section className="py-24 md:py-32">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <div className="max-w-2xl mb-16">
+            <p className="text-sm font-medium tracking-widest uppercase text-primary mb-3">
+              What we handle
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
               Plan management that puts you first
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
-              One dedicated plan manager. Direct communication. No call centres.
+              We take on the financial admin so you can focus on your goals,
+              your supports, your life.
             </p>
           </div>
 
@@ -88,7 +127,7 @@ export default function HomePage() {
             <FeatureCard
               icon={Bell}
               title="Budget Alerts"
-              description="Your plan has a fixed timeline. We track your spending trajectory and notify you and your providers if funding is running ahead or behind schedule."
+              description="We track your spending trajectory and notify you and your providers if funding is running ahead or behind schedule."
             />
             <FeatureCard
               icon={Users}
@@ -99,103 +138,142 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* For Support Coordinators */}
-      <section className="bg-muted/30 py-16 md:py-20">
+      {/* For Support Coordinators — alternating layout */}
+      <section className="bg-muted/30 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <Badge variant="outline" className="mb-3">
-              For Support Coordinators
-            </Badge>
-            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-              A plan manager you can actually reach
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              When you refer a participant to Waylight, you get a direct line to
-              their plan manager. No call centre, no ticket system, no chasing.
-            </p>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
-              <div>
-                <p className="text-sm font-semibold mb-1">Fast onboarding</p>
-                <p className="text-sm text-muted-foreground">
-                  Participant set up within 2 business days of referral.
-                </p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold mb-1">You stay informed</p>
-                <p className="text-sm text-muted-foreground">
-                  Budget updates and claims progress shared with you directly.
-                </p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold mb-1">One point of contact</p>
-                <p className="text-sm text-muted-foreground">
-                  Same plan manager every time. You know who to call.
-                </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <Badge variant="outline" className="mb-4">
+                For Support Coordinators
+              </Badge>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+                A plan manager you can actually reach
+              </h2>
+              <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+                When you refer a participant to Waylight, you get a direct line to
+                their plan manager. No call centre, no ticket system, no chasing.
+              </p>
+              <div className="mt-8">
+                <Link href="/contact?role=sc">
+                  <Button size="lg">
+                    Refer a participant
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
-            <div className="mt-8">
-              <Link href="/contact?role=sc">
-                <Button size="lg">
-                  Refer a participant
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+            <div className="space-y-6">
+              <div className="flex gap-4 items-start">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <Clock className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">Fast onboarding</p>
+                  <p className="text-sm text-muted-foreground">
+                    Participant set up within 2 business days of referral.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <BarChart3 className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">You stay informed</p>
+                  <p className="text-sm text-muted-foreground">
+                    Budget updates and claims progress shared with you directly.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <Phone className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">One point of contact</p>
+                  <p className="text-sm text-muted-foreground">
+                    Same plan manager every time. You know who to call.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* For Families & Carers */}
-      <section className="py-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <Badge variant="outline" className="mb-3">For Families &amp; Carers</Badge>
-            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-              You will always know where the funding stands
-            </h2>
-            <p className="mt-4 text-muted-foreground">
-              If you help manage a family member&apos;s NDIS plan, you need a plan manager who keeps you in the loop. Waylight sends monthly statements, answers your questions directly, and makes sure you are never left guessing about budgets or claims.
-            </p>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
-              <div>
-                <p className="text-sm font-semibold mb-1">Monthly statements</p>
-                <p className="text-sm text-muted-foreground">
-                  Clear breakdowns of spending by category, sent to you and the participant.
-                </p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold mb-1">Direct access</p>
-                <p className="text-sm text-muted-foreground">
-                  Call, email, or message. You talk to the same person every time.
-                </p>
-              </div>
-              <div>
-                <p className="text-sm font-semibold mb-1">Plan review support</p>
-                <p className="text-sm text-muted-foreground">
-                  Before a plan review, we prepare a funding summary so you know exactly what was used and what to request.
-                </p>
-              </div>
-            </div>
-            <div className="mt-8">
-              <Link href="/contact?role=family">
-                <Button size="lg">
-                  Talk to us about your family member&apos;s plan
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Provider Tools */}
+      {/* For Families & Carers — reversed alternating layout */}
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <Badge variant="outline" className="mb-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1 space-y-6">
+              <div className="flex gap-4 items-start">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <FileText className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">Monthly statements</p>
+                  <p className="text-sm text-muted-foreground">
+                    Clear breakdowns of spending by category, sent to you and the participant.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <Phone className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">Direct access</p>
+                  <p className="text-sm text-muted-foreground">
+                    Call, email, or message. You talk to the same person every time.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-4 items-start">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <BarChart3 className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold mb-1">Plan review support</p>
+                  <p className="text-sm text-muted-foreground">
+                    Before a plan review, we prepare a funding summary so you know exactly what was used and what to request.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="order-1 lg:order-2">
+              <Badge variant="outline" className="mb-4">For Families &amp; Carers</Badge>
+              <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+                You will always know where the funding stands
+              </h2>
+              <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+                If you help manage a family member&apos;s NDIS plan, you need a plan manager
+                who keeps you in the loop. Waylight sends monthly statements, answers your
+                questions directly, and makes sure you are never left guessing.
+              </p>
+              <div className="mt-8">
+                <Link href="/contact?role=family">
+                  <Button size="lg">
+                    Talk to us about your family member&apos;s plan
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Provider Tools — visual separation */}
+      <section className="bg-muted/30 py-24 md:py-32">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <div className="max-w-2xl mb-16">
+            <Badge variant="outline" className="mb-4">
               For Providers
             </Badge>
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+            <p className="text-sm font-medium tracking-widest uppercase text-primary mb-3">
+              Coming Soon
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
               Your staff deserve better tools
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
@@ -209,7 +287,7 @@ export default function HomePage() {
             <FeatureCard
               icon={Mic}
               title="NoteFlow"
-              description="Support workers talk through their shift. NoteFlow turns it into structured, NDIS-compliant progress notes. Designed to save 60-90 minutes of documentation per shift."
+              description="Support workers talk through their shift. NoteFlow turns it into structured, NDIS-compliant progress notes. Designed to save 60-90 minutes per shift."
             />
             <FeatureCard
               icon={Calendar}
@@ -224,11 +302,11 @@ export default function HomePage() {
             <FeatureCard
               icon={BookOpen}
               title="NDIS Butler"
-              description="Your staff ask a question about NDIS pricing, legislation, or practice standards. They get an accurate answer in seconds. No more hunting through PDFs."
+              description="Your staff ask a question about NDIS pricing, legislation, or practice standards. They get an accurate answer in seconds."
             />
           </div>
 
-          <div className="mt-10 text-center">
+          <div className="mt-12">
             <Link href="/services">
               <Button variant="outline" size="lg">
                 See all provider tools
@@ -239,21 +317,37 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-primary/5 py-20">
+      {/* Built by — credibility section */}
+      <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              Built by someone who gets it
+            </h2>
+            <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
+              Waylight was built by a practising NDIS support worker who saw the
+              problems from the inside: slow plan managers, lost invoices, no
+              transparency. We built what we wished existed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA — strong close */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-accent/5 py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-4 md:px-8 text-center">
-          <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
-            One of our first participants gets our full attention
+          <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+            Be one of our first participants
           </h2>
-          <p className="mt-4 text-muted-foreground text-lg max-w-xl mx-auto">
+          <p className="mt-6 text-muted-foreground text-lg max-w-xl mx-auto leading-relaxed">
             We are deliberately starting small so every participant gets
             dedicated, personal plan management. Get in early while caseloads
             are low.
           </p>
           <Link href="/contact">
-            <Button size="lg" className="mt-8">
+            <Button size="lg" className="mt-10 text-base px-10 py-6">
               Contact us today
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
         </div>
