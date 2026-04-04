@@ -275,8 +275,8 @@ export default function HomePage() {
                 <h3 className="text-lg font-semibold mb-2">AuditShield</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Continuous compliance monitoring. Validates invoices against
-                  current PAPL rates in real time. The annual audit scramble
-                  is over.
+                  current PAPL rates in real time. Flags issues before your
+                  auditor finds them.
                 </p>
               </CardContent>
             </Card>

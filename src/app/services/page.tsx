@@ -118,7 +118,7 @@ const providerTools = [
     title: "AuditShield",
     subtitle: "Compliance Monitoring",
     description:
-      "Continuous compliance monitoring that replaces the annual audit scramble. Validates invoices against current PAPL rates and flags issues before they become findings.",
+      "Continuous compliance monitoring that validates invoices against current PAPL rates. Flags issues before your auditor finds them.",
     features: [
       "Real-time PAPL rate validation",
       "Continuous compliance dashboards",

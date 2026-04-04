@@ -126,8 +126,65 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-      {/* Continuity */}
+      {/* Why participants switch */}
       <section className="py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <Badge variant="outline" className="mb-3">
+              Common frustrations
+            </Badge>
+            <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
+              Why participants switch plan managers
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <Card className="border-border/50">
+              <CardContent className="pt-6">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <PhoneOff className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Can not reach anyone</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Large plan management companies run call centres. You wait on
+                  hold. You explain your situation to a different person every
+                  time. At Waylight, you have one person who knows your plan.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border/50">
+              <CardContent className="pt-6">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <FileQuestion className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">No idea where funding stands</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  Some plan managers send statements quarterly, if at all.
+                  Waylight sends monthly breakdowns by category so you always
+                  know where you stand.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border/50">
+              <CardContent className="pt-6">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <Clock className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Invoices sit in a queue</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  When your provider is waiting on payment, it affects your
+                  relationship with them. Waylight processes invoices promptly
+                  because a small caseload means nothing sits in a pile.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Continuity */}
+      <section className="bg-muted/30 py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <div className="max-w-3xl">
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl mb-6">
