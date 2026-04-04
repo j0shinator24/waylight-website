@@ -2,7 +2,6 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { FeatureCard } from "@/components/feature-card"
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
   FileText,
@@ -207,61 +206,26 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <Card className="border-border/50 bg-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <Mic className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">NoteFlow</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Support workers talk through their shift. NoteFlow turns it
-                  into structured, NDIS-compliant progress notes. Designed to
-                  save 60-90 minutes of documentation per shift.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 bg-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <Calendar className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">RosterIQ</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Rostering that handles SCHADS compliance, participant matching,
-                  and gap alerts automatically. Your coordinator stops fighting
-                  spreadsheets.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 bg-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <ShieldCheck className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">AuditShield</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Continuous compliance monitoring. Validates invoices against
-                  current PAPL rates in real time. Flags issues before your
-                  auditor finds them.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border/50 bg-card">
-              <CardContent className="pt-6">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                  <BookOpen className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">NDIS Butler</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Your staff ask a question about NDIS pricing, legislation, or
-                  practice standards. They get an accurate answer in seconds.
-                  No more hunting through PDFs.
-                </p>
-              </CardContent>
-            </Card>
+            <FeatureCard
+              icon={Mic}
+              title="NoteFlow"
+              description="Support workers talk through their shift. NoteFlow turns it into structured, NDIS-compliant progress notes. Designed to save 60-90 minutes of documentation per shift."
+            />
+            <FeatureCard
+              icon={Calendar}
+              title="RosterIQ"
+              description="Rostering that handles SCHADS compliance, participant matching, and gap alerts automatically. Your coordinator stops fighting spreadsheets."
+            />
+            <FeatureCard
+              icon={ShieldCheck}
+              title="AuditShield"
+              description="Continuous compliance monitoring. Validates invoices against current PAPL rates in real time. Flags issues before your auditor finds them."
+            />
+            <FeatureCard
+              icon={BookOpen}
+              title="NDIS Butler"
+              description="Your staff ask a question about NDIS pricing, legislation, or practice standards. They get an accurate answer in seconds. No more hunting through PDFs."
+            />
           </div>
 
           <div className="mt-10 text-center">
