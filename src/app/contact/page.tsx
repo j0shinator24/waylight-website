@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { Suspense, useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -16,10 +17,34 @@ import {
 import { Mail, MapPin, CheckCircle2 } from "lucide-react"
 import { submitContactForm } from "./actions"
 
+const roleParamMap: Record<string, string> = {
+  sc: "support-coordinator",
+  provider: "provider",
+  family: "family",
+  participant: "participant",
+}
+
 export default function ContactPage() {
+  return (
+    <Suspense>
+      <ContactPageInner />
+    </Suspense>
+  )
+}
+
+function ContactPageInner() {
+  const searchParams = useSearchParams()
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [selectedRole, setSelectedRole] = useState<string | undefined>(undefined)
+
+  useEffect(() => {
+    const roleParam = searchParams.get("role")
+    if (roleParam && roleParamMap[roleParam]) {
+      setSelectedRole(roleParamMap[roleParam])
+    }
+  }, [searchParams])
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()

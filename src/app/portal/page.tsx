@@ -29,10 +29,14 @@ export default function PortalPage() {
         <Card className="border-border/50">
           <CardContent className="pt-6 text-center">
             <p className="text-lg font-semibold mb-2">Coming soon</p>
-            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+            <p className="text-sm text-muted-foreground leading-relaxed mb-4">
               We are building a portal where you can track your NDIS budget,
               view invoices, and download statements. In the meantime, contact
               us directly for any budget queries.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+              Want to know when the participant portal launches? Get in touch
+              and we will add you to the notification list.
             </p>
             <Link href="/contact">
               <Button size="lg" className="w-full">

@@ -69,6 +69,9 @@ export function Footer() {
 
         <Separator className="my-8" />
 
+        <p className="text-xs text-muted-foreground text-center mb-4">
+          Serving NDIS participants across Queensland
+        </p>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <p>Waylight Pty Ltd</p>
           <p>NDIS Plan Management | Queensland</p>
