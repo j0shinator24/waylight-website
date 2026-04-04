@@ -141,9 +141,68 @@ const providerTools = [
   },
 ]
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is plan management?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "A plan manager handles the financial side of your NDIS plan. We process invoices, pay your providers, track your budget, and manage claims through the NDIS portal. Think of it like having an accountant for your NDIS funding, fully covered by the NDIS.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does plan management cost me anything?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. Plan management is funded under its own budget line in your NDIS plan. It does not reduce your core, capital, or capacity building funding.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I use unregistered providers with plan management?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. One of the biggest benefits of plan management is access to both registered and unregistered NDIS providers. This gives you more choice over who delivers your supports.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I get plan management in my plan?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Ask your LAC, support coordinator, or NDIA planner to include plan management at your next planning meeting. If you already have it, you can switch to Waylight at any time.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do I switch to Waylight from another plan manager?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Contact us and we will handle the transfer. There is no lock-in period with plan managers. You can switch at any point during your plan.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What happens if I overspend or underspend my plan?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We track your spending trajectory against your plan timeline and send you budget alerts if your funding is running ahead or behind schedule. This gives you time to adjust before it affects your plan review.",
+      },
+    },
+  ],
+}
+
 export default function ServicesPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
