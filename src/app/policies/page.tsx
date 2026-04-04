@@ -7,6 +7,14 @@ import {
   Scale,
   Lock,
   RefreshCw,
+  DollarSign,
+  Search,
+  Handshake,
+  Building2,
+  ClipboardCheck,
+  UserCheck,
+  HeartPulse,
+  Briefcase,
 } from "lucide-react"
 
 export const metadata: Metadata = {
