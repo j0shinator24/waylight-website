@@ -167,7 +167,7 @@ function ContactPageInner() {
 
                       <div className="space-y-2">
                         <Label htmlFor="role">I am a...</Label>
-                        <Select name="role" required>
+                        <Select name="role" required value={selectedRole} onValueChange={(v) => setSelectedRole(v ?? undefined)}>
                           <SelectTrigger id="role">
                             <SelectValue placeholder="Select your role" />
                           </SelectTrigger>
