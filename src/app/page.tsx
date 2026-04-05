@@ -78,7 +78,7 @@ export default function HomePage() {
                 </Button>
               </Link>
             </div>
-            <p className="dark-reveal mt-6 text-xl font-handwritten text-primary/60 -rotate-2">
+            <p className="dark-reveal mt-6 text-4xl font-handwritten text-primary/60 -rotate-2">
               scroll down, it gets better
             </p>
           </div>
@@ -106,7 +106,7 @@ export default function HomePage() {
               <p className="text-sm text-muted-foreground mt-1">Built by a practising support worker</p>
             </div>
           </div>
-          <p className="dark-reveal text-center mt-6 text-xl font-handwritten text-primary/50 rotate-1">
+          <p className="dark-reveal text-center mt-6 text-4xl font-handwritten text-primary/50 rotate-1">
             not just numbers — promises
           </p>
         </div>
@@ -136,7 +136,7 @@ export default function HomePage() {
                   </Button>
                 </Link>
               </div>
-              <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/50 -rotate-1">
+              <p className="dark-reveal mt-4 text-4xl font-handwritten text-primary/50 -rotate-1">
                 support coordinators love this part
               </p>
             </div>
@@ -217,7 +217,7 @@ export default function HomePage() {
               description="Plan-managed participants can use both registered and unregistered providers. More choice, more flexibility."
             />
           </div>
-          <p className="dark-reveal mt-8 text-xl font-handwritten text-primary/50 rotate-2">
+          <p className="dark-reveal mt-8 text-4xl font-handwritten text-primary/50 rotate-2">
             the boring stuff? handled.
           </p>
         </div>
@@ -280,7 +280,7 @@ export default function HomePage() {
                   </Button>
                 </Link>
               </div>
-              <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/50 -rotate-2">
+              <p className="dark-reveal mt-4 text-4xl font-handwritten text-primary/50 -rotate-2">
                 families deserve answers, not hold music
               </p>
             </div>
@@ -350,7 +350,7 @@ export default function HomePage() {
           <p className="text-center text-xs text-muted-foreground mt-6">
             Plan management is funded under its own NDIS budget category (CB Choice and Control). It does not reduce your core or capacity building funding.
           </p>
-          <p className="dark-reveal text-center mt-4 text-xl font-handwritten text-primary/50 -rotate-1">
+          <p className="dark-reveal text-center mt-4 text-4xl font-handwritten text-primary/50 -rotate-1">
             notice all those green checkmarks
           </p>
         </div>
@@ -394,7 +394,7 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <p className="dark-reveal text-center mt-8 text-xl font-handwritten text-primary/50 rotate-1">
+          <p className="dark-reveal text-center mt-8 text-4xl font-handwritten text-primary/50 rotate-1">
             three steps. that&apos;s it.
           </p>
         </div>
@@ -422,7 +422,7 @@ export default function HomePage() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
-            <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/50 -rotate-2">
+            <p className="dark-reveal mt-4 text-4xl font-handwritten text-primary/50 -rotate-2">
               patience... these are coming
             </p>
           </div>
@@ -445,7 +445,7 @@ export default function HomePage() {
               plan managers miss because we understand what services actually look
               like on the ground.
             </p>
-            <p className="dark-reveal mt-4 text-2xl font-handwritten text-primary/60 rotate-1">
+            <p className="dark-reveal mt-4 text-5xl font-handwritten text-primary/60 rotate-1">
               (yes, even at 2am)
             </p>
             <Link href="/about">
@@ -492,7 +492,7 @@ export default function HomePage() {
           <p className="mt-6 text-xs text-muted-foreground">
             NDIS provider registration in progress. Expressions of interest welcome.
           </p>
-          <p className="dark-reveal mt-4 text-2xl font-handwritten text-primary/60 -rotate-2">
+          <p className="dark-reveal mt-4 text-5xl font-handwritten text-primary/60 -rotate-2">
             still scrolling? we like you already.
           </p>
         </div>

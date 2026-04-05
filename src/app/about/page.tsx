@@ -27,7 +27,7 @@ export default function AboutPage() {
               A Queensland NDIS plan management provider built on a simple idea:
               participants deserve a plan manager who actually knows their name.
             </p>
-            <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/60 -rotate-2">
+            <p className="dark-reveal mt-4 text-4xl font-handwritten text-primary/60 -rotate-2">
               pull up a chair
             </p>
           </div>
@@ -80,7 +80,7 @@ export default function AboutPage() {
                   transparently. That trust is earned through consistent,
                   personal service, not through a brand name or a large team.
                 </p>
-                <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/50 rotate-1">
+                <p className="dark-reveal mt-4 text-4xl font-handwritten text-primary/50 rotate-1">
                   the real reason Waylight exists
                 </p>
               </div>
@@ -124,7 +124,7 @@ export default function AboutPage() {
               <p className="text-xs text-muted-foreground mt-1">Professional indemnity and public liability</p>
             </div>
           </div>
-          <p className="dark-reveal mt-6 text-center text-2xl font-handwritten text-primary/50 -rotate-1">
+          <p className="dark-reveal mt-6 text-center text-5xl font-handwritten text-primary/50 -rotate-1">
             receipts.
           </p>
         </div>
@@ -136,7 +136,7 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl mb-12 text-center">
             What guides us
           </h2>
-          <p className="dark-reveal text-xl font-handwritten text-primary/50 text-center -rotate-2 -mt-4 mb-4">
+          <p className="dark-reveal text-4xl font-handwritten text-primary/50 text-center -rotate-2 -mt-4 mb-4">
             not just words on a wall
           </p>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -192,7 +192,7 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
               Why participants switch plan managers
             </h2>
-            <p className="dark-reveal text-xl font-handwritten text-primary/60 rotate-1 mt-2">
+            <p className="dark-reveal text-4xl font-handwritten text-primary/60 rotate-1 mt-2">
               sound familiar?
             </p>
           </div>
@@ -261,7 +261,7 @@ export default function AboutPage() {
                 process urgent invoices, answer budget queries, and manage
                 reportable incidents during any period of unavailability.
               </p>
-              <p className="dark-reveal mt-3 text-xl font-handwritten text-primary/50 -rotate-1">
+              <p className="dark-reveal mt-3 text-4xl font-handwritten text-primary/50 -rotate-1">
                 backup plan for the backup plan
               </p>
             </div>
@@ -317,7 +317,7 @@ export default function AboutPage() {
               </Button>
             </Link>
           </div>
-          <p className="dark-reveal mt-6 text-2xl font-handwritten text-primary/50 rotate-1">
+          <p className="dark-reveal mt-6 text-5xl font-handwritten text-primary/50 rotate-1">
             still here? let&apos;s talk
           </p>
         </div>
