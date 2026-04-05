@@ -232,61 +232,71 @@
   opacity: 1;
 }
 
-/* ---- Shadows cast by candlelight (light source: top-left) ---- */
+/* ---- Candlelight shadows (light source: top-left) ---- */
+/* Dark shadows on dark bg are invisible — use amber HIGHLIGHTS       */
+/* on the light-facing side + hard dark offsets for the shadow side.   */
 
-/* Headings — heavy directional shadow */
+/* Headings — amber glow on left + hard shadow right */
 .dark h1 {
   text-shadow:
-    4px 5px 10px oklch(0 0 0 / 0.6),
-    0 0 60px oklch(0.78 0.12 70 / 0.08);
+    4px 5px 3px oklch(0 0 0 / 0.9),
+    -2px -2px 15px oklch(0.78 0.14 68 / 0.25),
+    0 0 60px oklch(0.75 0.12 65 / 0.10);
 }
 .dark h2 {
   text-shadow:
-    3px 4px 8px oklch(0 0 0 / 0.5),
-    0 0 40px oklch(0.75 0.10 70 / 0.06);
+    3px 4px 2px oklch(0 0 0 / 0.8),
+    -1px -1px 12px oklch(0.75 0.12 68 / 0.20),
+    0 0 40px oklch(0.72 0.10 65 / 0.08);
 }
 .dark h3 {
   text-shadow:
-    2px 3px 6px oklch(0 0 0 / 0.45),
-    0 0 25px oklch(0.75 0.08 70 / 0.04);
+    2px 3px 2px oklch(0 0 0 / 0.7),
+    -1px -1px 8px oklch(0.72 0.10 68 / 0.15);
 }
 
-/* Body text — visible shadow, still readable */
+/* Body text — subtle warm glow + soft shadow */
 .dark p,
 .dark li,
 .dark span,
 .dark label,
 .dark a {
-  text-shadow: 1px 2px 4px oklch(0 0 0 / 0.3);
+  text-shadow:
+    2px 2px 2px oklch(0 0 0 / 0.6),
+    -1px -1px 6px oklch(0.70 0.08 68 / 0.08);
 }
 
-/* Buttons — deep shadow down-right + warm catch-light on top-left */
+/* Buttons — amber highlight on top-left edge, hard shadow bottom-right */
 .dark button,
 .dark [role="button"] {
   box-shadow:
-    4px 5px 14px oklch(0 0 0 / 0.5),
-    -1px -1px 8px oklch(0.75 0.12 70 / 0.08);
+    6px 8px 4px oklch(0 0 0 / 0.7),
+    inset 1px 1px 0 oklch(0.78 0.14 68 / 0.15),
+    -3px -3px 15px oklch(0.75 0.12 68 / 0.08);
   transition: box-shadow 0.3s ease;
 }
 .dark button:hover,
 .dark [role="button"]:hover {
   box-shadow:
-    5px 7px 20px oklch(0 0 0 / 0.6),
-    -2px -2px 12px oklch(0.78 0.14 70 / 0.12);
+    8px 10px 6px oklch(0 0 0 / 0.8),
+    inset 1px 1px 0 oklch(0.80 0.15 68 / 0.25),
+    -4px -4px 20px oklch(0.78 0.14 68 / 0.12);
 }
 
-/* Cards and rounded containers — prominent shadow down-right */
+/* Cards — hard shadow + warm inner highlight on light-facing edge */
 .dark [class*="rounded"] {
   box-shadow:
-    4px 5px 16px oklch(0 0 0 / 0.45),
-    -1px -1px 6px oklch(0.75 0.10 70 / 0.05);
+    6px 8px 4px oklch(0 0 0 / 0.6),
+    inset 1px 1px 0 oklch(0.75 0.12 68 / 0.10),
+    -2px -2px 12px oklch(0.72 0.10 68 / 0.06);
 }
 
-/* Feature cards / major bordered cards — heaviest shadow */
+/* Feature cards — strongest shadow + brightest warm edge */
 .dark [class*="border-border"] {
   box-shadow:
-    5px 8px 24px oklch(0 0 0 / 0.5),
-    -2px -2px 8px oklch(0.75 0.12 70 / 0.06);
+    8px 10px 5px oklch(0 0 0 / 0.7),
+    inset 2px 2px 0 oklch(0.78 0.14 68 / 0.12),
+    -3px -3px 18px oklch(0.75 0.12 68 / 0.08);
 }
 
 /* Reveal elements — invisible in light, fade in with dark */
