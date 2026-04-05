@@ -65,10 +65,11 @@ export function Header() {
           <ThemeToggle />
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
-              className="inline-flex items-center justify-center rounded-md h-9 w-9 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              className="inline-flex items-center justify-center gap-1 rounded-md h-11 px-2 text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5" />
+              <span className="text-xs font-medium">Menu</span>
             </SheetTrigger>
             <SheetContent side="right" className="w-72">
               <SheetTitle className="sr-only">Navigation menu</SheetTitle>

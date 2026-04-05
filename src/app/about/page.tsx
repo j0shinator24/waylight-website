@@ -34,46 +34,62 @@ export default function AboutPage() {
       {/* Story */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-3xl">
-            <h2 className="text-2xl font-bold tracking-tight md:text-3xl mb-6">
-              Why Waylight exists
-            </h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Too many NDIS participants are stuck with plan managers who treat
-                them like a ticket number. Invoices get lost. Calls go
-                unanswered. Budget updates arrive weeks late, if they arrive at
-                all.
-              </p>
-              <p>
-                Waylight was started by Joshua, a practising NDIS support
-                worker in Queensland. Working on the ground, he saw the same
-                problems repeated across every participant he supported: plan
-                managers who could not be reached, invoices that sat in queues
-                for weeks, and participants who had no idea where their funding
-                stood. He built Waylight to fix that.
-              </p>
-              <p>
-                That frontline experience changes how Waylight operates. Joshua
-                catches invoice errors that desk-only plan managers miss because
-                he understands what services actually look like on the ground. He
-                spots underspend patterns because he knows which supports
-                participants tend to underuse. The combination of plan management
-                and hands-on NDIS experience is rare, and it is the core of what
-                makes Waylight different.
-              </p>
-              <p>
-                As your plan manager, Joshua works directly with every
-                participant. There is no switchboard, no queue, no
-                &ldquo;your call is important to us.&rdquo; You get one
-                person who knows your situation, your providers, and your
-                goals.
-              </p>
-              <p>
-                Plan management is fundamentally about trust. You are trusting
-                someone to handle your NDIS funding accurately and
-                transparently. That trust is earned through consistent,
-                personal service, not through a brand name or a large team.
+          <div className="flex flex-wrap gap-12 items-start">
+            <div className="flex-[999_0_0] min-w-[50%]">
+              <h2 className="text-2xl font-bold tracking-tight md:text-3xl mb-6">
+                Why Waylight exists
+              </h2>
+              <div className="stack stack-sm max-w-[60ch] text-muted-foreground leading-relaxed">
+                <p>
+                  Too many NDIS participants are stuck with plan managers who treat
+                  them like a ticket number. The frustration of calling and never
+                  getting through. The anxiety of not knowing where your funding
+                  stands. The helplessness when invoices sit unpaid for weeks.
+                </p>
+                <p>
+                  Waylight was started by Joshua, a practising NDIS support
+                  worker in Queensland. Working on the ground, he saw the same
+                  problems repeated across every participant he supported: plan
+                  managers who could not be reached, invoices that sat in queues
+                  for weeks, and participants left feeling invisible. He built
+                  Waylight to fix that.
+                </p>
+                <p>
+                  That frontline experience changes how Waylight operates. Joshua
+                  catches invoice errors that desk-only plan managers miss because
+                  he understands what services actually look like on the ground. He
+                  spots underspend patterns because he knows which supports
+                  participants tend to underuse. The combination of plan management
+                  and hands-on NDIS experience is rare, and it is the core of what
+                  makes Waylight different.
+                </p>
+                <p>
+                  As your plan manager, Joshua works directly with every
+                  participant. There is no switchboard, no queue, no
+                  &ldquo;your call is important to us.&rdquo; You get one
+                  person who knows your situation, your providers, and your
+                  goals.
+                </p>
+                <p>
+                  Plan management is fundamentally about trust. You are trusting
+                  someone to handle your NDIS funding accurately and
+                  transparently. That trust is earned through consistent,
+                  personal service, not through a brand name or a large team.
+                </p>
+              </div>
+            </div>
+            <div className="flex-[1_16rem]">
+              <div className="aspect-[3/4] rounded-xl bg-gradient-to-br from-primary/15 via-primary/5 to-accent/10 flex items-end justify-center overflow-hidden border border-border/50">
+                <div className="text-center pb-6">
+                  <div className="mx-auto mb-3 flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 text-primary text-2xl font-bold">
+                    JM
+                  </div>
+                  <p className="text-sm font-semibold">Joshua</p>
+                  <p className="text-xs text-muted-foreground">Founder &amp; Plan Manager</p>
+                </div>
+              </div>
+              <p className="mt-3 text-xs text-muted-foreground text-center">
+                Practising NDIS support worker, Queensland
               </p>
             </div>
           </div>
