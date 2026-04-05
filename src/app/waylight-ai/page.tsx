@@ -223,6 +223,9 @@ export default function WaylightAiPage() {
               that handle the repetitive parts while you focus on the work
               your team was actually hired to do.
             </p>
+            <p className="dark-reveal mt-4 text-4xl font-handwritten text-primary/60 rotate-1">
+              are you a property manager?
+            </p>
           </div>
 
           <div className="stack stack-xl">
@@ -262,6 +265,9 @@ export default function WaylightAiPage() {
           </div>
           <p className="dark-reveal mt-8 text-4xl font-handwritten text-primary/50 rotate-2">
             imagine what you would do with all that time back
+          </p>
+          <p className="dark-reveal mt-2 text-4xl font-handwritten text-primary/40 -rotate-1 ml-16">
+            perhaps a medical clinic?
           </p>
         </div>
       </section>

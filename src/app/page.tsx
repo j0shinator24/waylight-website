@@ -416,7 +416,7 @@ export default function HomePage() {
               and an instant NDIS knowledge assistant. Different product,
               same mission — less admin, more time with participants.
             </p>
-            <Link href="/services">
+            <Link href="/waylight-ai">
               <Button variant="outline" size="lg" className="mt-8">
                 Learn more about Waylight AI
                 <ArrowRight className="ml-2 h-4 w-4" />

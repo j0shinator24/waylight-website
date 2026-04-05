@@ -329,9 +329,9 @@ export default function ServicesPage() {
             <p className="mt-6 text-xs text-muted-foreground max-w-[50ch] mx-auto">
               Provider tools are in development. Features and availability may change before release.
             </p>
-            <Link href="/contact">
+            <Link href="/waylight-ai">
               <Button variant="outline" size="lg" className="mt-6">
-                Register interest in Waylight AI
+                Explore Waylight AI
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
