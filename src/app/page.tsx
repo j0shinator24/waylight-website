@@ -78,6 +78,9 @@ export default function HomePage() {
                 </Button>
               </Link>
             </div>
+            <p className="dark-reveal mt-6 text-xl font-handwritten text-primary/60 -rotate-2">
+              scroll down, it gets better
+            </p>
           </div>
         </div>
       </section>
@@ -103,10 +106,13 @@ export default function HomePage() {
               <p className="text-sm text-muted-foreground mt-1">Built by a practising support worker</p>
             </div>
           </div>
+          <p className="dark-reveal text-center mt-6 text-xl font-handwritten text-primary/50 rotate-1">
+            not just numbers — promises
+          </p>
         </div>
       </section>
 
-      {/* For Support Coordinators — moved above comparison table */}
+      {/* For Support Coordinators */}
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <div className="flex flex-wrap gap-16 items-center">
@@ -130,6 +136,9 @@ export default function HomePage() {
                   </Button>
                 </Link>
               </div>
+              <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/50 -rotate-1">
+                support coordinators love this part
+              </p>
             </div>
             <div className="flex-[999_0_0] min-w-[50%] stack stack-lg">
               <div className="flex gap-4 items-start">
@@ -208,6 +217,9 @@ export default function HomePage() {
               description="Plan-managed participants can use both registered and unregistered providers. More choice, more flexibility."
             />
           </div>
+          <p className="dark-reveal mt-8 text-xl font-handwritten text-primary/50 rotate-2">
+            the boring stuff? handled.
+          </p>
         </div>
       </section>
 
@@ -268,6 +280,9 @@ export default function HomePage() {
                   </Button>
                 </Link>
               </div>
+              <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/50 -rotate-2">
+                families deserve answers, not hold music
+              </p>
             </div>
           </div>
         </div>
@@ -335,6 +350,9 @@ export default function HomePage() {
           <p className="text-center text-xs text-muted-foreground mt-6">
             Plan management is funded under its own NDIS budget category (CB Choice and Control). It does not reduce your core or capacity building funding.
           </p>
+          <p className="dark-reveal text-center mt-4 text-xl font-handwritten text-primary/50 -rotate-1">
+            notice all those green checkmarks
+          </p>
         </div>
       </section>
 
@@ -376,10 +394,13 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+          <p className="dark-reveal text-center mt-8 text-xl font-handwritten text-primary/50 rotate-1">
+            three steps. that&apos;s it.
+          </p>
         </div>
       </section>
 
-      {/* Provider Tools — condensed to single mention + link */}
+      {/* Provider Tools — condensed */}
       <section className="bg-muted/30 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <div className="max-w-3xl mx-auto text-center">
@@ -401,6 +422,9 @@ export default function HomePage() {
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
+            <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/50 -rotate-2">
+              patience... these are coming
+            </p>
           </div>
         </div>
       </section>
@@ -421,7 +445,7 @@ export default function HomePage() {
               plan managers miss because we understand what services actually look
               like on the ground.
             </p>
-            <p className="dark-reveal mt-3 text-lg font-handwritten text-primary/60">
+            <p className="dark-reveal mt-4 text-2xl font-handwritten text-primary/60 rotate-1">
               (yes, even at 2am)
             </p>
             <Link href="/about">
@@ -434,7 +458,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Final CTA — with negative stakes */}
+      {/* Final CTA */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-primary/5 to-accent/5 py-24 md:py-32">
         <HeroBackground />
         <div className="relative mx-auto max-w-6xl px-4 md:px-8 text-center">
@@ -467,6 +491,9 @@ export default function HomePage() {
           </div>
           <p className="mt-6 text-xs text-muted-foreground">
             NDIS provider registration in progress. Expressions of interest welcome.
+          </p>
+          <p className="dark-reveal mt-4 text-2xl font-handwritten text-primary/60 -rotate-2">
+            still scrolling? we like you already.
           </p>
         </div>
       </section>
