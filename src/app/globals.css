@@ -173,17 +173,17 @@
 
 /* ===== Candlelight Dark Mode System ===== */
 
-/* Logo candle glow — pulsing amber drop-shadow */
+/* Logo candle glow — big, dramatic pulsing amber halo */
 @keyframes candle-glow {
   0%, 100% {
-    filter: drop-shadow(0 0 8px oklch(0.78 0.14 75 / 0.5))
-            drop-shadow(0 0 20px oklch(0.72 0.11 60 / 0.25))
-            drop-shadow(0 0 40px oklch(0.65 0.08 55 / 0.12));
+    filter: drop-shadow(0 0 15px oklch(0.80 0.16 70 / 0.7))
+            drop-shadow(0 0 40px oklch(0.75 0.14 65 / 0.45))
+            drop-shadow(0 0 80px oklch(0.65 0.10 55 / 0.2));
   }
   50% {
-    filter: drop-shadow(0 0 12px oklch(0.80 0.15 75 / 0.6))
-            drop-shadow(0 0 28px oklch(0.74 0.12 60 / 0.3))
-            drop-shadow(0 0 50px oklch(0.67 0.09 55 / 0.18));
+    filter: drop-shadow(0 0 20px oklch(0.82 0.17 70 / 0.8))
+            drop-shadow(0 0 55px oklch(0.77 0.15 65 / 0.5))
+            drop-shadow(0 0 100px oklch(0.68 0.11 55 / 0.25));
   }
 }
 
@@ -195,7 +195,7 @@
   animation: candle-glow 4s ease-in-out infinite;
 }
 
-/* Ambient candlelight — full-page warm wash from logo (top-left) */
+/* Ambient candlelight — dramatic full-page warm wash */
 .candlelight-ambient {
   position: fixed;
   inset: 0;
@@ -204,18 +204,22 @@
   opacity: 0;
   transition: opacity 1.5s ease;
   background:
+    /* Primary light cone from candle (top-left) */
     radial-gradient(
-      ellipse 80% 70% at 3% 1%,
-      oklch(0.78 0.13 75 / 0.12),
-      oklch(0.72 0.10 68 / 0.07) 25%,
-      oklch(0.65 0.07 60 / 0.035) 50%,
-      oklch(0.55 0.04 55 / 0.015) 75%,
-      oklch(0.45 0.02 50 / 0.005) 100%
+      ellipse 120% 100% at 2% 0%,
+      oklch(0.75 0.15 70 / 0.30),
+      oklch(0.70 0.13 65 / 0.20) 20%,
+      oklch(0.65 0.10 60 / 0.12) 40%,
+      oklch(0.55 0.06 55 / 0.06) 65%,
+      oklch(0.45 0.03 50 / 0.02) 85%,
+      transparent 100%
     ),
-    linear-gradient(
-      135deg,
-      oklch(0.75 0.08 70 / 0.04),
-      transparent 60%
+    /* Secondary warm fill so corners aren't dead cold */
+    radial-gradient(
+      ellipse 100% 100% at 50% 50%,
+      oklch(0.60 0.06 65 / 0.04),
+      oklch(0.50 0.03 55 / 0.02) 60%,
+      transparent 100%
     );
 }
 .dark .candlelight-ambient {
@@ -224,59 +228,59 @@
 
 /* ---- Shadows cast by candlelight (light source: top-left) ---- */
 
-/* Headings — strong directional shadow */
+/* Headings — heavy directional shadow */
 .dark h1 {
   text-shadow:
-    3px 4px 8px oklch(0 0 0 / 0.5),
-    0 0 50px oklch(0.78 0.10 75 / 0.06);
+    4px 5px 10px oklch(0 0 0 / 0.6),
+    0 0 60px oklch(0.78 0.12 70 / 0.08);
 }
 .dark h2 {
   text-shadow:
-    2px 3px 6px oklch(0 0 0 / 0.4),
-    0 0 30px oklch(0.75 0.08 75 / 0.05);
+    3px 4px 8px oklch(0 0 0 / 0.5),
+    0 0 40px oklch(0.75 0.10 70 / 0.06);
 }
 .dark h3 {
   text-shadow:
-    2px 2px 4px oklch(0 0 0 / 0.35),
-    0 0 20px oklch(0.75 0.06 75 / 0.03);
+    2px 3px 6px oklch(0 0 0 / 0.45),
+    0 0 25px oklch(0.75 0.08 70 / 0.04);
 }
 
-/* Body text — lighter shadow so it stays readable */
+/* Body text — visible shadow, still readable */
 .dark p,
 .dark li,
 .dark span,
 .dark label,
 .dark a {
-  text-shadow: 1px 1px 3px oklch(0 0 0 / 0.2);
+  text-shadow: 1px 2px 4px oklch(0 0 0 / 0.3);
 }
 
-/* Buttons cast a shadow down-right + warm top-left glow */
+/* Buttons — deep shadow down-right + warm catch-light on top-left */
 .dark button,
 .dark [role="button"] {
   box-shadow:
-    3px 4px 10px oklch(0 0 0 / 0.4),
-    -1px -1px 6px oklch(0.75 0.10 75 / 0.06);
+    4px 5px 14px oklch(0 0 0 / 0.5),
+    -1px -1px 8px oklch(0.75 0.12 70 / 0.08);
   transition: box-shadow 0.3s ease;
 }
 .dark button:hover,
 .dark [role="button"]:hover {
   box-shadow:
-    4px 5px 14px oklch(0 0 0 / 0.5),
-    -1px -2px 8px oklch(0.78 0.12 75 / 0.1);
+    5px 7px 20px oklch(0 0 0 / 0.6),
+    -2px -2px 12px oklch(0.78 0.14 70 / 0.12);
 }
 
-/* Cards and bordered containers cast shadow down-right */
+/* Cards and rounded containers — prominent shadow down-right */
 .dark [class*="rounded"] {
   box-shadow:
-    3px 4px 12px oklch(0 0 0 / 0.35),
-    -1px -1px 4px oklch(0.75 0.08 75 / 0.04);
+    4px 5px 16px oklch(0 0 0 / 0.45),
+    -1px -1px 6px oklch(0.75 0.10 70 / 0.05);
 }
 
-/* Feature cards / major cards — stronger shadow */
+/* Feature cards / major bordered cards — heaviest shadow */
 .dark [class*="border-border"] {
   box-shadow:
-    4px 6px 16px oklch(0 0 0 / 0.4),
-    -1px -1px 6px oklch(0.75 0.10 75 / 0.05);
+    5px 8px 24px oklch(0 0 0 / 0.5),
+    -2px -2px 8px oklch(0.75 0.12 70 / 0.06);
 }
 
 /* Reveal elements — invisible in light, fade in with dark */
