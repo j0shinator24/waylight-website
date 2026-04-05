@@ -27,6 +27,9 @@ export default function AboutPage() {
               A Queensland NDIS plan management provider built on a simple idea:
               participants deserve a plan manager who actually knows their name.
             </p>
+            <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/60 -rotate-2">
+              pull up a chair
+            </p>
           </div>
         </div>
       </section>
@@ -77,6 +80,9 @@ export default function AboutPage() {
                   transparently. That trust is earned through consistent,
                   personal service, not through a brand name or a large team.
                 </p>
+                <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/50 rotate-1">
+                  the real reason Waylight exists
+                </p>
               </div>
             </div>
             <div className="flex-[1_16rem]">
@@ -118,6 +124,9 @@ export default function AboutPage() {
               <p className="text-xs text-muted-foreground mt-1">Professional indemnity and public liability</p>
             </div>
           </div>
+          <p className="dark-reveal mt-6 text-center text-2xl font-handwritten text-primary/50 -rotate-1">
+            receipts.
+          </p>
         </div>
       </section>
 
@@ -127,6 +136,9 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl mb-12 text-center">
             What guides us
           </h2>
+          <p className="dark-reveal text-xl font-handwritten text-primary/50 text-center -rotate-2 -mt-4 mb-4">
+            not just words on a wall
+          </p>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <Card className="border-border/50 transition-all duration-200 hover:border-primary/30 hover:shadow-md">
               <CardContent className="pt-6">
