@@ -421,7 +421,7 @@ export default function HomePage() {
               plan managers miss because we understand what services actually look
               like on the ground.
             </p>
-            <p className="dark-reveal mt-3 text-sm font-handwritten text-primary/50">
+            <p className="dark-reveal mt-3 text-lg font-handwritten text-primary/60">
               (yes, even at 2am)
             </p>
             <Link href="/about">

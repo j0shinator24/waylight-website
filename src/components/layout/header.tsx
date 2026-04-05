@@ -36,7 +36,7 @@ export function Header() {
             <span className="text-xl font-semibold tracking-tight text-foreground block">
               Waylight
             </span>
-            <span className="dark-reveal block text-[10px] font-handwritten text-primary/60 -mt-0.5 leading-none tracking-wider">
+            <span className="dark-reveal block text-[15px] font-handwritten text-primary/70 -mt-0.5 leading-none tracking-wide">
               lighting the way
             </span>
           </div>
@@ -60,7 +60,7 @@ export function Header() {
           ))}
           <div className="relative">
             <ThemeToggle />
-            <span className="light-hint absolute -bottom-3.5 left-1/2 -translate-x-1/2 font-handwritten text-[11px] text-muted-foreground/50 -rotate-2 whitespace-nowrap pointer-events-none select-none">
+            <span className="light-hint absolute -bottom-5 left-1/2 -translate-x-1/2 font-handwritten text-base text-muted-foreground/60 -rotate-3 whitespace-nowrap pointer-events-none select-none">
               try dark mode
             </span>
           </div>

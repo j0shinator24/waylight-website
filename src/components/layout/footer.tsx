@@ -83,7 +83,7 @@ export function Footer() {
 
         <Separator className="my-8" />
 
-        <p className="dark-reveal text-center text-[11px] font-handwritten text-primary/40 mb-4">
+        <p className="dark-reveal text-center text-base font-handwritten text-primary/50 mb-4">
           Even in the dark, we&apos;re still here.
         </p>
 
