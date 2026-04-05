@@ -43,7 +43,7 @@ export async function submitContactForm(
 
   const { website, ...fields } = result.data
 
-  // Honeypot field — bots fill hidden fields, real users don't
+  // Honeypot field - bots fill hidden fields, real users do not
   if (website) {
     return { success: true }
   }

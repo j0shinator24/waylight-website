@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Card, CardContent } from "@/components/ui/card"
+import { HeroBackground } from "@/components/hero-background"
 import {
   FileText,
   ShieldCheck,
@@ -18,9 +19,9 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Our Policies",
+  title: "NDIS Practice Standards Policies",
   description:
-    "Waylight Plan Management policies including complaints management, code of conduct, privacy, incident management, and more.",
+    "All 14 NDIS Practice Standards-aligned policies from Waylight Plan Management. Complaints, code of conduct, privacy, incident management, financial management, and more.",
 }
 
 const policies = [
@@ -128,14 +129,16 @@ export default function PoliciesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 md:px-8">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
+        <HeroBackground />
+        <div className="relative mx-auto max-w-6xl px-4 md:px-8">
           <div className="max-w-2xl">
             <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
               Our Policies
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              Transparency is part of how we work. These policies outline how
+              Transparency is part of how we work. All 14 NDIS Practice
+              Standards-aligned policies are published here. They outline how
               Waylight operates, how we protect your information, and what to do
               if something goes wrong.
             </p>

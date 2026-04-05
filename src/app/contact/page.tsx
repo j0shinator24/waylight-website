@@ -119,7 +119,7 @@ function ContactPageInner() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
-                      {/* Honeypot — hidden from real users, bots fill it */}
+                      {/* Honeypot - hidden from real users, bots fill it */}
                       <input
                         type="text"
                         name="website"
