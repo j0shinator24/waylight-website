@@ -332,6 +332,21 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Inline CTA */}
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-6xl px-4 md:px-8 text-center">
+          <p className="text-muted-foreground mb-4 max-w-[50ch] mx-auto">
+            Ready to experience plan management with a personal touch?
+          </p>
+          <Link href="/contact">
+            <Button size="lg">
+              Get in touch
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       {/* Provider Tools / SaaS */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
@@ -386,6 +401,9 @@ export default function ServicesPage() {
               </Card>
             ))}
           </div>
+          <p className="mt-6 text-xs text-muted-foreground text-center max-w-[50ch] mx-auto">
+            Provider tools are in development. Features described reflect our development goals and may change before release.
+          </p>
           <div className="mt-10 text-center">
             <p className="text-muted-foreground mb-4">
               Interested in early access? Register your interest and we will
@@ -432,6 +450,10 @@ export default function ServicesPage() {
               {
                 q: "What happens if I overspend or underspend my plan?",
                 a: "We track your spending trajectory against your plan timeline and send you budget alerts if your funding is running ahead or behind schedule. This gives you time to adjust before it affects your plan review.",
+              },
+              {
+                q: "Is Waylight a registered NDIS provider?",
+                a: "Not yet. Our registration application with the NDIS Quality and Safeguards Commission is currently being processed. We are accepting expressions of interest and will contact you as soon as our registration is confirmed, expected Q3 2026.",
               },
             ].map((item) => (
               <details key={item.q} className="group border-b border-border pb-4">
