@@ -131,7 +131,9 @@ function ContactPageInner() {
 
                       {error && (
                         <div
+                          id="form-error"
                           role="alert"
+                          aria-live="assertive"
                           className="rounded-md border border-destructive/50 bg-destructive/10 px-4 py-3 text-sm text-destructive"
                         >
                           {error}
@@ -214,6 +216,7 @@ function ContactPageInner() {
                         size="lg"
                         className="w-full sm:w-auto"
                         disabled={submitting}
+                        aria-describedby={error ? "form-error" : undefined}
                       >
                         {submitting ? "Sending..." : "Send message"}
                       </Button>
@@ -238,7 +241,7 @@ function ContactPageInner() {
             </div>
 
             {/* Contact info */}
-            <div className="flex-[1_20rem] space-y-6">
+            <div className="flex-[1_20rem] stack stack-lg">
               <div>
                 <h2 className="text-xl font-semibold mb-4">Get in touch</h2>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">

@@ -117,7 +117,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
               The financial admin, handled for you
             </h2>
-            <p className="mt-4 text-muted-foreground text-lg">
+            <p className="mt-4 text-muted-foreground text-lg max-w-[60ch]">
               We take on invoices, budgets, claims, and provider payments so
               you can focus on your goals, your supports, and your life.
             </p>
@@ -155,7 +155,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
               Why plan management?
             </h2>
-            <p className="mt-4 text-muted-foreground text-lg">
+            <p className="mt-4 text-muted-foreground text-lg max-w-[60ch]">
               There are three ways to manage NDIS funding. Here is how they compare.
             </p>
           </div>
@@ -212,7 +212,7 @@ export default function HomePage() {
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
                 A plan manager you can actually reach
               </h2>
-              <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+              <p className="mt-4 text-muted-foreground text-lg leading-relaxed max-w-[60ch]">
                 When you refer a participant to Waylight, you get a direct line to
                 their plan manager. No call centre queues, no ticket numbers, no
                 chasing emails that go unanswered.
@@ -226,7 +226,7 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-            <div className="flex-[999_0_0] min-w-[50%] space-y-6">
+            <div className="flex-[999_0_0] min-w-[50%] stack stack-lg">
               <div className="flex gap-4 items-start">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                   <Clock className="h-5 w-5 text-primary" />
@@ -269,7 +269,7 @@ export default function HomePage() {
       <section className="bg-muted/30 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <div className="flex flex-wrap gap-16 items-center">
-            <div className="order-2 lg:order-1 flex-[999_0_0] min-w-[50%] space-y-6">
+            <div className="order-2 lg:order-1 flex-[999_0_0] min-w-[50%] stack stack-lg">
               <div className="flex gap-4 items-start">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                   <FileText className="h-5 w-5 text-primary" />
@@ -309,7 +309,7 @@ export default function HomePage() {
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
                 You will always know where the funding stands
               </h2>
-              <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+              <p className="mt-4 text-muted-foreground text-lg leading-relaxed max-w-[60ch]">
                 If you help manage a family member&apos;s NDIS plan, you need a plan
                 manager who keeps you in the loop. Waylight sends monthly statements,
                 answers your questions directly, and makes sure you never have to guess.
@@ -340,7 +340,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
               Your staff deserve better tools
             </h2>
-            <p className="mt-4 text-muted-foreground text-lg">
+            <p className="mt-4 text-muted-foreground text-lg max-w-[60ch]">
               Support workers lose hours to paperwork. Managers juggle
               spreadsheets. Compliance officers scramble before audits. We are
               building the tools to fix that.
@@ -388,7 +388,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
               Built by someone who gets it
             </h2>
-            <p className="mt-6 text-muted-foreground text-lg leading-relaxed">
+            <p className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-[60ch] mx-auto">
               Waylight was started by a practising NDIS support worker who saw the
               problems from the inside: slow plan managers, lost invoices, zero
               transparency. That frontline experience changes how we operate.
@@ -412,7 +412,7 @@ export default function HomePage() {
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
             Be one of our first participants
           </h2>
-          <p className="mt-6 text-muted-foreground text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="mt-6 text-muted-foreground text-lg max-w-[55ch] mx-auto leading-relaxed">
             We are starting small on purpose. Every participant gets dedicated,
             personal plan management from day one. Reach out while caseloads
             are low.
