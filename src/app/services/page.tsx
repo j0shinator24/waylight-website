@@ -345,7 +345,7 @@ export default function ServicesPage() {
             {providerTools.map((tool) => (
               <Card
                 key={tool.title}
-                className="border-border/50 flex flex-col"
+                className="border-border/50 flex flex-col transition-all duration-200 hover:border-primary/30 hover:shadow-md"
               >
                 <CardContent className="p-6 md:p-8 flex flex-col flex-1">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 mb-4">
