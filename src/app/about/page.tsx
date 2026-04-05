@@ -7,7 +7,7 @@ import { HeroBackground } from "@/components/hero-background"
 import { Heart, Target, Handshake, ArrowRight, PhoneOff, FileQuestion, Clock, ShieldCheck } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "About Waylight | NDIS Plan Manager, Queensland",
+  title: "NDIS Plan Manager Started by a Support Worker | Queensland",
   description:
     "Waylight Plan Management was started by a practising NDIS support worker in Queensland. One dedicated plan manager, direct access, no call centres. Read our story.",
 }
@@ -21,7 +21,8 @@ export default function AboutPage() {
         <div className="relative mx-auto max-w-6xl px-4 md:px-8">
           <div className="max-w-[60ch]">
             <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-              About Waylight
+              Started on the ground.{" "}
+              <span className="text-primary">Built for participants.</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               A Queensland NDIS plan management provider built on a simple idea:
