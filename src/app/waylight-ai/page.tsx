@@ -272,6 +272,19 @@ export default function WaylightAiPage() {
         </div>
       </section>
 
+      {/* Industry whispers */}
+      <div className="mx-auto max-w-6xl px-4 md:px-8 py-2 flex flex-wrap gap-x-12 gap-y-1 justify-center">
+        <p className="dark-reveal text-4xl font-handwritten text-primary/40 rotate-2">
+          running a trades business?
+        </p>
+        <p className="dark-reveal text-4xl font-handwritten text-primary/35 -rotate-1">
+          a law firm?
+        </p>
+        <p className="dark-reveal text-4xl font-handwritten text-primary/45 rotate-1">
+          maybe a gym?
+        </p>
+      </div>
+
       {/* NDIS-Specific Tools */}
       <section id="ndis-tools" className="bg-muted/30 py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
@@ -358,6 +371,9 @@ export default function WaylightAiPage() {
                 just a conversation about what AI can actually do for your
                 specific situation.
               </p>
+              <p className="dark-reveal mt-3 text-4xl font-handwritten text-primary/50 -rotate-2">
+                a restaurant? a school? a real estate agency?
+              </p>
             </div>
 
             <div className="stack stack-lg mb-12">
@@ -380,7 +396,10 @@ export default function WaylightAiPage() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
-              <p className="dark-reveal mt-6 text-4xl font-handwritten text-primary/60 rotate-1">
+              <p className="dark-reveal mt-4 text-4xl font-handwritten text-primary/50 -rotate-2">
+                do you guys need an app?
+              </p>
+              <p className="dark-reveal mt-2 text-4xl font-handwritten text-primary/60 rotate-1">
                 we literally built this page with AI
               </p>
             </div>
