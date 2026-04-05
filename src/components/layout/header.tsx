@@ -30,11 +30,16 @@ export function Header() {
             alt=""
             width={30}
             height={31}
-            className="shrink-0 transition-transform group-hover:scale-105"
+            className="shrink-0 transition-transform group-hover:scale-105 logo-candle"
           />
-          <span className="text-xl font-semibold tracking-tight text-foreground">
-            Waylight
-          </span>
+          <div>
+            <span className="text-xl font-semibold tracking-tight text-foreground block">
+              Waylight
+            </span>
+            <span className="dark-reveal block text-[10px] font-handwritten text-primary/60 -mt-0.5 leading-none tracking-wider">
+              lighting the way
+            </span>
+          </div>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
@@ -53,7 +58,12 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <ThemeToggle />
+          <div className="relative">
+            <ThemeToggle />
+            <span className="light-hint absolute -bottom-3.5 left-1/2 -translate-x-1/2 font-handwritten text-[11px] text-muted-foreground/50 -rotate-2 whitespace-nowrap pointer-events-none select-none">
+              try dark mode
+            </span>
+          </div>
           <Link href="/contact">
             <Button variant="default" size="default" className="ml-2">
               Get in touch
