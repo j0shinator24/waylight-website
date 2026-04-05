@@ -12,10 +12,6 @@ import {
   Clock,
   CheckCircle2,
   ArrowRight,
-  Mic,
-  Calendar,
-  ShieldCheck,
-  BookOpen,
   Bell,
 } from "lucide-react"
 
@@ -88,60 +84,6 @@ const planServices = [
   },
 ]
 
-const providerTools = [
-  {
-    icon: Mic,
-    title: "NoteFlow",
-    subtitle: "Progress Notes Automation",
-    description:
-      "Talk or type a shift summary. Get structured, NDIS-compliant progress notes back. Incident reports auto-generate from the same input. No double handling.",
-    features: [
-      "Voice-to-text progress notes",
-      "Practice Standards compliant output",
-      "Incident report auto-generation",
-      "Designed to save 60 to 90 minutes of documentation per shift",
-    ],
-  },
-  {
-    icon: Calendar,
-    title: "RosterIQ",
-    subtitle: "Shift Rostering",
-    description:
-      "Scheduling that accounts for participant needs, worker availability, Social, Community, Home Care and Disability Services (SCHADS) Award requirements, and travel time. No more spreadsheet juggling.",
-    features: [
-      "Drag-and-drop shift management",
-      "SCHADS Award compliance built in",
-      "Participant-worker matching",
-      "Gap and conflict alerts",
-    ],
-  },
-  {
-    icon: ShieldCheck,
-    title: "AuditShield",
-    subtitle: "Compliance Monitoring",
-    description:
-      "Continuous compliance monitoring that validates invoices against current NDIS price limits. Flags issues before your auditor finds them.",
-    features: [
-      "Real-time NDIS price limit validation",
-      "Continuous compliance dashboards",
-      "Audit-ready documentation on demand",
-      "Early warning on regulatory changes",
-    ],
-  },
-  {
-    icon: BookOpen,
-    title: "NDIS Butler",
-    subtitle: "Instant NDIS Knowledge",
-    description:
-      "Your staff ask a question about NDIS pricing, legislation, or practice standards. They get an accurate, sourced answer in seconds. No more hunting through PDFs or waiting for a policy officer.",
-    features: [
-      "Covers NDIS price limits, Practice Standards, and NDIS Act",
-      "Plain-language answers with source references",
-      "Always current with latest pricing updates",
-      "Accessible to support workers, coordinators, and managers",
-    ],
-  },
-]
 
 const faqJsonLd = {
   "@context": "https://schema.org",

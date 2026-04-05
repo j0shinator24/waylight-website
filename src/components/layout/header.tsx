@@ -66,7 +66,7 @@ export function Header() {
           </div>
           <Link href="/contact">
             <Button variant="default" size="default" className="ml-2">
-              Get in touch
+              Talk to us
             </Button>
           </Link>
         </nav>
@@ -102,7 +102,7 @@ export function Header() {
                 ))}
                 <Link href="/contact" onClick={() => setOpen(false)}>
                   <Button variant="default" className="w-full mt-2">
-                    Get in touch
+                    Talk to us
                   </Button>
                 </Link>
               </nav>

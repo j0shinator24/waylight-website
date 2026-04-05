@@ -64,7 +64,7 @@ export default function HomePage() {
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
                 <Button size="lg" className="w-full sm:w-auto text-base px-8 py-6">
-                  Get in touch
+                  Talk to a real person
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
@@ -74,7 +74,7 @@ export default function HomePage() {
                   size="lg"
                   className="w-full sm:w-auto text-base px-8 py-6"
                 >
-                  How it works
+                  See how it works
                 </Button>
               </Link>
             </div>
@@ -405,20 +405,20 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <Badge variant="outline" className="mb-4">
-              For Providers — Coming Soon
+              Waylight AI — Coming Soon
             </Badge>
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-              Tools for NDIS providers
+              AI tools for NDIS providers
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed max-w-[60ch] mx-auto">
-              We are also building software tools for NDIS providers: progress notes
-              automation, shift rostering, compliance monitoring, and an NDIS
-              knowledge assistant. Designed to save support workers hours of
-              paperwork every shift.
+              We are also building AI-powered tools for NDIS providers:
+              automated progress notes, shift rostering, compliance monitoring,
+              and an instant NDIS knowledge assistant. Different product,
+              same mission — less admin, more time with participants.
             </p>
             <Link href="/services">
               <Button variant="outline" size="lg" className="mt-8">
-                Learn more about provider tools
+                Learn more about Waylight AI
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -478,7 +478,7 @@ export default function HomePage() {
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
               <Button size="lg" className="text-base px-10 py-6">
-                Get in touch
+                Register your interest
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
