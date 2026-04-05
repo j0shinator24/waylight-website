@@ -60,7 +60,7 @@ export function Header() {
           ))}
           <div className="relative">
             <ThemeToggle />
-            <span className="light-hint absolute -bottom-5 left-1/2 -translate-x-1/2 font-handwritten text-base text-muted-foreground/60 -rotate-3 whitespace-nowrap pointer-events-none select-none">
+            <span className="light-hint absolute -bottom-7 left-1/2 -translate-x-1/2 font-handwritten text-2xl text-muted-foreground/60 -rotate-3 whitespace-nowrap pointer-events-none select-none">
               try dark mode
             </span>
           </div>
