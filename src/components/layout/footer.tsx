@@ -37,6 +37,7 @@ export function Footer() {
               <li><Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
               <li><Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Our Services</Link></li>
               <li><Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
+              <li><Link href="/for-support-coordinators" className="text-sm text-muted-foreground hover:text-foreground transition-colors">For Support Coordinators</Link></li>
               <li><Link href="/policies" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Our Policies</Link></li>
               <li><Link href="/policies/WL-POL-13-information-management.pdf" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Use</Link></li>
