@@ -212,6 +212,28 @@ function ContactPageInner() {
                         />
                       </div>
 
+                      <div className="flex items-start gap-2">
+                        <input
+                          type="checkbox"
+                          id="consent"
+                          name="consent"
+                          required
+                          className="mt-1 h-4 w-4 shrink-0 rounded border-input"
+                        />
+                        <Label htmlFor="consent" className="text-xs text-muted-foreground font-normal leading-relaxed">
+                          I consent to Waylight collecting and storing this information to respond to my enquiry, in accordance with our{" "}
+                          <a
+                            href="/policies/WL-POL-13-information-management.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline hover:text-foreground transition-colors"
+                          >
+                            Privacy Policy
+                          </a>
+                          . This is an expression of interest, not a service agreement.
+                        </Label>
+                      </div>
+
                       <Button
                         type="submit"
                         size="lg"
@@ -221,20 +243,6 @@ function ContactPageInner() {
                       >
                         {submitting ? "Sending..." : "Send message"}
                       </Button>
-
-                      <p className="text-xs text-muted-foreground">
-                        Information submitted through this form is handled in
-                        accordance with our{" "}
-                        <a
-                          href="/policies/WL-POL-13-information-management.pdf"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline hover:text-foreground transition-colors"
-                        >
-                          Privacy Policy
-                        </a>
-                        .
-                      </p>
                     </form>
                   )}
                 </CardContent>
@@ -250,14 +258,30 @@ function ContactPageInner() {
                   coordinators with urgent referrals, please note this in your
                   message.
                 </p>
-                <p className="text-xs text-muted-foreground leading-relaxed mb-6 border-l-2 border-primary/30 pl-3">
-                  Waylight is currently completing NDIS provider registration.
-                  Expressions of interest are welcome and we will be in touch
-                  as soon as we are accepting participants.
-                </p>
+                <div className="rounded-md border border-accent/30 bg-accent/5 px-3 py-2.5 text-xs text-muted-foreground leading-relaxed mb-6">
+                  Waylight is not yet a registered NDIS provider. All
+                  enquiries are treated as expressions of interest. We will
+                  be in touch as soon as we are accepting participants
+                  (expected {BUSINESS.launchTarget}).
+                </div>
               </div>
 
               <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                    <Phone className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">Phone</p>
+                    <a
+                      href={`tel:${BUSINESS.phone.replace(/\s/g, "")}`}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {BUSINESS.phone}
+                    </a>
+                  </div>
+                </div>
+
                 <div className="flex items-start gap-3">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                     <Mail className="h-5 w-5 text-primary" />
@@ -265,10 +289,10 @@ function ContactPageInner() {
                   <div>
                     <p className="text-sm font-medium">Email</p>
                     <a
-                      href="mailto:hello@waylightpm.com.au"
+                      href={`mailto:${BUSINESS.email}`}
                       className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
-                      hello@waylightpm.com.au
+                      {BUSINESS.email}
                     </a>
                   </div>
                 </div>
@@ -280,7 +304,7 @@ function ContactPageInner() {
                   <div>
                     <p className="text-sm font-medium">Location</p>
                     <p className="text-sm text-muted-foreground">
-                      Queensland, Australia
+                      {BUSINESS.location}
                     </p>
                   </div>
                 </div>
@@ -294,9 +318,9 @@ function ContactPageInner() {
                   <p className="text-xs text-muted-foreground leading-relaxed mb-3">
                     Referring a participant? Select &ldquo;Support
                     Coordinator&rdquo; in the form and include the
-                    participant&apos;s name and NDIS number. We will handle
-                    onboarding, set up their plan, and keep you updated on
-                    progress.
+                    participant&apos;s name. Once our registration is
+                    confirmed, we will handle onboarding and keep you
+                    updated on progress.
                   </p>
                   <ul className="space-y-1.5 text-xs text-muted-foreground">
                     <li className="flex items-start gap-2">
