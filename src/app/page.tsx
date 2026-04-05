@@ -42,10 +42,15 @@ export default function HomePage() {
               Your plan,{" "}
               <span className="text-primary">managed personally</span>
             </h1>
-            <p className="mt-8 text-xl text-muted-foreground leading-relaxed max-w-2xl">
+            <p className="mt-8 text-xl text-muted-foreground leading-relaxed max-w-[60ch]">
               One dedicated plan manager who knows your name, answers your calls,
               and handles every invoice. No call centres. No ticket systems.
               Just direct, personal service.
+            </p>
+            <p className="mt-4 text-base text-muted-foreground/80 leading-relaxed max-w-[55ch] border-l-2 border-primary/30 pl-4">
+              Dealing with a plan manager who never picks up is exhausting.
+              Waylight gives you one person who handles everything, so you
+              stop chasing invoices and start focusing on your goals.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row items-start gap-3 text-sm text-muted-foreground">
               <span className="flex items-center gap-1.5">
