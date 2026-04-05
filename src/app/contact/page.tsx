@@ -90,6 +90,9 @@ function ContactPageInner() {
               <Clock className="h-4 w-4 text-primary" />
               <span className="text-muted-foreground">Response within 1 business day</span>
             </div>
+            <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/60 -rotate-2">
+              we actually respond
+            </p>
           </div>
         </div>
       </section>
@@ -309,6 +312,10 @@ function ContactPageInner() {
                   </div>
                 </div>
               </div>
+
+              <p className="dark-reveal text-xl font-handwritten text-primary/50 rotate-1">
+                real human, every time
+              </p>
 
               <Card className="border-border/50 bg-muted/30">
                 <CardContent className="pt-6">

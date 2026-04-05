@@ -192,6 +192,9 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
               Why participants switch plan managers
             </h2>
+            <p className="dark-reveal text-xl font-handwritten text-primary/60 rotate-1 mt-2">
+              sound familiar?
+            </p>
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <Card className="border-border/50 transition-all duration-200 hover:border-primary/30 hover:shadow-md">
@@ -258,6 +261,9 @@ export default function AboutPage() {
                 process urgent invoices, answer budget queries, and manage
                 reportable incidents during any period of unavailability.
               </p>
+              <p className="dark-reveal mt-3 text-xl font-handwritten text-primary/50 -rotate-1">
+                backup plan for the backup plan
+              </p>
             </div>
             <Card className="border-border/50">
               <CardContent className="pt-6">
@@ -311,6 +317,9 @@ export default function AboutPage() {
               </Button>
             </Link>
           </div>
+          <p className="dark-reveal mt-6 text-2xl font-handwritten text-primary/50 rotate-1">
+            still here? let&apos;s talk
+          </p>
         </div>
       </section>
     </>
