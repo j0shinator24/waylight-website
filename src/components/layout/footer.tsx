@@ -1,7 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Mail, MapPin } from "lucide-react"
+import { Mail, MapPin, ShieldCheck } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
+import { BUSINESS } from "@/lib/constants"
 
 export function Footer() {
   return (
@@ -19,10 +20,14 @@ export function Footer() {
               />
               <span className="text-lg font-semibold tracking-tight">Waylight</span>
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              NDIS Plan Management for Queensland participants.
+            <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+              NDIS plan management for Queensland participants.
               We handle the financial side so you can focus on your goals.
             </p>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <ShieldCheck className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span>ABN {BUSINESS.abn}</span>
+            </div>
           </div>
 
           <div>
@@ -41,12 +46,12 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-primary shrink-0" />
-                Queensland, Australia
+                {BUSINESS.location}
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary shrink-0" />
-                <a href="mailto:hello@waylightpm.com.au" className="hover:text-foreground transition-colors">
-                  hello@waylightpm.com.au
+                <a href={`mailto:${BUSINESS.email}`} className="hover:text-foreground transition-colors">
+                  {BUSINESS.email}
                 </a>
               </li>
             </ul>
@@ -61,21 +66,18 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-            <p className="mt-4 text-xs text-muted-foreground">
-              NDIS provider registration in progress.
+            <p className="mt-4 text-xs text-muted-foreground border-l-2 border-primary/30 pl-2">
+              NDIS provider registration in progress. Expressions of interest welcome.
             </p>
           </div>
         </div>
 
         <Separator className="my-8" />
 
-        <p className="text-xs text-muted-foreground text-center mb-4">
-          Serving NDIS participants across Queensland
-        </p>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
-          <p>Waylight Pty Ltd</p>
-          <p>NDIS Plan Management | Queensland</p>
-          <p>&copy; {new Date().getFullYear()} Waylight Pty Ltd. All rights reserved.</p>
+          <p>{BUSINESS.legalName} | ABN {BUSINESS.abn}</p>
+          <p>NDIS Plan Management | Queensland, Australia</p>
+          <p>&copy; {new Date().getFullYear()} {BUSINESS.legalName}</p>
         </div>
       </div>
     </footer>
