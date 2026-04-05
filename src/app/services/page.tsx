@@ -209,7 +209,7 @@ export default function ServicesPage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
         <HeroBackground />
         <div className="relative mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-2xl">
+          <div className="max-w-[60ch]">
             <Badge variant="secondary" className="mb-4">
               Plan Management and Provider Tools
             </Badge>
@@ -234,7 +234,7 @@ export default function ServicesPage() {
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
               NDIS Plan Management
             </h2>
-            <p className="mt-3 text-muted-foreground max-w-2xl">
+            <p className="mt-3 text-muted-foreground max-w-[60ch]">
               Plan management is funded under your NDIS plan at no cost to your
               other supports. It sits in its own budget category (CB Choice and
               Control) and does not reduce your core or capacity building funding.
@@ -334,7 +334,7 @@ export default function ServicesPage() {
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
               Tools for NDIS Providers
             </h2>
-            <p className="mt-3 text-muted-foreground max-w-2xl">
+            <p className="mt-3 text-muted-foreground max-w-[60ch]">
               Built for providers who are tired of compliance spreadsheets and
               paper-based shift notes. Whether you run a SIL house, a support
               coordination practice, or an allied health clinic, these tools

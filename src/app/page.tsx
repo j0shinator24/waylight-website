@@ -390,10 +390,12 @@ export default function HomePage() {
             </h2>
             <p className="mt-6 text-muted-foreground text-lg leading-relaxed max-w-[60ch] mx-auto">
               Waylight was started by a practising NDIS support worker who saw the
-              problems from the inside: slow plan managers, lost invoices, zero
-              transparency. That frontline experience changes how we operate.
-              We catch invoice errors that desk-only plan managers miss because
-              we understand what services actually look like on the ground.
+              problems from the inside: the dread of calling a plan manager and
+              never getting through, the stress of not knowing where funding stands,
+              the embarrassment when providers chase unpaid invoices. That frontline
+              experience changes how we operate. We catch errors that desk-only
+              plan managers miss because we understand what services actually look
+              like on the ground.
             </p>
             <Link href="/about">
               <Button variant="outline" size="lg" className="mt-8">

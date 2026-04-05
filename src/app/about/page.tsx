@@ -19,7 +19,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
         <HeroBackground />
         <div className="relative mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-2xl">
+          <div className="max-w-[60ch]">
             <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
               About Waylight
             </h1>
@@ -276,7 +276,7 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
             Ready to experience personal plan management?
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
+          <p className="mt-4 text-muted-foreground max-w-[55ch] mx-auto">
             Whether you are a participant, support coordinator, or family
             member, get in touch and we will walk you through how it works.
           </p>

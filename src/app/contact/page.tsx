@@ -77,7 +77,7 @@ function ContactPageInner() {
       <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
         <HeroBackground />
         <div className="relative mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-2xl">
+          <div className="max-w-[60ch]">
             <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
               Contact us
             </h1>
