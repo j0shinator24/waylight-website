@@ -80,7 +80,7 @@ function ContactPageInner() {
         <div className="relative mx-auto max-w-6xl px-4 md:px-8">
           <div className="max-w-[60ch]">
             <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-              Contact us
+              Let&apos;s talk about your plan
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               Have a question about plan management? Looking to switch plan

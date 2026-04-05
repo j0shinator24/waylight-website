@@ -20,9 +20,9 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "NDIS Plan Management Services and Provider Tools",
+  title: "NDIS Plan Management Services | Invoice Processing, Budget Tracking",
   description:
-    "NDIS plan management and provider tools from Waylight. Invoice processing, budget tracking, provider payments, progress notes automation, and compliance monitoring. Queensland.",
+    "Everything your NDIS plan manager should handle. Invoice processing, budget tracking, provider payments, and claims management. Plus Waylight AI tools for providers. Queensland.",
 }
 
 const planServices = [
@@ -222,7 +222,7 @@ export default function ServicesPage() {
               Plan Management and Provider Tools
             </Badge>
             <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-              Our Services
+              Everything your plan manager should handle
             </h1>
             <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
               Plan management for NDIS participants, plus software tools built
@@ -349,7 +349,7 @@ export default function ServicesPage() {
           </p>
           <Link href="/contact">
             <Button size="lg">
-              Get in touch
+              Ask us anything — no obligation
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
@@ -359,74 +359,37 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Provider Tools / SaaS */}
+      {/* Waylight AI — Provider Tools teaser */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="mb-12">
+          <div className="max-w-3xl mx-auto text-center">
             <Badge variant="outline" className="mb-3">
-              For Providers
+              Waylight AI — Coming Soon
             </Badge>
             <h2 className="text-2xl font-bold tracking-tight md:text-3xl">
-              Tools for NDIS Providers
+              AI tools for NDIS providers
             </h2>
-            <p className="mt-3 text-muted-foreground max-w-[60ch]">
-              Built for providers who are tired of compliance spreadsheets and
-              paper-based shift notes. Whether you run a Supported Independent Living (SIL) house, a support
-              coordination practice, or an allied health clinic, these tools
-              handle the admin so your team can focus on participants.
+            <p className="mt-4 text-muted-foreground leading-relaxed max-w-[60ch] mx-auto">
+              We are building AI-powered tools for NDIS providers: automated progress
+              notes, shift rostering, compliance monitoring, and an instant NDIS
+              knowledge assistant. Designed to save support workers hours of
+              paperwork every shift.
             </p>
-            <p className="dark-reveal mt-3 text-4xl font-handwritten text-primary/50 -rotate-1">
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Badge variant="secondary">NoteFlow — Progress Notes</Badge>
+              <Badge variant="secondary">RosterIQ — Shift Rostering</Badge>
+              <Badge variant="secondary">AuditShield — Compliance</Badge>
+              <Badge variant="secondary">NDIS Butler — Instant Answers</Badge>
+            </div>
+            <p className="dark-reveal mt-4 text-4xl font-handwritten text-primary/50 -rotate-1">
               these are going to be good
             </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {providerTools.map((tool) => (
-              <Card
-                key={tool.title}
-                className="border-border/50 flex flex-col transition-all duration-200 hover:border-primary/30 hover:shadow-md"
-              >
-                <CardContent className="p-6 md:p-8 flex flex-col flex-1">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 mb-4">
-                    <tool.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="mb-1 flex items-center gap-2">
-                    <h3 className="text-lg font-semibold">{tool.title}</h3>
-                    <Badge variant="secondary" className="text-xs">
-                      Coming Soon
-                    </Badge>
-                  </div>
-                  <p className="text-sm font-medium text-muted-foreground mb-2">
-                    {tool.subtitle}
-                  </p>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
-                    {tool.description}
-                  </p>
-                  <ul className="space-y-2">
-                    {tool.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2 text-sm text-muted-foreground"
-                      >
-                        <CheckCircle2 className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <p className="mt-6 text-xs text-muted-foreground text-center max-w-[50ch] mx-auto">
-            Provider tools are in development. Features described reflect our development goals and may change before release.
-          </p>
-          <div className="mt-10 text-center">
-            <p className="text-muted-foreground mb-4">
-              Interested in early access? Register your interest and we will
-              be in touch.
+            <p className="mt-6 text-xs text-muted-foreground max-w-[50ch] mx-auto">
+              Provider tools are in development. Features and availability may change before release.
             </p>
             <Link href="/contact">
-              <Button variant="outline" size="lg">
-                Join the waitlist
+              <Button variant="outline" size="lg" className="mt-6">
+                Register interest in Waylight AI
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
@@ -503,7 +466,7 @@ export default function ServicesPage() {
               </p>
               <Link href="/contact">
                 <Button size="lg">
-                  Talk to us
+                  Ask about your plan
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>

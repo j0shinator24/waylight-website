@@ -59,17 +59,17 @@ export default function AboutPage() {
                   Waylight to fix that.
                 </p>
                 <p>
-                  That frontline experience changes how Waylight operates. Joshua
-                  catches invoice errors that desk-only plan managers miss because
-                  he understands what services actually look like on the ground. He
-                  spots underspend patterns early because he understands how
+                  That frontline experience changes how we operate. We
+                  catch invoice errors that desk-only plan managers miss because
+                  we understand what services actually look like on the ground. We
+                  spot underspend patterns early because we understand how
                   NDIS funding is typically utilised across different support
                   categories. The combination of plan management
                   and hands-on NDIS experience is rare, and it is the core of what
                   makes Waylight different.
                 </p>
                 <p>
-                  As your plan manager, Joshua works directly with every
+                  Your plan manager works directly with every
                   participant. There is no switchboard, no queue, no
                   &ldquo;your call is important to us.&rdquo; You get one
                   person who knows your situation, your providers, and your
@@ -307,7 +307,7 @@ export default function AboutPage() {
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
               <Button size="lg">
-                Get in touch
+                Start a conversation
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
