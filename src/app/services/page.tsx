@@ -245,7 +245,7 @@ export default function ServicesPage() {
               <span className="text-muted-foreground">per participant</span>
             </div>
           </div>
-          <div className="space-y-8">
+          <div className="stack stack-xl">
             {planServices.map((service) => (
               <Card
                 key={service.title}
@@ -399,7 +399,7 @@ export default function ServicesPage() {
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl mb-12 text-center">
             Frequently asked questions
           </h2>
-          <div className="max-w-3xl mx-auto space-y-6">
+          <div className="max-w-[60ch] mx-auto stack stack-lg">
             {[
               {
                 q: "What is plan management?",
@@ -426,12 +426,15 @@ export default function ServicesPage() {
                 a: "We track your spending trajectory against your plan timeline and send you budget alerts if your funding is running ahead or behind schedule. This gives you time to adjust before it affects your plan review.",
               },
             ].map((item) => (
-              <div key={item.q} className="border-b border-border pb-6">
-                <h3 className="text-base font-semibold mb-2">{item.q}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+              <details key={item.q} className="group border-b border-border pb-4">
+                <summary className="flex cursor-pointer items-center justify-between text-base font-semibold py-2 list-none [&::-webkit-details-marker]:hidden">
+                  {item.q}
+                  <span className="ml-4 shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-45">+</span>
+                </summary>
+                <p className="text-muted-foreground text-sm leading-relaxed pt-2 pb-1">
                   {item.a}
                 </p>
-              </div>
+              </details>
             ))}
           </div>
         </div>

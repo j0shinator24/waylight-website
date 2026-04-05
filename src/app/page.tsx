@@ -34,7 +34,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/8 via-background to-accent/5 py-28 md:py-40">
         <HeroBackground />
         <div className="relative mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-3xl">
+          <div className="max-w-[65ch]">
             <p className="text-sm font-medium tracking-widest uppercase text-primary mb-4">
               NDIS Plan Management - Queensland
             </p>
@@ -110,7 +110,7 @@ export default function HomePage() {
       {/* What we handle */}
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-2xl mb-16">
+          <div className="max-w-[60ch] mb-16">
             <p className="text-sm font-medium tracking-widest uppercase text-primary mb-3">
               What we handle
             </p>
@@ -151,7 +151,7 @@ export default function HomePage() {
       {/* Comparison table: Plan-managed vs Self-managed vs NDIA-managed */}
       <section className="bg-muted/30 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-2xl mx-auto text-center mb-12">
+          <div className="max-w-[55ch] mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
               Why plan management?
             </h2>
@@ -330,7 +330,7 @@ export default function HomePage() {
       {/* Provider Tools */}
       <section className="py-24 md:py-32">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-2xl mb-16">
+          <div className="max-w-[60ch] mb-16">
             <Badge variant="outline" className="mb-4">
               For Providers
             </Badge>
