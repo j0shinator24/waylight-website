@@ -118,7 +118,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-wrap gap-6 [&>*]:min-w-[250px] [&>*]:flex-1 [&>*]:basis-[calc((30rem-100%)*999)]">
             <FeatureCard
               icon={FileText}
               title="Invoice Processing"
@@ -199,8 +199,8 @@ export default function HomePage() {
       {/* For Support Coordinators */}
       <section className="py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+          <div className="flex flex-wrap gap-16 items-center">
+            <div className="flex-[1_25rem]">
               <Badge variant="outline" className="mb-4">
                 For Support Coordinators
               </Badge>
@@ -342,7 +342,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-wrap gap-6 [&>*]:min-w-[250px] [&>*]:flex-1 [&>*]:basis-[calc((30rem-100%)*999)]">
             <FeatureCard
               icon={Mic}
               title="NoteFlow"
