@@ -125,6 +125,39 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply font-sans scroll-smooth;
   }
+}
+
+/* Hero gradient orb animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.05); }
+}
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0) scale(1.02); }
+  50% { transform: translateY(15px) scale(0.98); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-12px) scale(1.03); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float-delayed 10s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+/* Fade-in for sections */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out both;
 }
