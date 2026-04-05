@@ -158,10 +158,10 @@ export default function HomePage() {
             <table className="w-full text-sm border-collapse">
               <thead>
                 <tr>
-                  <th className="text-left p-4 font-medium text-muted-foreground border-b border-border">&nbsp;</th>
-                  <th className="p-4 font-semibold border-b border-border bg-primary/5 text-primary rounded-t-lg">Plan-Managed</th>
-                  <th className="p-4 font-semibold text-muted-foreground border-b border-border">Self-Managed</th>
-                  <th className="p-4 font-semibold text-muted-foreground border-b border-border">NDIA-Managed</th>
+                  <th scope="col" className="text-left p-4 font-medium text-muted-foreground border-b border-border">&nbsp;</th>
+                  <th scope="col" className="p-4 font-semibold border-b border-border bg-primary/5 text-primary rounded-t-lg">Plan-Managed</th>
+                  <th scope="col" className="p-4 font-semibold text-muted-foreground border-b border-border">Self-Managed</th>
+                  <th scope="col" className="p-4 font-semibold text-muted-foreground border-b border-border">NDIA-Managed</th>
                 </tr>
               </thead>
               <tbody>
@@ -175,15 +175,15 @@ export default function HomePage() {
                   { feature: "Personal plan manager who knows you", plan: true, self: false, ndia: false },
                 ].map((row) => (
                   <tr key={row.feature} className="border-b border-border/50">
-                    <td className="p-4 text-foreground">{row.feature}</td>
+                    <th scope="row" className="p-4 text-foreground font-normal text-left">{row.feature}</th>
                     <td className="p-4 text-center bg-primary/5">
-                      {row.plan ? <CheckCircle2 className="h-5 w-5 text-primary mx-auto" /> : <X className="h-5 w-5 text-muted-foreground/40 mx-auto" />}
+                      {row.plan ? <CheckCircle2 className="h-5 w-5 text-primary mx-auto" aria-label="Yes" /> : <X className="h-5 w-5 text-muted-foreground/40 mx-auto" aria-label="No" />}
                     </td>
                     <td className="p-4 text-center">
-                      {row.self ? <CheckCircle2 className="h-5 w-5 text-muted-foreground/60 mx-auto" /> : <X className="h-5 w-5 text-muted-foreground/40 mx-auto" />}
+                      {row.self ? <CheckCircle2 className="h-5 w-5 text-muted-foreground/60 mx-auto" aria-label="Yes" /> : <X className="h-5 w-5 text-muted-foreground/40 mx-auto" aria-label="No" />}
                     </td>
                     <td className="p-4 text-center">
-                      {row.ndia ? <CheckCircle2 className="h-5 w-5 text-muted-foreground/60 mx-auto" /> : <X className="h-5 w-5 text-muted-foreground/40 mx-auto" />}
+                      {row.ndia ? <CheckCircle2 className="h-5 w-5 text-muted-foreground/60 mx-auto" aria-label="Yes" /> : <X className="h-5 w-5 text-muted-foreground/40 mx-auto" aria-label="No" />}
                     </td>
                   </tr>
                 ))}
