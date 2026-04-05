@@ -32,7 +32,7 @@ const planServices = [
     description:
       "We receive invoices from your providers, check them against the NDIS Price Arrangements and Price Limits, and process payment. Paid something out of pocket? Submit a reimbursement and we will process it. You choose whether to review invoices before we pay, or let us handle everything.",
     features: [
-      "Provider invoice verification against PAPL rates",
+      "Provider invoice verification against NDIS price limits",
       "Timely payment to your providers",
       "Out-of-pocket reimbursement processing",
       "You choose: review invoices yourself or let us approve them",
@@ -122,7 +122,7 @@ const providerTools = [
     description:
       "Continuous compliance monitoring that validates invoices against current PAPL rates. Flags issues before your auditor finds them.",
     features: [
-      "Real-time PAPL rate validation",
+      "Real-time NDIS price limit validation",
       "Continuous compliance dashboards",
       "Audit-ready documentation on demand",
       "Early warning on regulatory changes",

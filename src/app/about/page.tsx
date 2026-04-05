@@ -100,18 +100,22 @@ export default function AboutPage() {
       {/* Credentials */}
       <section className="border-y border-border/50 bg-muted/20 py-10">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
             <div>
               <p className="text-sm font-semibold text-foreground">Practising NDIS support worker</p>
               <p className="text-xs text-muted-foreground mt-1">Frontline experience with NDIS services</p>
             </div>
             <div>
-              <p className="text-sm font-semibold text-foreground">14 NDIS Practice Standards policies</p>
+              <p className="text-sm font-semibold text-foreground">NDIS Worker Screening</p>
+              <p className="text-xs text-muted-foreground mt-1">Cleared and verified</p>
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-foreground">14 policies aligned with Practice Standards</p>
               <p className="text-xs text-muted-foreground mt-1">Published and available on our website</p>
             </div>
             <div>
-              <p className="text-sm font-semibold text-foreground">Contractor-accountant model</p>
-              <p className="text-xs text-muted-foreground mt-1">Qualified backup with system access</p>
+              <p className="text-sm font-semibold text-foreground">Fully insured</p>
+              <p className="text-xs text-muted-foreground mt-1">Professional indemnity and public liability</p>
             </div>
           </div>
         </div>
