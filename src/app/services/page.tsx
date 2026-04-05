@@ -3,6 +3,8 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { HeroBackground } from "@/components/hero-background"
+import { BUSINESS } from "@/lib/constants"
 import {
   FileText,
   BarChart3,
@@ -18,9 +20,9 @@ import {
 } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Our Services",
+  title: "NDIS Plan Management Services and Provider Tools",
   description:
-    "NDIS Plan Management and provider tools from Waylight. Invoice processing, budget tracking, progress notes automation, shift rostering, and compliance monitoring.",
+    "NDIS plan management and provider tools from Waylight. Invoice processing, budget tracking, provider payments, progress notes automation, and compliance monitoring. Queensland.",
 }
 
 const planServices = [
@@ -97,7 +99,7 @@ const providerTools = [
       "Voice-to-text progress notes",
       "Practice Standards compliant output",
       "Incident report auto-generation",
-      "Designed to save 60\u201390 minutes of documentation per shift",
+      "Designed to save 60 to 90 minutes of documentation per shift",
     ],
   },
   {
@@ -204,11 +206,12 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       {/* Hero */}
-      <section className="bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 md:px-8">
+      <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
+        <HeroBackground />
+        <div className="relative mx-auto max-w-6xl px-4 md:px-8">
           <div className="max-w-2xl">
             <Badge variant="secondary" className="mb-4">
-              Plan Management &amp; Provider Tools
+              Plan Management and Provider Tools
             </Badge>
             <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
               Our Services
@@ -233,15 +236,20 @@ export default function ServicesPage() {
             </h2>
             <p className="mt-3 text-muted-foreground max-w-2xl">
               Plan management is funded under your NDIS plan at no cost to your
-              other supports. It is a separate budget line. Using a plan
-              manager does not reduce your core or capacity building funding.
+              other supports. It sits in its own budget category (CB Choice and
+              Control) and does not reduce your core or capacity building funding.
             </p>
+            <div className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary/5 border border-primary/15 px-4 py-2.5 text-sm">
+              <span className="text-muted-foreground">Current NDIS rate:</span>
+              <span className="font-semibold text-foreground">{BUSINESS.paplMonthly}/month</span>
+              <span className="text-muted-foreground">per participant</span>
+            </div>
           </div>
           <div className="space-y-8">
             {planServices.map((service) => (
               <Card
                 key={service.title}
-                className="border-border/50 overflow-hidden"
+                className="border-border/50 overflow-hidden transition-all duration-200 hover:border-primary/30 hover:shadow-md"
               >
                 <CardContent className="p-6 md:p-8">
                   <div className="flex flex-col md:flex-row md:items-start gap-6">
