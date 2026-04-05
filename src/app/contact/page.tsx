@@ -14,7 +14,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Mail, MapPin, CheckCircle2, Clock } from "lucide-react"
+import { Mail, MapPin, Phone, CheckCircle2, Clock } from "lucide-react"
+import { BUSINESS } from "@/lib/constants"
 import { HeroBackground } from "@/components/hero-background"
 import { submitContactForm } from "./actions"
 

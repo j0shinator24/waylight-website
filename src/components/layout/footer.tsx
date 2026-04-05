@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Mail, MapPin, ShieldCheck } from "lucide-react"
+import { Mail, MapPin, Phone, ShieldCheck } from "lucide-react"
 import { Separator } from "@/components/ui/separator"
 import { BUSINESS } from "@/lib/constants"
 
@@ -38,6 +38,9 @@ export function Footer() {
               <li><Link href="/services" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Our Services</Link></li>
               <li><Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contact</Link></li>
               <li><Link href="/policies" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Our Policies</Link></li>
+              <li><Link href="/policies/WL-POL-13-information-management.pdf" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Terms of Use</Link></li>
+              <li><Link href="/accessibility" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Accessibility</Link></li>
             </ul>
           </div>
 
@@ -47,6 +50,12 @@ export function Footer() {
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-primary shrink-0" />
                 {BUSINESS.location}
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-primary shrink-0" />
+                <a href={`tel:${BUSINESS.phone.replace(/\s/g, "")}`} className="hover:text-foreground transition-colors">
+                  {BUSINESS.phone}
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary shrink-0" />
@@ -66,8 +75,8 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-            <p className="mt-4 text-xs text-muted-foreground border-l-2 border-primary/30 pl-2">
-              NDIS provider registration in progress. Expressions of interest welcome.
+            <p className="mt-4 text-xs text-muted-foreground border-l-2 border-accent/50 pl-2">
+              Waylight is not yet a registered NDIS provider. Registration is in progress. We are accepting expressions of interest.
             </p>
           </div>
         </div>

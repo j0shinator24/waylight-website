@@ -44,6 +44,13 @@ const localBusinessJsonLd = {
     "NDIS plan management service providing invoice processing, budget tracking, and provider payments for NDIS participants in Queensland.",
   url: BASE_URL,
   email: BUSINESS.email,
+  telephone: BUSINESS.phone,
+  taxID: `ABN ${BUSINESS.abn}`,
+  founder: {
+    "@type": "Person",
+    name: BUSINESS.founder,
+    jobTitle: "Plan Manager",
+  },
   areaServed: {
     "@type": "State",
     name: "Queensland",
@@ -82,6 +89,9 @@ export default function RootLayout({
           Skip to main content
         </a>
         <ThemeProvider>
+          <div className="bg-accent/10 border-b border-accent/20 text-center py-2 px-4 text-xs text-muted-foreground">
+            Waylight is not yet a registered NDIS provider. We are accepting expressions of interest ahead of our expected {BUSINESS.launchTarget} launch.
+          </div>
           <Header />
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
