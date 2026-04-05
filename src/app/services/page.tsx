@@ -107,7 +107,7 @@ const providerTools = [
     title: "RosterIQ",
     subtitle: "Shift Rostering",
     description:
-      "Scheduling that accounts for participant needs, worker availability, SCHADS Award requirements, and travel time. No more spreadsheet juggling.",
+      "Scheduling that accounts for participant needs, worker availability, Social, Community, Home Care and Disability Services (SCHADS) Award requirements, and travel time. No more spreadsheet juggling.",
     features: [
       "Drag-and-drop shift management",
       "SCHADS Award compliance built in",
@@ -120,7 +120,7 @@ const providerTools = [
     title: "AuditShield",
     subtitle: "Compliance Monitoring",
     description:
-      "Continuous compliance monitoring that validates invoices against current PAPL rates. Flags issues before your auditor finds them.",
+      "Continuous compliance monitoring that validates invoices against current NDIS price limits. Flags issues before your auditor finds them.",
     features: [
       "Real-time NDIS price limit validation",
       "Continuous compliance dashboards",
@@ -135,7 +135,7 @@ const providerTools = [
     description:
       "Your staff ask a question about NDIS pricing, legislation, or practice standards. They get an accurate, sourced answer in seconds. No more hunting through PDFs or waiting for a policy officer.",
     features: [
-      "Covers PAPL, Practice Standards, and NDIS Act",
+      "Covers NDIS price limits, Practice Standards, and NDIS Act",
       "Plain-language answers with source references",
       "Always current with latest pricing updates",
       "Accessible to support workers, coordinators, and managers",
@@ -336,7 +336,7 @@ export default function ServicesPage() {
             </h2>
             <p className="mt-3 text-muted-foreground max-w-[60ch]">
               Built for providers who are tired of compliance spreadsheets and
-              paper-based shift notes. Whether you run a SIL house, a support
+              paper-based shift notes. Whether you run a Supported Independent Living (SIL) house, a support
               coordination practice, or an allied health clinic, these tools
               handle the admin so your team can focus on participants.
             </p>
