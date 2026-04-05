@@ -83,6 +83,10 @@ export function Footer() {
 
         <Separator className="my-8" />
 
+        <p className="dark-reveal text-center text-[11px] font-handwritten text-primary/40 mb-4">
+          Even in the dark, we&apos;re still here.
+        </p>
+
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
           <p>{BUSINESS.legalName} | ABN {BUSINESS.abn}</p>
           <p>NDIS Plan Management | Queensland, Australia</p>

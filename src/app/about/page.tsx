@@ -58,8 +58,9 @@ export default function AboutPage() {
                   That frontline experience changes how Waylight operates. Joshua
                   catches invoice errors that desk-only plan managers miss because
                   he understands what services actually look like on the ground. He
-                  spots underspend patterns because he knows which supports
-                  participants tend to underuse. The combination of plan management
+                  spots underspend patterns early because he understands how
+                  NDIS funding is typically utilised across different support
+                  categories. The combination of plan management
                   and hands-on NDIS experience is rare, and it is the core of what
                   makes Waylight different.
                 </p>
