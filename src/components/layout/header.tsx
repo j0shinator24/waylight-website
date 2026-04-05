@@ -36,7 +36,7 @@ export function Header() {
             <span className="text-xl font-semibold tracking-tight text-foreground block">
               Waylight
             </span>
-            <span className="dark-reveal block text-[15px] font-handwritten text-primary/70 -mt-0.5 leading-none tracking-wide">
+            <span className="dark-reveal block text-[22px] font-handwritten text-primary/70 -mt-1 leading-none tracking-wide">
               lighting the way
             </span>
           </div>
