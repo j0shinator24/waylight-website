@@ -228,7 +228,7 @@ export default function ServicesPage() {
               Plan management for NDIS participants, plus software tools built
               for the providers who support them.
             </p>
-            <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/60 -rotate-2">
+            <p className="dark-reveal mt-4 text-4xl font-handwritten text-primary/60 -rotate-2">
               the fun part
             </p>
           </div>
@@ -255,7 +255,7 @@ export default function ServicesPage() {
               <span className="font-semibold text-foreground">{BUSINESS.paplMonthly}/month</span>
               <span className="text-muted-foreground">per participant</span>
             </div>
-            <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/50 rotate-1">
+            <p className="dark-reveal mt-4 text-4xl font-handwritten text-primary/50 rotate-1">
               this is what we actually do
             </p>
           </div>
@@ -303,7 +303,7 @@ export default function ServicesPage() {
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl mb-12 text-center">
             How plan management works
           </h2>
-          <p className="dark-reveal text-xl font-handwritten text-primary/50 text-center -rotate-1 -mt-4 mb-4">
+          <p className="dark-reveal text-4xl font-handwritten text-primary/50 text-center -rotate-1 -mt-4 mb-4">
             simple, right?
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -353,7 +353,7 @@ export default function ServicesPage() {
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
-          <p className="dark-reveal mt-4 text-xl font-handwritten text-primary/60 rotate-2">
+          <p className="dark-reveal mt-4 text-4xl font-handwritten text-primary/60 rotate-2">
             go on, say hello
           </p>
         </div>
@@ -375,7 +375,7 @@ export default function ServicesPage() {
               coordination practice, or an allied health clinic, these tools
               handle the admin so your team can focus on participants.
             </p>
-            <p className="dark-reveal mt-3 text-xl font-handwritten text-primary/50 -rotate-1">
+            <p className="dark-reveal mt-3 text-4xl font-handwritten text-primary/50 -rotate-1">
               these are going to be good
             </p>
           </div>
@@ -440,7 +440,7 @@ export default function ServicesPage() {
           <h2 className="text-2xl font-bold tracking-tight md:text-3xl mb-12 text-center">
             Frequently asked questions
           </h2>
-          <p className="dark-reveal text-xl font-handwritten text-primary/50 text-center rotate-1 -mt-4 mb-4">
+          <p className="dark-reveal text-4xl font-handwritten text-primary/50 text-center rotate-1 -mt-4 mb-4">
             everyone asks these
           </p>
           <div className="max-w-[60ch] mx-auto stack stack-lg">
@@ -491,7 +491,7 @@ export default function ServicesPage() {
       {/* Split CTA */}
       <section className="bg-muted/30 py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <p className="dark-reveal text-2xl font-handwritten text-primary/50 text-center -rotate-2 mb-8">
+          <p className="dark-reveal text-5xl font-handwritten text-primary/50 text-center -rotate-2 mb-8">
             pick your path
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
