@@ -176,7 +176,7 @@ const faqJsonLd = {
       name: "How do I get plan management in my plan?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Ask your LAC, support coordinator, or NDIA planner to include plan management at your next planning meeting. If you already have it, you can switch to Waylight at any time.",
+        text: "Ask your Local Area Coordinator (LAC), support coordinator, or NDIA planner to include plan management at your next planning meeting. If you already have plan management, you will be able to switch to Waylight once our registration is confirmed.",
       },
     },
     {
@@ -184,7 +184,7 @@ const faqJsonLd = {
       name: "How do I switch to Waylight from another plan manager?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Contact us and we will handle the transfer. There is no lock-in period with plan managers. You can switch at any point during your plan.",
+        text: "Once our registration is confirmed, contact us and we will handle the transfer. There is no lock-in period with plan managers — you can switch at any point during your plan.",
       },
     },
     {
@@ -193,6 +193,14 @@ const faqJsonLd = {
       acceptedAnswer: {
         "@type": "Answer",
         text: "We track your spending trajectory against your plan timeline and send you budget alerts if your funding is running ahead or behind schedule. This gives you time to adjust before it affects your plan review.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is Waylight a registered NDIS provider?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Not yet. Our registration application with the NDIS Quality and Safeguards Commission is currently being processed. We are accepting expressions of interest and will contact you as soon as our registration is confirmed, expected Q3 2026.",
       },
     },
   ],
@@ -293,9 +301,9 @@ export default function ServicesPage() {
             {[
               {
                 step: "1",
-                title: "You choose your providers",
+                title: "Sign up and choose providers",
                 description:
-                  "Pick the support workers, therapists, and services that work for you, registered or unregistered.",
+                  "We start with a simple service agreement, then you choose the support workers, therapists, and services that work for you — registered or unregistered.",
               },
               {
                 step: "2",
@@ -415,11 +423,11 @@ export default function ServicesPage() {
               },
               {
                 q: "How do I get plan management in my plan?",
-                a: "Ask your LAC, support coordinator, or NDIA planner to include plan management at your next planning meeting. If you already have it, you can switch to Waylight at any time.",
+                a: "Ask your Local Area Coordinator (LAC), support coordinator, or NDIA planner to include plan management at your next planning meeting. If you already have plan management, you will be able to switch to Waylight once our registration is confirmed.",
               },
               {
                 q: "How do I switch to Waylight from another plan manager?",
-                a: "Contact us and we will handle the transfer. There is no lock-in period with plan managers. You can switch at any point during your plan.",
+                a: "Once our registration is confirmed, contact us and we will handle the transfer. There is no lock-in period with plan managers — you can switch at any point during your plan.",
               },
               {
                 q: "What happens if I overspend or underspend my plan?",
