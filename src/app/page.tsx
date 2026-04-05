@@ -263,8 +263,8 @@ export default function HomePage() {
       {/* For Families and Carers */}
       <section className="bg-muted/30 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1 space-y-6">
+          <div className="flex flex-wrap gap-16 items-center">
+            <div className="order-2 lg:order-1 flex-[999_0_0] min-w-[50%] space-y-6">
               <div className="flex gap-4 items-start">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
                   <FileText className="h-5 w-5 text-primary" />
@@ -299,7 +299,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="order-1 lg:order-2">
+            <div className="order-1 lg:order-2 flex-[1_25rem]">
               <Badge variant="outline" className="mb-4">For Families and Carers</Badge>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
                 You will always know where the funding stands

@@ -96,9 +96,9 @@ function ContactPageInner() {
       {/* Form + Info */}
       <section className="py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+          <div className="flex flex-wrap gap-12">
             {/* Form */}
-            <div className="lg:col-span-3">
+            <div className="min-w-[50%] flex-[999_0_0]">
               <Card className="border-border/50">
                 <CardHeader>
                   <CardTitle>Send us a message</CardTitle>
@@ -238,7 +238,7 @@ function ContactPageInner() {
             </div>
 
             {/* Contact info */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="flex-[1_20rem] space-y-6">
               <div>
                 <h2 className="text-xl font-semibold mb-4">Get in touch</h2>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">

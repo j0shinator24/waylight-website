@@ -55,7 +55,7 @@ export function Header() {
           ))}
           <ThemeToggle />
           <Link href="/contact">
-            <Button variant="default" size="sm" className="ml-2">
+            <Button variant="default" size="default" className="ml-2">
               Get in touch
             </Button>
           </Link>
