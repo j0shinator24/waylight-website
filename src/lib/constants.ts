@@ -1,10 +1,10 @@
-export const BASE_URL = "https://waylightpm.com.au"
+export const BASE_URL = "https://waylight.com.au"
 
 export const BUSINESS = {
   name: "Waylight Plan Management",
   legalName: "Joshua Libeau Mowat",
   abn: "97 544 538 291",
-  email: "hello@waylightpm.com.au",
+  email: "admin@waylight.com.au",
   phone: "0451 306 669",
   location: "Queensland, Australia",
   founder: "Joshua",

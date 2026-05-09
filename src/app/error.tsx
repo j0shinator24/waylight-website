@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { BUSINESS } from "@/lib/constants"
 
 export default function ErrorBoundary({
   error,
@@ -18,10 +19,10 @@ export default function ErrorBoundary({
         An unexpected error occurred. If the problem persists, please contact us
         at{" "}
         <a
-          href="mailto:hello@waylightpm.com.au"
+          href={`mailto:${BUSINESS.email}`}
           className="underline hover:text-foreground transition-colors"
         >
-          hello@waylightpm.com.au
+          {BUSINESS.email}
         </a>
         .
       </p>

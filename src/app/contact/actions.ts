@@ -79,7 +79,7 @@ export async function submitContactForm(
   }
 
   // TODO: Wire to email service (Resend, SendGrid, etc.) when credentials are available
-  // e.g. await resend.emails.send({ from, to: 'hello@waylightpm.com.au', subject, text })
+  // e.g. await resend.emails.send({ from, to: 'admin@waylight.com.au', subject, text })
 
   return { success: true }
 }
