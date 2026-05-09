@@ -1,7 +1,5 @@
 "use server"
 
-import { writeFile, readFile, mkdir } from "fs/promises"
-import { join } from "path"
 import { z } from "zod"
 
 const contactFormSchema = z.object({
@@ -53,33 +51,13 @@ export async function submitContactForm(
     submittedAt: new Date().toISOString(),
   }
 
-  try {
-    // Store submissions locally until an email service is configured
-    const dir = join(process.cwd(), "data")
-    const file = join(dir, "contact-submissions.json")
+  // Visible to operator via `wrangler tail` until a real email/store is wired up.
+  // Tagged so it's grep-able in Cloudflare's log stream.
+  console.log("CONTACT_SUBMISSION", JSON.stringify(submission))
 
-    await mkdir(dir, { recursive: true })
-
-    let submissions: typeof submission[] = []
-    try {
-      const existing = await readFile(file, "utf-8")
-      submissions = JSON.parse(existing)
-    } catch {
-      // File doesn't exist yet
-    }
-
-    submissions.push(submission)
-    await writeFile(file, JSON.stringify(submissions, null, 2))
-  } catch (err) {
-    console.error("Failed to save contact submission:", err)
-    return {
-      success: false,
-      error: "Something went wrong. Please try again or email us directly.",
-    }
-  }
-
-  // TODO: Wire to email service (Resend, SendGrid, etc.) when credentials are available
-  // e.g. await resend.emails.send({ from, to: 'admin@waylight.com.au', subject, text })
+  // TODO: Wire to email service (Resend) and/or Cloudflare KV for persistence.
+  // Until then, console output is the only record - read live via:
+  //   wrangler tail waylight-website --format pretty | grep CONTACT_SUBMISSION
 
   return { success: true }
 }

@@ -31,12 +31,15 @@ export const metadata: Metadata = {
     title: "Waylight Plan Management | NDIS Plan Manager QLD",
     description:
       "Queensland NDIS plan management. One dedicated plan manager who knows your name. Invoice processing, budget tracking, and full provider choice.",
+    url: BASE_URL,
+    images: [{ url: `${BASE_URL}/og/home`, width: 1200, height: 630, alt: "Waylight Plan Management — Queensland NDIS plan management, done personally" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Waylight Plan Management | NDIS Plan Manager QLD",
     description:
       "Queensland NDIS plan management. One dedicated plan manager who knows your name.",
+    images: [`${BASE_URL}/og/home`],
   },
 }
 
