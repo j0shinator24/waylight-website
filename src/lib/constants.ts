@@ -2,8 +2,8 @@ export const BASE_URL = "https://waylightpm.com.au"
 
 export const BUSINESS = {
   name: "Waylight Plan Management",
-  legalName: "Waylight Pty Ltd",
-  abn: "49 689 498 350",
+  legalName: "Joshua Libeau Mowat",
+  abn: "97 544 538 291",
   email: "hello@waylightpm.com.au",
   phone: "0451 306 669",
   location: "Queensland, Australia",
