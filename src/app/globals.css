@@ -4,12 +4,47 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ============================================================
+   WAYLIGHT BRAND TOKENS
+   Warm ivory base, deep teal, antique gold, ink near-black.
+   Same palette serves Plan Management AND Waylight AI.
+   ============================================================ */
 @theme inline {
+  /* Brand palette (raw) */
+  --color-ivory-50:  #FDFAF4;
+  --color-ivory-100: #FBF7EE;
+  --color-ivory-200: #F5EFE0;
+  --color-ivory-300: #ECE3CE;
+
+  --color-ink:        #1A1F1E;
+  --color-ink-soft:   #2D3533;
+  --color-ink-muted:  #5C6764;
+  --color-ink-faint:  #8A938F;
+
+  --color-teal-50:  #E9F2F1;
+  --color-teal-100: #C9DEDC;
+  --color-teal-200: #9CC4C1;
+  --color-teal-400: #3A8E8E;
+  --color-teal-500: #1F6F6F;
+  --color-teal-600: #155757;
+  --color-teal-700: #0E4242;
+  --color-teal-800: #0A2F2F;
+  --color-teal-glow: #5EEBC4;   /* bright mint — dark mode pop */
+
+  --color-gold-100: #F2E7CC;
+  --color-gold-200: #E8D6A8;
+  --color-gold-300: #D9BE82;
+  --color-gold-500: #B8924A;
+  --color-gold-600: #9A7836;
+  --color-gold-700: #7A5E26;
+
+  /* Shadcn / Tailwind semantic tokens map onto brand palette */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-display: var(--font-fraunces);
+  --font-heading: var(--font-fraunces);
   --font-handwritten: var(--font-handwritten);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -49,336 +84,737 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* ============================================================
+   LIGHT THEME (default — warm ivory)
+   ============================================================ */
 :root {
-  --background: oklch(0.99 0.002 200);
-  --foreground: oklch(0.18 0.02 240);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.02 240);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.02 240);
-  --primary: oklch(0.45 0.12 200);
-  --primary-foreground: oklch(0.99 0.002 200);
-  --secondary: oklch(0.95 0.015 200);
-  --secondary-foreground: oklch(0.25 0.04 240);
-  --muted: oklch(0.96 0.008 200);
-  --muted-foreground: oklch(0.50 0.02 240);
-  --accent: oklch(0.55 0.14 170);
-  --accent-foreground: oklch(0.99 0.002 200);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.90 0.015 200);
-  --input: oklch(0.90 0.015 200);
-  --ring: oklch(0.45 0.12 200);
-  --chart-1: oklch(0.45 0.12 200);
-  --chart-2: oklch(0.55 0.14 170);
-  --chart-3: oklch(0.65 0.10 220);
-  --chart-4: oklch(0.40 0.08 240);
-  --chart-5: oklch(0.35 0.06 200);
-  --radius: 0.5rem;
-  --sidebar: oklch(0.985 0.005 200);
-  --sidebar-foreground: oklch(0.18 0.02 240);
-  --sidebar-primary: oklch(0.45 0.12 200);
-  --sidebar-primary-foreground: oklch(0.99 0.002 200);
-  --sidebar-accent: oklch(0.95 0.015 200);
-  --sidebar-accent-foreground: oklch(0.25 0.04 240);
-  --sidebar-border: oklch(0.90 0.015 200);
-  --sidebar-ring: oklch(0.45 0.12 200);
+  --background:        #FBF7EE;   /* ivory-100 */
+  --foreground:        #1A1F1E;   /* ink */
+  --card:              #FFFFFF;
+  --card-foreground:   #1A1F1E;
+  --popover:           #FFFFFF;
+  --popover-foreground:#1A1F1E;
+  --primary:           #1F6F6F;   /* teal-500 */
+  --primary-foreground:#FBF7EE;
+  --secondary:         #F5EFE0;   /* ivory-200 */
+  --secondary-foreground:#2D3533;
+  --muted:             #F5EFE0;
+  --muted-foreground:  #5C6764;   /* ink-muted */
+  --accent:            #B8924A;   /* gold-500 */
+  --accent-foreground: #FBF7EE;
+  --destructive:       oklch(0.577 0.245 27.325);
+  --border:            rgba(26,31,30,0.10);
+  --input:             rgba(26,31,30,0.18);
+  --ring:              #1F6F6F;
+  --chart-1: #1F6F6F;
+  --chart-2: #B8924A;
+  --chart-3: #3A8E8E;
+  --chart-4: #9A7836;
+  --chart-5: #155757;
+  --radius: 0.875rem;
+  --sidebar:                      #FBF7EE;
+  --sidebar-foreground:           #1A1F1E;
+  --sidebar-primary:              #1F6F6F;
+  --sidebar-primary-foreground:   #FBF7EE;
+  --sidebar-accent:               #F5EFE0;
+  --sidebar-accent-foreground:    #2D3533;
+  --sidebar-border:               rgba(26,31,30,0.10);
+  --sidebar-ring:                 #1F6F6F;
 }
 
+/* ============================================================
+   DARK THEME (candlelight rebuild)
+   The page goes very dark. The header logo becomes a literal
+   light source — warm amber illumination from top-left.
+   Headings, paragraphs, buttons, cards catch the light on
+   their light-facing edge and cast long shadows away from it.
+   ============================================================ */
 .dark {
-  --background: oklch(0.13 0.01 220);
-  --foreground: oklch(0.95 0.005 200);
-  --card: oklch(0.17 0.012 220);
-  --card-foreground: oklch(0.95 0.005 200);
-  --popover: oklch(0.17 0.012 220);
-  --popover-foreground: oklch(0.95 0.005 200);
-  --primary: oklch(0.65 0.14 195);
-  --primary-foreground: oklch(0.13 0.01 220);
-  --secondary: oklch(0.22 0.015 220);
-  --secondary-foreground: oklch(0.90 0.01 200);
-  --muted: oklch(0.20 0.012 220);
-  --muted-foreground: oklch(0.70 0.02 210);
-  --accent: oklch(0.60 0.12 170);
-  --accent-foreground: oklch(0.13 0.01 220);
+  --background:        #020100;   /* near-pure black */
+  --foreground:        #F5EFE0;   /* warm cream — amber comes from candlelight, not text */
+  --card:              #060503;   /* barely-lifted black */
+  --card-foreground:   #F5EFE0;
+  --popover:           #060503;
+  --popover-foreground:#F5EFE0;
+  --primary:           #FFBF40;   /* amber — UI accent only */
+  --primary-foreground:#020100;
+  --secondary:         #0A0805;
+  --secondary-foreground:#F5EFE0;
+  --muted:             #060503;
+  --muted-foreground:  #A89E8A;   /* dim cream */
+  --accent:            #FFBF40;
+  --accent-foreground: #020100;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.28 0.015 220);
-  --input: oklch(0.25 0.015 220);
-  --ring: oklch(0.65 0.14 195);
-  --chart-1: oklch(0.65 0.14 195);
-  --chart-2: oklch(0.60 0.12 170);
-  --chart-3: oklch(0.55 0.08 230);
-  --chart-4: oklch(0.45 0.06 250);
-  --chart-5: oklch(0.35 0.04 210);
-  --sidebar: oklch(0.15 0.012 220);
-  --sidebar-foreground: oklch(0.95 0.005 200);
-  --sidebar-primary: oklch(0.65 0.14 195);
-  --sidebar-primary-foreground: oklch(0.13 0.01 220);
-  --sidebar-accent: oklch(0.22 0.015 220);
-  --sidebar-accent-foreground: oklch(0.90 0.01 200);
-  --sidebar-border: oklch(0.28 0.015 220);
-  --sidebar-ring: oklch(0.65 0.14 195);
+  --border:  rgba(255,191,64,0.10);
+  --input:   rgba(255,191,64,0.14);
+  --ring:    #FFBF40;
+  --chart-1: #FFBF40;
+  --chart-2: #C9892A;
+  --chart-3: #8C5C18;
+  --chart-4: #F5EFE0;
+  --chart-5: #4A2F0A;
+  --sidebar: #020100;
+  --sidebar-foreground: #F5EFE0;
+  --sidebar-primary: #FFBF40;
+  --sidebar-primary-foreground: #020100;
+  --sidebar-accent: #0A0805;
+  --sidebar-accent-foreground: #F5EFE0;
+  --sidebar-border: rgba(255,191,64,0.10);
+  --sidebar-ring: #FFBF40;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/80;
-  }
+  * { @apply border-border outline-ring/80; }
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
   }
   html {
     @apply font-sans scroll-smooth;
+    overflow-x: clip;
   }
 }
 
-/* Hero gradient orb animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-20px) scale(1.05); }
-}
-@keyframes float-delayed {
-  0%, 100% { transform: translateY(0) scale(1.02); }
-  50% { transform: translateY(15px) scale(0.98); }
-}
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-12px) scale(1.03); }
+/* Headings — outside @layer base so they beat Tailwind preflight + .font-sans
+   inheritance from html. Every h1/h2/h3/h4 across the site renders Fraunces
+   by default, so old pages don't need explicit .font-display class. */
+h1, h2, h3, h4 {
+  font-family: var(--font-fraunces), ui-serif, Georgia, serif;
+  font-variation-settings: "opsz" 144, "SOFT" 60;
+  letter-spacing: -0.02em;
 }
 
-.animate-float {
-  animation: float 8s ease-in-out infinite;
+/* ============================================================
+   REDESIGN UTILITY CLASSES
+   Lifted from landing-redesign.html — usable on any page.
+   ============================================================ */
+
+/* Display font helpers */
+.font-display       { font-family: var(--font-fraunces), ui-serif, Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50; letter-spacing: -0.025em; }
+.font-display-soft  { font-variation-settings: "opsz" 144, "SOFT" 80; }
+.font-display-italic{ font-variation-settings: "opsz" 144, "SOFT" 100; font-style: italic; }
+
+/* Atmospheric backgrounds */
+.atmos {
+  background:
+    radial-gradient(1200px 600px at 85% 0%,  rgba(184,146,74,0.18), transparent 60%),
+    radial-gradient(900px 700px  at 0% 100%, rgba(31,111,111,0.16), transparent 55%),
+    radial-gradient(600px 400px  at 50% 50%, rgba(217,190,130,0.10), transparent 70%),
+    linear-gradient(180deg, #FDFAF4 0%, #FBF7EE 100%);
 }
-.animate-float-delayed {
-  animation: float-delayed 10s ease-in-out infinite;
+.atmos-deep {
+  background:
+    radial-gradient(900px 500px at 20% 0%,   rgba(184,146,74,0.22), transparent 60%),
+    radial-gradient(700px 500px at 100% 100%, rgba(31,111,111,0.30), transparent 55%),
+    linear-gradient(180deg, #0E4242 0%, #0A2F2F 100%);
+  color: #F5EFE0;
 }
-.animate-float-slow {
-  animation: float-slow 12s ease-in-out infinite;
+.atmos-soft {
+  background:
+    radial-gradient(800px 500px at 80% 10%, rgba(184,146,74,0.10), transparent 60%),
+    linear-gradient(180deg, #FBF7EE 0%, #F5EFE0 100%);
 }
 
-/* Fade-in for sections */
-@keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in-up {
-  animation: fade-in-up 0.5s ease-out both;
+/* Section background tint — warm ivory wash in light, transparent in dark */
+.section-tint { background-color: rgba(245, 239, 224, 0.4); }
+.dark .section-tint { background-color: transparent; }
+
+/* Subtle grain overlay */
+.grain { position: relative; }
+.grain::before{
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.40'/></svg>");
+  mix-blend-mode: multiply;
+  opacity: .10;
 }
 
-/* Stack layout primitive (Every Layout) */
-.stack > * + * {
-  margin-block-start: var(--stack-space, 1.5rem);
+/* Decorative arch echoing the logo */
+.arch {
+  position: absolute; pointer-events: none;
+  border: 1px solid rgba(184,146,74,0.35);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
+
+/* Underline accent (gold marker) */
+.ink-mark {
+  background-image: linear-gradient(120deg, rgba(184,146,74,0) 0%, rgba(184,146,74,0.55) 30%, rgba(184,146,74,0.55) 70%, rgba(184,146,74,0) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 0.42em;
+  background-position: 0 78%;
+  padding: 0 .08em;
+}
+
+/* Eyebrow label */
+.eyebrow {
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #1F6F6F;
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+}
+.eyebrow::before {
+  content: ""; width: 24px; height: 1px; background: currentColor; opacity: .55;
+}
+.eyebrow-gold { color: #9A7836; }
+
+/* Hand / Caveat annotations */
+.hand {
+  font-family: var(--font-handwritten), cursive;
+  font-weight: 600;
+  color: #1F6F6F;
+  font-size: 1.55rem;
+  line-height: 1;
+}
+.hand-lg { font-size: 2rem; }
+.hand-xl { font-size: 2.6rem; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: .6rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: .95rem;
+  letter-spacing: .005em;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, background-color .25s, color .25s, border-color .25s;
+  will-change: transform;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+}
+.btn-primary {
+  background: #1A1F1E;
+  color: #FDFAF4;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 18px 30px -18px rgba(15,50,50,0.55);
+}
+.btn-primary:hover  { transform: translateY(-2px); background: #0E4242; box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 24px 40px -18px rgba(15,50,50,0.7); }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:focus-visible { outline: 2px solid #B8924A; outline-offset: 3px; }
+
+.btn-ghost {
+  background: transparent;
+  color: #1A1F1E;
+  border: 1px solid rgba(26,31,30,0.18);
+}
+.btn-ghost:hover { transform: translateY(-2px); border-color: rgba(26,31,30,0.45); background: rgba(255,255,255,0.5); }
+.btn-ghost:focus-visible { outline: 2px solid #1F6F6F; outline-offset: 3px; }
+
+.btn-light {
+  background: rgba(253,250,244,0.96);
+  color: #0E4242;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.4), 0 18px 30px -18px rgba(0,0,0,0.5);
+}
+.btn-light:hover { transform: translateY(-2px); background: #FFFFFF; }
+
+.btn-gold {
+  background: #B8924A;
+  color: #FDFAF4;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.2), 0 18px 30px -18px rgba(122,94,38,0.55);
+}
+.btn-gold:hover { transform: translateY(-2px); background: #9A7836; }
+
+.btn-sm { padding: 0.6rem 1.1rem; font-size: .85rem; }
+.btn-lg { padding: 1.1rem 1.9rem; font-size: 1rem; }
+
+/* Card surface */
+.brand-card {
+  background: #FFFFFF;
+  border-radius: 22px;
+  padding: 2rem;
+  box-shadow:
+    0 1px 0 rgba(31,111,111,0.06),
+    0 12px 32px -16px rgba(20,60,60,0.18),
+    0 32px 64px -40px rgba(20,60,60,0.22);
+  border: 1px solid rgba(26,31,30,0.05);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s, border-color .5s;
+}
+.brand-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 1px 0 rgba(31,111,111,0.08),
+    0 24px 48px -20px rgba(15,50,50,0.30),
+    0 60px 100px -60px rgba(10,40,40,0.35);
+}
+
+/* Step number ornament */
+.stepnum {
+  font-family: var(--font-fraunces), serif;
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 4.8rem;
+  line-height: 1;
+  color: #B8924A;
+}
+
+/* Editorial drop cap */
+.dropcap::first-letter {
+  font-family: var(--font-fraunces), serif;
+  font-weight: 500;
+  font-size: 4.2em;
+  line-height: .85;
+  float: left;
+  padding: .12em .12em 0 0;
+  color: #1F6F6F;
+  font-variation-settings: "opsz" 144, "SOFT" 80;
+}
+
+/* Candle/ornament rule */
+.candle-rule {
+  display: flex; align-items: center; gap: 1rem;
+  color: rgba(26,31,30,0.45);
+}
+.candle-rule::before, .candle-rule::after {
+  content: ""; flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(26,31,30,0.18), transparent);
+}
+
+/* Letter card (founder note) */
+.letter {
+  background: #FDFAF4;
+  border-radius: 28px;
+  padding: 3rem 3.25rem 3.25rem;
+  box-shadow:
+    0 1px 0 rgba(31,111,111,0.08),
+    0 24px 48px -20px rgba(15,50,50,0.22),
+    0 60px 100px -60px rgba(10,40,40,0.30),
+    inset 0 0 0 1px rgba(26,31,30,0.05);
+  position: relative;
+}
+.letter::before {
+  content: ""; position: absolute; top: 0; left: 3rem; right: 3rem; height: 6px;
+  background: linear-gradient(90deg, transparent, rgba(184,146,74,0.55), transparent);
+}
+
+/* Nav link with sliding underline */
+.nav-link {
+  position: relative;
+  padding: .4rem 0;
+  color: rgba(26,31,30,0.72);
+  font-size: .92rem;
+  font-weight: 500;
+  transition: color .25s;
+  text-decoration: none;
+}
+.nav-link:hover { color: #1A1F1E; }
+.nav-link::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 1px;
+  background: #B8924A;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1);
+}
+.nav-link:hover::after, .nav-link[data-active="true"]::after { transform: scaleX(1); }
+.nav-link[data-active="true"] { color: #1A1F1E; }
+
+/* Comparison table */
+.ctable { width: 100%; border-collapse: separate; border-spacing: 0; }
+.ctable th, .ctable td { padding: 1.1rem 1.25rem; text-align: left; }
+.ctable thead th {
+  font-family: var(--font-dm-sans), sans-serif;
+  font-weight: 500;
+  font-size: .78rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(26,31,30,0.55);
+  border-bottom: 1px solid rgba(26,31,30,0.10);
+}
+.ctable thead th.featured {
+  color: #1F6F6F;
+  background: linear-gradient(180deg, rgba(31,111,111,0.06), rgba(31,111,111,0.02));
+  border-radius: 16px 16px 0 0;
+}
+.ctable tbody tr td:first-child { color: #1A1F1E; font-weight: 500; }
+.ctable tbody td.featured { background: rgba(31,111,111,0.04); }
+.ctable tbody tr:last-child td.featured { border-radius: 0 0 16px 16px; }
+.ctable tbody tr + tr td { border-top: 1px dashed rgba(26,31,30,0.08); }
+.yes { width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: rgba(31,111,111,0.12); color: #1F6F6F; }
+.yes-strong { background: #1F6F6F; color: #FBF7EE; }
+.no  { width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 999px; background: rgba(26,31,30,0.05); color: rgba(26,31,30,0.30); }
+
+/* Form controls (warm brand) */
+.field-label {
+  display: block;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(26,31,30,0.6);
+  margin-bottom: .5rem;
+}
+.field-input,
+.field-select,
+.field-textarea {
+  width: 100%;
+  background: #FDFAF4;
+  border: 1px solid rgba(26,31,30,0.14);
+  border-radius: 14px;
+  padding: 0.95rem 1.05rem;
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 0.98rem;
+  color: #1A1F1E;
+  transition: border-color .25s, box-shadow .25s, background .25s;
+}
+.field-input:focus,
+.field-select:focus,
+.field-textarea:focus {
+  outline: 0;
+  border-color: rgba(31,111,111,0.55);
+  box-shadow: 0 0 0 4px rgba(31,111,111,0.08);
+  background: #FFFFFF;
+}
+.field-textarea { min-height: 140px; resize: vertical; line-height: 1.6; }
+.field-select { appearance: none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231A1F1E' stroke-width='2' stroke-linecap='round'><polyline points='6 9 12 15 18 9'/></svg>"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.6rem; }
+
+.checkpill {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(26,31,30,0.16);
+  border-radius: 999px;
+  background: #FDFAF4;
+  font-size: .88rem;
+  font-weight: 500;
+  color: #2D3533;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color .25s, background .25s, color .25s, transform .25s;
+}
+.checkpill input { display: none; }
+.checkpill:hover { border-color: rgba(31,111,111,0.45); transform: translateY(-1px); }
+.checkpill[data-checked="true"] {
+  background: #1F6F6F;
+  color: #FBF7EE;
+  border-color: #1F6F6F;
+}
+.checkpill[data-checked="true"] .checkpill-dot { background: #FBF7EE; }
+.checkpill-dot {
+  width: 8px; height: 8px; border-radius: 999px;
+  background: rgba(31,111,111,0.4);
+  transition: background .25s;
+}
+
+/* Animated reveal */
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+.d1 { animation-delay: .05s }
+.d2 { animation-delay: .15s }
+.d3 { animation-delay: .25s }
+.d4 { animation-delay: .35s }
+.d5 { animation-delay: .45s }
+.d6 { animation-delay: .55s }
+
+/* Hero gradient orb animations (legacy but harmless) */
+@keyframes float { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-20px) scale(1.05); } }
+@keyframes float-delayed { 0%,100% { transform: translateY(0) scale(1.02); } 50% { transform: translateY(15px) scale(0.98); } }
+@keyframes float-slow { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-12px) scale(1.03); } }
+.animate-float         { animation: float 8s ease-in-out infinite; }
+.animate-float-delayed { animation: float-delayed 10s ease-in-out infinite; }
+.animate-float-slow    { animation: float-slow 12s ease-in-out infinite; }
+
+@keyframes fade-in-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-in-up { animation: fade-in-up 0.5s ease-out both; }
+
+/* Stack layout primitive */
+.stack > * + * { margin-block-start: var(--stack-space, 1.5rem); }
 .stack-sm { --stack-space: 0.75rem; }
 .stack-lg { --stack-space: 2rem; }
 .stack-xl { --stack-space: 3rem; }
 
-/* ===== Candlelight Dark Mode System ===== */
+/* ============================================================
+   CANDLELIGHT DARK MODE SYSTEM (preserved)
+   ============================================================ */
 
-/* Logo candle glow — subtle pulse in light, blazing in dark */
+/* ----- Candle as a literal light source ----- */
+/* In light mode the logo just has a faint warm halo. In dark mode
+   the logo becomes a flame casting wide warm illumination across
+   the page. The whole page goes near-black, the candle glows hot,
+   and elements catch light on their light-facing edge. */
+
 @keyframes candle-glow-subtle {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(255,191,64,0.18)) drop-shadow(0 0 12px rgba(201,138,42,0.08)); }
+  50%      { filter: drop-shadow(0 0 8px rgba(255,191,64,0.28)) drop-shadow(0 0 20px rgba(201,138,42,0.14)); }
+}
+/* All amber. No orange, no red. Clean amber illumination — half intensity. */
+@keyframes candle-flame {
   0%, 100% {
-    filter: drop-shadow(0 0 4px oklch(0.80 0.14 68 / 0.15))
-            drop-shadow(0 0 12px oklch(0.75 0.10 62 / 0.08));
+    filter:
+      drop-shadow(0  0  16px rgba(255,198,97,0.50))
+      drop-shadow(0  0  36px rgba(255,191,64,0.45))
+      drop-shadow(0  0  68px rgba(229,160,40,0.35))
+      drop-shadow(0  0 110px rgba(180,118,28,0.22));
+  }
+  25% {
+    filter:
+      drop-shadow(0  0  18px rgba(255,201,105,0.52))
+      drop-shadow(0  0  42px rgba(255,191,64,0.50))
+      drop-shadow(0  0  78px rgba(229,160,40,0.40))
+      drop-shadow(0  0 130px rgba(180,118,28,0.25));
   }
   50% {
-    filter: drop-shadow(0 0 8px oklch(0.82 0.16 68 / 0.25))
-            drop-shadow(0 0 20px oklch(0.78 0.12 62 / 0.12));
+    filter:
+      drop-shadow(0  0  24px rgba(255,206,118,0.55))
+      drop-shadow(0  0  52px rgba(255,191,64,0.55))
+      drop-shadow(0  0  90px rgba(229,160,40,0.45))
+      drop-shadow(0  0 150px rgba(180,118,28,0.28));
   }
-}
-@keyframes candle-glow {
-  0%, 100% {
-    filter: drop-shadow(0 0 20px oklch(0.82 0.18 68 / 0.9))
-            drop-shadow(0 0 60px oklch(0.78 0.16 62 / 0.6))
-            drop-shadow(0 0 120px oklch(0.70 0.12 55 / 0.35));
-  }
-  30% {
-    filter: drop-shadow(0 0 28px oklch(0.84 0.19 68 / 0.95))
-            drop-shadow(0 0 75px oklch(0.80 0.17 62 / 0.65))
-            drop-shadow(0 0 140px oklch(0.72 0.13 55 / 0.38));
-  }
-  50% {
-    filter: drop-shadow(0 0 35px oklch(0.86 0.20 68 / 1))
-            drop-shadow(0 0 90px oklch(0.82 0.18 62 / 0.75))
-            drop-shadow(0 0 160px oklch(0.74 0.14 55 / 0.45));
-  }
-  70% {
-    filter: drop-shadow(0 0 24px oklch(0.83 0.18 68 / 0.92))
-            drop-shadow(0 0 65px oklch(0.79 0.16 62 / 0.62))
-            drop-shadow(0 0 130px oklch(0.71 0.12 55 / 0.36));
+  72% {
+    filter:
+      drop-shadow(0  0  18px rgba(255,200,100,0.50))
+      drop-shadow(0  0  40px rgba(255,191,64,0.48))
+      drop-shadow(0  0  74px rgba(229,160,40,0.38))
+      drop-shadow(0  0 120px rgba(180,118,28,0.24));
   }
 }
 
-/* Ambient overlay pulsation in dark mode */
-@keyframes ambient-pulse {
-  0%, 100% { opacity: 1; }
-  40% { opacity: 0.88; }
-  60% { opacity: 1.0; }
-  80% { opacity: 0.92; }
+@keyframes flame-flicker {
+  0%, 100% { opacity: 0.96; }
+  20%      { opacity: 1.00; }
+  35%      { opacity: 0.88; }
+  55%      { opacity: 0.98; }
+  72%      { opacity: 0.92; }
+  88%      { opacity: 1.00; }
 }
 
-.logo-candle {
-  animation: candle-glow-subtle 5s ease-in-out infinite;
-}
-.dark .logo-candle {
-  animation: candle-glow 3.5s ease-in-out infinite;
-}
+.logo-candle { animation: candle-glow-subtle 5s ease-in-out infinite; }
+.dark .logo-candle { animation: candle-flame 4s ease-in-out infinite; }
 
-/* Ambient candlelight — intense full-page amber wash */
+/* The page-wide AMBER illumination — half intensity for a softer glow.
+   Emanates from the header logo position (top-left). Sits above page
+   content with mix-blend-mode: plus-lighter so it literally adds amber
+   light onto whatever is beneath. Pointer-events disabled. */
 .candlelight-ambient {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 40;
+  z-index: 30;
   opacity: 0;
-  transition: opacity 1.5s ease;
+  transition: opacity 1.2s ease;
+  mix-blend-mode: plus-lighter;
   background:
-    /* Hot core near candle */
-    radial-gradient(
-      ellipse 60% 50% at 2% 0%,
-      oklch(0.80 0.17 68 / 0.55),
-      oklch(0.75 0.15 65 / 0.35) 30%,
-      transparent 70%
-    ),
-    /* Wide light cone across the page */
-    radial-gradient(
-      ellipse 140% 120% at 3% 0%,
-      oklch(0.72 0.14 65 / 0.30),
-      oklch(0.65 0.11 60 / 0.18) 30%,
-      oklch(0.58 0.08 55 / 0.10) 55%,
-      oklch(0.50 0.05 50 / 0.05) 80%,
-      oklch(0.40 0.03 45 / 0.02) 100%
-    ),
-    /* Warm base tint — nowhere is fully cold */
-    linear-gradient(
-      135deg,
-      oklch(0.65 0.10 65 / 0.10),
-      oklch(0.55 0.06 55 / 0.04) 50%,
-      oklch(0.45 0.03 50 / 0.02) 100%
-    );
+    /* Hot amber core right at the candle (half intensity) */
+    radial-gradient(circle 280px at 56px 56px,
+      rgba(255,206,118,0.42),
+      rgba(255,191,64,0.27) 28%,
+      rgba(229,160,40,0.14) 60%,
+      transparent 100%),
+    /* Mid amber wash (half intensity) */
+    radial-gradient(ellipse 1300px 950px at 56px 56px,
+      rgba(255,191,64,0.14) 0%,
+      rgba(229,160,40,0.08) 25%,
+      rgba(180,118,28,0.04) 50%,
+      rgba(110,72,16,0.015) 75%,
+      transparent 100%),
+    /* Far falloff (half intensity) */
+    radial-gradient(ellipse 2100px 1600px at 0% 0%,
+      rgba(229,160,40,0.05),
+      rgba(180,118,28,0.025) 40%,
+      rgba(80,52,12,0.01) 70%,
+      transparent 100%);
 }
 .dark .candlelight-ambient {
-  animation: ambient-pulse 3.5s ease-in-out infinite;
   opacity: 1;
+  animation: flame-flicker 4s ease-in-out infinite;
 }
 
-/* ---- Candlelight shadows (light source: top-left) ---- */
-/* Dark shadows on dark bg are invisible — use amber HIGHLIGHTS       */
-/* on the light-facing side + hard dark offsets for the shadow side.   */
-
-/* Headings — amber glow on left + very long shadow right */
+/* ----- Lit text: cream color, long dark cast shadow.
+       The amber tint comes from the candlelight overlay, not the text. ----- */
+.dark h1, .dark h2, .dark h3, .dark h4 {
+  color: #F5EFE0;
+}
 .dark h1 {
   text-shadow:
-    28px 36px 14px oklch(0 0 0 / 0.7),
-    16px 20px 6px oklch(0 0 0 / 0.85),
-    8px 10px 3px oklch(0 0 0 / 0.9),
-    -3px -3px 20px oklch(0.78 0.14 68 / 0.30),
-    0 0 60px oklch(0.75 0.12 65 / 0.12);
+    1px 1px 0 rgba(255,220,140,0.25),
+    14px 14px 0 rgba(0,0,0,0.95),
+    28px 28px 24px rgba(0,0,0,0.85),
+    44px 44px 60px rgba(0,0,0,0.7),
+    -1px -1px 0 rgba(255,235,170,0.30);
 }
 .dark h2 {
   text-shadow:
-    24px 30px 12px oklch(0 0 0 / 0.6),
-    12px 16px 5px oklch(0 0 0 / 0.8),
-    6px 8px 2px oklch(0 0 0 / 0.85),
-    -2px -2px 16px oklch(0.75 0.12 68 / 0.25),
-    0 0 45px oklch(0.72 0.10 65 / 0.10);
+    1px 1px 0 rgba(255,220,140,0.22),
+    10px 10px 0 rgba(0,0,0,0.92),
+    22px 22px 20px rgba(0,0,0,0.8),
+    36px 36px 50px rgba(0,0,0,0.65),
+    -1px -1px 0 rgba(255,235,170,0.25);
 }
 .dark h3 {
   text-shadow:
-    20px 24px 10px oklch(0 0 0 / 0.5),
-    10px 12px 4px oklch(0 0 0 / 0.7),
-    5px 6px 2px oklch(0 0 0 / 0.8),
-    -2px -2px 12px oklch(0.72 0.10 68 / 0.20);
+    1px 1px 0 rgba(255,220,140,0.20),
+    7px 7px 0 rgba(0,0,0,0.9),
+    16px 16px 16px rgba(0,0,0,0.75),
+    28px 28px 40px rgba(0,0,0,0.55),
+    -1px -1px 0 rgba(255,235,170,0.22);
 }
-
-/* Body text — warm glow + very long shadow */
-.dark p,
-.dark li,
-.dark span,
-.dark label,
-.dark a {
+.dark p, .dark li, .dark label, .dark span:not(.yes):not(.yes-strong):not(.no) {
+  color: #F5EFE0;
   text-shadow:
-    16px 20px 8px oklch(0 0 0 / 0.35),
-    8px 10px 4px oklch(0 0 0 / 0.55),
-    4px 5px 2px oklch(0 0 0 / 0.65),
-    -1px -1px 8px oklch(0.70 0.08 68 / 0.10);
+    5px 5px 0 rgba(0,0,0,0.85),
+    10px 10px 14px rgba(0,0,0,0.6),
+    18px 18px 28px rgba(0,0,0,0.4);
+}
+.dark a {
+  color: #F5EFE0;
 }
 
-/* Buttons — amber highlight on top-left edge, very long shadow bottom-right */
-.dark button,
-.dark [role="button"] {
+/* ----- Lit surfaces: cards & buttons catch warm rim light
+   on their top-left edge and cast long dark shadows
+   bottom-right onto the dark page. ----- */
+.dark .brand-card,
+.dark .letter,
+.dark [class*="rounded-"][class*="border"],
+.dark [class*="rounded-2xl"],
+.dark [class*="rounded-[24px]"],
+.dark [class*="rounded-[28px]"] {
+  background: #060503 !important;
+  border-color: rgba(255,191,64,0.12) !important;
   box-shadow:
-    36px 48px 20px oklch(0 0 0 / 0.35),
-    20px 28px 10px oklch(0 0 0 / 0.55),
-    10px 14px 5px oklch(0 0 0 / 0.7),
-    inset 1px 1px 0 oklch(0.78 0.14 68 / 0.15),
-    -3px -3px 20px oklch(0.75 0.12 68 / 0.10);
+    /* Amber rim highlight on the light-facing edge */
+    inset 1px 1px 0 0 rgba(255,206,118,0.25),
+    inset 2px 2px 14px -4px rgba(255,191,64,0.20),
+    /* Hard cast shadow bottom-right */
+    14px 14px 0 -2px rgba(0,0,0,0.85),
+    28px 28px 30px -8px rgba(0,0,0,0.95),
+    50px 50px 80px -12px rgba(0,0,0,0.85),
+    80px 80px 140px -20px rgba(0,0,0,0.65) !important;
   transition: box-shadow 0.3s ease;
 }
-.dark button:hover,
-.dark [role="button"]:hover {
+
+/* Buttons: amber-lit pill with cast shadow */
+.dark .btn-primary {
+  background: linear-gradient(135deg, #100A03 0%, #050200 100%);
+  color: #F5EFE0;
+  border: 1px solid rgba(255,191,64,0.20);
   box-shadow:
-    44px 56px 26px oklch(0 0 0 / 0.4),
-    24px 32px 12px oklch(0 0 0 / 0.6),
-    12px 16px 6px oklch(0 0 0 / 0.75),
-    inset 1px 1px 0 oklch(0.80 0.15 68 / 0.25),
-    -4px -4px 28px oklch(0.78 0.14 68 / 0.14);
+    inset 1px 1px 0 rgba(255,206,118,0.40),
+    inset 2px 2px 10px -2px rgba(255,191,64,0.30),
+    10px 10px 0 -2px rgba(0,0,0,0.85),
+    22px 22px 28px -6px rgba(0,0,0,0.92),
+    40px 40px 60px -10px rgba(0,0,0,0.7);
+}
+.dark .btn-primary:hover {
+  background: linear-gradient(135deg, #1A0F05 0%, #0A0501 100%);
+  box-shadow:
+    inset 1px 1px 0 rgba(255,210,128,0.50),
+    inset 2px 2px 12px -2px rgba(255,200,80,0.40),
+    12px 12px 0 -2px rgba(0,0,0,0.88),
+    26px 26px 32px -6px rgba(0,0,0,0.95),
+    48px 48px 70px -10px rgba(0,0,0,0.75);
+}
+.dark .btn-ghost {
+  background: rgba(6,5,3,0.7);
+  color: #F5EFE0;
+  border: 1px solid rgba(255,191,64,0.22);
+  box-shadow:
+    inset 1px 1px 0 rgba(255,206,118,0.20),
+    8px 8px 0 -2px rgba(0,0,0,0.75),
+    18px 18px 22px -6px rgba(0,0,0,0.85);
+}
+.dark .btn-light {
+  background: linear-gradient(135deg, #FFC661 0%, #FFBF40 100%);
+  color: #050200;
+  border: 1px solid rgba(255,206,118,0.4);
+  box-shadow:
+    inset 1px 1px 0 rgba(255,255,255,0.55),
+    10px 10px 0 -2px rgba(0,0,0,0.85),
+    22px 22px 30px -6px rgba(0,0,0,0.92),
+    44px 44px 64px -10px rgba(0,0,0,0.7);
 }
 
-/* Cards — very long shadow + warm inner highlight on light-facing edge */
-.dark [class*="rounded"] {
-  box-shadow:
-    36px 48px 20px oklch(0 0 0 / 0.3),
-    20px 28px 8px oklch(0 0 0 / 0.5),
-    10px 14px 4px oklch(0 0 0 / 0.6),
-    inset 1px 1px 0 oklch(0.75 0.12 68 / 0.10),
-    -2px -2px 16px oklch(0.72 0.10 68 / 0.08);
+/* Header / nav links in dark */
+.dark .nav-link { color: rgba(245,239,224,0.78); }
+.dark .nav-link:hover { color: #F5EFE0; }
+.dark .nav-link::after { background: #FFBF40; }
+
+/* Eyebrow + hand annotations in dark — eyebrows stay amber as accent labels */
+.dark .eyebrow { color: #FFBF40; }
+.dark .eyebrow-gold { color: #FFBF40; }
+
+/* All scribble notes in dark mode glow bright mint-teal.
+   Lifted above the candlelight-ambient overlay (z-index 30) with
+   isolation so the plus-lighter blend mode doesn't blow them out to
+   white near the candle. They render OVER the warm light, not BENEATH it.
+   Inline `style={{ color: ... }}` on individual .hand instances (e.g.
+   the gold whispers on atmos-deep CTA sections) still wins via inline
+   style precedence — those stay gold by intent. */
+.dark .hand {
+  position: relative;
+  z-index: 35;
+  isolation: isolate;
+  color: #5EEBC4 !important;
+  text-shadow:
+    0 0 14px rgba(94,235,196,0.55),
+    0 0 32px rgba(94,235,196,0.30),
+    0 0 60px rgba(94,235,196,0.15),
+    4px 4px 0 rgba(0,0,0,0.85) !important;
 }
 
-/* Feature cards — longest shadow + brightest warm edge */
-.dark [class*="border-border"] {
-  box-shadow:
-    44px 56px 24px oklch(0 0 0 / 0.35),
-    24px 32px 10px oklch(0 0 0 / 0.55),
-    12px 16px 5px oklch(0 0 0 / 0.7),
-    inset 2px 2px 0 oklch(0.78 0.14 68 / 0.12),
-    -3px -3px 24px oklch(0.75 0.12 68 / 0.10);
+/* Atmos backgrounds — pure black in dark, candlelight does the lighting */
+.dark .atmos      { background: #020100; }
+.dark .atmos-soft { background: #020100; }
+.dark .atmos-deep { background: #000000; color: #F5EFE0; }
+
+/* Drop cap recolor in dark */
+.dark .dropcap::first-letter { color: #E8C879; }
+
+/* Stat numbers / step numbers in dark */
+.dark .stepnum { color: #E8C879; }
+
+/* Comparison table tweaks in dark */
+.dark .ctable thead th { color: rgba(252,228,164,0.55); border-bottom-color: rgba(232,200,121,0.15); }
+.dark .ctable thead th.featured { color: #FFC661; background: linear-gradient(180deg, rgba(232,200,121,0.10), rgba(232,200,121,0.03)); }
+.dark .ctable tbody tr td:first-child { color: #F5EFE0; }
+.dark .ctable tbody td.featured { background: rgba(232,200,121,0.05); }
+.dark .ctable tbody tr + tr td { border-top-color: rgba(232,200,121,0.08); }
+.dark .yes { background: rgba(232,200,121,0.16); color: #E8C879; }
+.dark .yes-strong { background: #E8C879; color: #1A1208; }
+.dark .no { background: rgba(252,228,164,0.06); color: rgba(252,228,164,0.30); }
+
+/* Form fields in dark */
+.dark .field-input,
+.dark .field-select,
+.dark .field-textarea {
+  background: rgba(20,16,11,0.7);
+  border-color: rgba(255,191,64,0.18);
+  color: #F5EFE0;
+}
+.dark .field-label { color: rgba(245,239,224,0.65); }
+.dark .field-input:focus,
+.dark .field-select:focus,
+.dark .field-textarea:focus {
+  border-color: rgba(232,200,121,0.55);
+  box-shadow: 0 0 0 4px rgba(232,200,121,0.10);
+  background: rgba(28,22,15,0.85);
 }
 
-/* Reveal elements — invisible in light, fade in with dark */
+/* The arch ornament — barely visible in dark */
+.dark .arch { border-color: rgba(232,200,121,0.18); }
+
 .dark-reveal {
   opacity: 0;
   transform: translateY(4px);
   transition: opacity 1.5s ease 0.6s, transform 1.5s ease 0.6s;
 }
-.dark .dark-reveal {
-  opacity: 1;
-  transform: translateY(0);
-}
+.dark .dark-reveal { opacity: 1; transform: translateY(0); }
 
-/* Light-only hints — visible in light, vanish in dark */
-.light-hint {
-  transition: opacity 0.5s ease, transform 0.3s ease;
-}
-.dark .light-hint {
-  opacity: 0;
-  pointer-events: none;
-}
+.light-hint { transition: opacity 0.5s ease, transform 0.3s ease; }
+.dark .light-hint { opacity: 0; pointer-events: none; }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .logo-candle {
-    animation: none !important;
-    filter: drop-shadow(0 0 4px oklch(0.78 0.14 75 / 0.12));
-  }
-  .dark .logo-candle {
-    filter: drop-shadow(0 0 8px oklch(0.78 0.14 75 / 0.5))
-            drop-shadow(0 0 20px oklch(0.72 0.11 60 / 0.25));
-  }
-  .dark .candlelight-ambient {
-    animation: none;
-  }
-  .candlelight-ambient,
-  .dark-reveal,
-  .light-hint {
-    transition-duration: 0.01s;
-  }
+  .logo-candle { animation: none !important; filter: drop-shadow(0 0 4px oklch(0.78 0.14 75 / 0.12)); }
+  .dark .logo-candle { filter: drop-shadow(0 0 8px oklch(0.78 0.14 75 / 0.5)) drop-shadow(0 0 20px oklch(0.72 0.11 60 / 0.25)); }
+  .dark .candlelight-ambient { animation: none; }
+  .candlelight-ambient, .dark-reveal, .light-hint { transition-duration: 0.01s; }
+  .rise { animation: none; opacity: 1; transform: none; }
 }

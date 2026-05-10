@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 import path from "path";
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
+const STATIC_EXPORT = process.env.NEXT_STATIC_EXPORT === "1";
+
 const securityHeaders = [
   {
     key: "X-Frame-Options",
@@ -33,19 +35,31 @@ const securityHeaders = [
   },
 ];
 
-const nextConfig: NextConfig = {
-  turbopack: {
-    root: path.join(__dirname),
-  },
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: securityHeaders,
+// Static export pathway (`npm run export`) bypasses headers/redirects and emits
+// raw HTML to ./out for serving via npm run serve-export. Cloudflare Workers
+// deploy goes through the non-export branch via OpenNext.
+const nextConfig: NextConfig = STATIC_EXPORT
+  ? {
+      output: "export",
+      images: { unoptimized: true },
+      trailingSlash: true,
+      turbopack: { root: path.join(__dirname) },
+    }
+  : {
+      turbopack: { root: path.join(__dirname) },
+      async headers() {
+        return [{ source: "/(.*)", headers: securityHeaders }];
       },
-    ];
-  },
-};
+      async redirects() {
+        return [
+          {
+            source: "/services",
+            destination: "/what-we-handle",
+            permanent: true,
+          },
+        ];
+      },
+    };
 
 export default nextConfig;
 

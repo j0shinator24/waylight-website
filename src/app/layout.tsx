@@ -1,19 +1,29 @@
 import type { Metadata } from "next"
-import { Geist, Caveat } from "next/font/google"
+import { Fraunces, DM_Sans, Caveat } from "next/font/google"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { ThemeProvider } from "@/components/theme-provider"
+import { SiteJsonLd } from "@/components/seo/json-ld"
 import { BASE_URL, BUSINESS } from "@/lib/constants"
 import "./globals.css"
 
-const geistSans = Geist({
-  variable: "--font-sans",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  display: "swap",
+  axes: ["opsz", "SOFT"],
+})
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  display: "swap",
 })
 
 const caveat = Caveat({
   variable: "--font-handwritten",
   subsets: ["latin"],
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -31,51 +41,22 @@ export const metadata: Metadata = {
     title: "Waylight Plan Management | NDIS Plan Manager QLD",
     description:
       "Queensland NDIS plan management. One dedicated plan manager who knows your name. Invoice processing, budget tracking, and full provider choice.",
-    url: BASE_URL,
-    images: [{ url: `${BASE_URL}/og/home`, width: 1200, height: 630, alt: "Waylight Plan Management — Queensland NDIS plan management, done personally" }],
+    images: [
+      {
+        url: "/og/default",
+        width: 1200,
+        height: 630,
+        alt: "Waylight Plan Management - NDIS plan manager based in Queensland.",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Waylight Plan Management | NDIS Plan Manager QLD",
     description:
       "Queensland NDIS plan management. One dedicated plan manager who knows your name.",
-    images: [`${BASE_URL}/og/home`],
+    images: ["/og/default"],
   },
-}
-
-const localBusinessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: BUSINESS.name,
-  legalName: BUSINESS.legalName,
-  description:
-    "NDIS plan management service providing invoice processing, budget tracking, and provider payments for NDIS participants in Queensland.",
-  url: BASE_URL,
-  email: BUSINESS.email,
-  telephone: BUSINESS.phone,
-  taxID: `ABN ${BUSINESS.abn}`,
-  founder: {
-    "@type": "Person",
-    name: BUSINESS.founder,
-    jobTitle: "Plan Manager",
-  },
-  areaServed: {
-    "@type": "State",
-    name: "Queensland",
-    containedInPlace: { "@type": "Country", name: "Australia" },
-  },
-  address: {
-    "@type": "PostalAddress",
-    addressRegion: "QLD",
-    addressCountry: "AU",
-  },
-  priceRange: "Funded by NDIS",
-  knowsAbout: [
-    "NDIS Plan Management",
-    "NDIS Invoice Processing",
-    "NDIS Budget Tracking",
-    "NDIS Provider Payments",
-  ],
 }
 
 export default function RootLayout({
@@ -84,13 +65,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${caveat.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col font-sans">
+    <html lang="en" className={`${fraunces.variable} ${dmSans.variable} ${caveat.variable} h-full antialiased`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col font-sans bg-background text-foreground">
         <div className="candlelight-ambient" aria-hidden="true" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
-        />
+        <SiteJsonLd />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:text-sm"

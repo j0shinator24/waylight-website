@@ -1,6 +1,4 @@
 import type { Metadata } from "next"
-import { Card, CardContent } from "@/components/ui/card"
-import { HeroBackground } from "@/components/hero-background"
 import {
   FileText,
   ShieldCheck,
@@ -14,14 +12,36 @@ import {
   Building2,
   ClipboardCheck,
   UserCheck,
-  HeartPulse,
   Briefcase,
 } from "lucide-react"
+import { BASE_URL } from "@/lib/constants"
+import { SCHEMA_IDS } from "@/components/seo/json-ld"
 
 export const metadata: Metadata = {
   title: "NDIS Practice Standards Policies",
   description:
-    "All 14 NDIS Practice Standards-aligned policies from Waylight Plan Management. Complaints, code of conduct, privacy, incident management, financial management, and more.",
+    "All 14 NDIS Practice Standards-aligned policies from Waylight. Financial management, fraud prevention, complaints, code of conduct, privacy, and more.",
+  alternates: { canonical: `${BASE_URL}/policies` },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: "Policies | Waylight Plan Management",
+    description: "All 14 NDIS Practice Standards-aligned policies, published openly.",
+    url: `${BASE_URL}/policies`,
+    type: "website",
+    locale: "en_AU",
+    images: [
+      {
+        url: "/og/default",
+        width: 1200,
+        height: 630,
+        alt: "Waylight Plan Management - NDIS plan manager based in Queensland.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og/default"],
+  },
 }
 
 const policies = [
@@ -125,32 +145,80 @@ const policies = [
   },
 ]
 
+const collectionPageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": `${BASE_URL}/policies#collectionpage`,
+  url: `${BASE_URL}/policies`,
+  name: "Waylight Plan Management Policies",
+  description: "All 14 NDIS Practice Standards-aligned policies published by Waylight Plan Management.",
+  isPartOf: { "@id": SCHEMA_IDS.website },
+  about: { "@id": SCHEMA_IDS.organization },
+  hasPart: policies.map((p) => ({
+    "@type": "DigitalDocument",
+    name: `${p.title} Policy`,
+    url: `${BASE_URL}${p.href}`,
+    encodingFormat: "application/pdf",
+  })),
+}
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+    { "@type": "ListItem", position: 2, name: "Policies", item: `${BASE_URL}/policies` },
+  ],
+}
+
 export default function PoliciesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-primary/5 to-background py-16 md:py-24">
-        <HeroBackground />
-        <div className="relative mx-auto max-w-6xl px-4 md:px-8">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl font-bold tracking-tight md:text-5xl">
-              Our Policies
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
+      {/* HERO */}
+      <section className="relative overflow-hidden atmos grain pt-28 md:pt-36 pb-20 md:pb-24">
+        <div className="arch hidden md:block" style={{ right: "-160px", top: "60px", width: "520px", height: "260px" }} />
+        <div className="arch hidden md:block" style={{ right: "-80px", top: "140px", width: "380px", height: "190px", opacity: 0.55 }} />
+
+        <div className="relative mx-auto max-w-[1240px] px-6 md:px-10">
+          <div className="max-w-[60ch]">
+            <p className="eyebrow rise d1">Our policies</p>
+            <h1
+              className="text-[2.6rem] sm:text-5xl md:text-[4rem] leading-[1] mt-7 rise d2 text-foreground"
+              style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 60" }}
+            >
+              All 14, in{" "}
+              <span
+                className="italic text-[color:var(--color-teal-500)]"
+                style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 100" }}
+              >
+                plain sight
+              </span>
+              .
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              Transparency is part of how we work. All 14 NDIS Practice
-              Standards-aligned policies are published here. They outline how
-              Waylight operates, how we protect your information, and what to do
-              if something goes wrong.
+            <p className="mt-8 text-lg md:text-xl text-[color:var(--color-ink-soft)] leading-[1.7] max-w-[58ch] rise d3">
+              Transparency is part of how we work. Every NDIS Practice Standards-aligned policy is published here, in full,
+              for anyone to read. How Waylight operates. How we protect your information. What to do if something goes wrong.
             </p>
+            <p className="hand hand-lg -rotate-2 mt-7 ml-2">no hidden filing cabinets.</p>
           </div>
         </div>
       </section>
 
-      {/* Policies */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {policies.map((policy) => (
+      {/* POLICIES GRID */}
+      <section className="py-20 md:py-28">
+        <div className="mx-auto max-w-[1180px] px-6 md:px-10">
+          <h2 className="sr-only">NDIS Practice Standards-aligned policies</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {policies.map((policy, i) => (
               <a
                 key={policy.title}
                 href={policy.href}
@@ -158,33 +226,39 @@ export default function PoliciesPage() {
                 rel="noopener noreferrer"
                 className="block group"
               >
-                <Card className="border-border/50 h-full transition-colors group-hover:border-primary/30">
-                  <CardContent className="pt-6">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-                      <policy.icon className="h-6 w-6 text-primary" />
+                <article className="brand-card h-full">
+                  <div className="flex items-start gap-5">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[color:var(--color-teal-500)]/10 text-[color:var(--color-teal-500)] group-hover:bg-[color:var(--color-teal-500)] group-hover:text-[color:var(--color-ivory-50)] transition-colors duration-500">
+                      <policy.icon className="h-5 w-5" strokeWidth={1.7} />
                     </div>
-                    <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
-                      {policy.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {policy.description}
-                    </p>
-                    <p className="mt-3 text-xs text-muted-foreground">
-                      View policy (PDF)
-                    </p>
-                  </CardContent>
-                </Card>
+                    <div className="flex-1">
+                      <div className="flex items-baseline gap-3">
+                        <span
+                          className="font-display italic text-xl text-[color:var(--color-gold-500)] leading-none"
+                          style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 100" }}
+                        >
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <h3 className="text-xl text-foreground leading-tight">{policy.title}</h3>
+                      </div>
+                      <p className="text-[15px] text-[color:var(--color-ink-muted)] leading-relaxed mt-3">
+                        {policy.description}
+                      </p>
+                      <p className="mt-4 text-xs uppercase tracking-[0.18em] text-[color:var(--color-ink-faint)] font-medium">
+                        View policy (PDF) →
+                      </p>
+                    </div>
+                  </div>
+                </article>
               </a>
             ))}
           </div>
 
-          <div className="mt-12 max-w-2xl">
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              All 14 NDIS Practice Standards-aligned policies are published
-              above. If you need a policy in an alternative format, please
-              contact us.
-            </p>
-          </div>
+          <p className="mt-12 max-w-[60ch] text-sm text-[color:var(--color-ink-muted)] leading-relaxed">
+            All 14 NDIS Practice Standards-aligned policies are published above. If you need a policy in an alternative
+            format, please contact us and we&apos;ll provide it.
+          </p>
+          <p className="hand mt-6 -rotate-1">honest, open, on the record.</p>
         </div>
       </section>
     </>

@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Waylight — NDIS Plan Management, Personally</title>
+<meta name="description" content="One dedicated plan manager who answers your calls. Queensland-based, funded by your NDIS plan, built by a frontline support worker." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=DM+Sans:opsz,wght@9..40,300..700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ivory:   { 50:'#FDFAF4', 100:'#FBF7EE', 200:'#F5EFE0', 300:'#ECE3CE' },
+          ink:     { DEFAULT:'#1A1F1E', soft:'#2D3533', muted:'#5C6764', faint:'#8A938F' },
+          teal:    { 50:'#E9F2F1', 100:'#C9DEDC', 400:'#3A8E8E', 500:'#1F6F6F', 600:'#155757', 700:'#0E4242' },
+          gold:    { 100:'#F2E7CC', 300:'#D9BE82', 500:'#B8924A', 600:'#9A7836', 700:'#7A5E26' },
+        },
+        fontFamily: {
+          display: ['Fraunces','ui-serif','Georgia','serif'],
+          sans:    ['"DM Sans"','ui-sans-serif','system-ui','sans-serif'],
+          hand:    ['Caveat','cursive'],
+        },
+        boxShadow: {
+          'card':   '0 1px 0 rgba(31,111,111,0.06), 0 12px 32px -16px rgba(20,60,60,0.18), 0 32px 64px -40px rgba(20,60,60,0.22)',
+          'lift':   '0 1px 0 rgba(31,111,111,0.08), 0 24px 48px -20px rgba(15,50,50,0.30), 0 60px 100px -60px rgba(10,40,40,0.35)',
+          'inset-line': 'inset 0 -1px 0 rgba(26,31,30,0.08)',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root{
+    --ivory: #FBF7EE;
+    --ink:   #1A1F1E;
+    --teal:  #1F6F6F;
+    --gold:  #B8924A;
+  }
+  html, body { background: var(--ivory); color: var(--ink); }
+  body{
+    font-family:'DM Sans', system-ui, sans-serif;
+    font-feature-settings:"ss01","cv11";
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  /* Fraunces variable axes — warm, slightly soft */
+  .font-display{ font-variation-settings:"opsz" 144, "SOFT" 50; letter-spacing:-0.025em; }
+  .font-display-italic{ font-variation-settings:"opsz" 144, "SOFT" 80; }
+
+  /* Grain overlay — subtle warm noise */
+  .grain::before{
+    content:"";
+    position:absolute; inset:0;
+    pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.10  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.40'/></svg>");
+    mix-blend-mode:multiply;
+    opacity:.10;
+  }
+
+  /* Atmospheric hero gradient */
+  .atmos{
+    background:
+      radial-gradient(1200px 600px at 85% 0%, rgba(184,146,74,0.18), transparent 60%),
+      radial-gradient(900px 700px at 0% 100%, rgba(31,111,111,0.16), transparent 55%),
+      radial-gradient(600px 400px at 50% 50%, rgba(217,190,130,0.10), transparent 70%),
+      linear-gradient(180deg, #FDFAF4 0%, #FBF7EE 100%);
+  }
+
+  .atmos-deep{
+    background:
+      radial-gradient(900px 500px at 20% 0%, rgba(184,146,74,0.22), transparent 60%),
+      radial-gradient(700px 500px at 100% 100%, rgba(31,111,111,0.30), transparent 55%),
+      linear-gradient(180deg, #0E4242 0%, #0A2F2F 100%);
+    color:#F5EFE0;
+  }
+
+  /* Underline accent */
+  .ink-mark{
+    background-image: linear-gradient(120deg, rgba(184,146,74,0.0) 0%, rgba(184,146,74,0.55) 30%, rgba(184,146,74,0.55) 70%, rgba(184,146,74,0.0) 100%);
+    background-repeat:no-repeat;
+    background-size:100% 0.42em;
+    background-position: 0 78%;
+    padding: 0 .08em;
+  }
+
+  /* Ornamental candle divider */
+  .candle-rule{
+    display:flex; align-items:center; gap:1rem;
+    color:rgba(26,31,30,0.45);
+  }
+  .candle-rule::before, .candle-rule::after{
+    content:""; flex:1; height:1px;
+    background:linear-gradient(90deg, transparent, rgba(26,31,30,0.18), transparent);
+  }
+
+  /* Editorial drop-cap */
+  .dropcap::first-letter{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:4.2em;
+    line-height:.85;
+    float:left;
+    padding: .12em .12em 0 0;
+    color: var(--teal);
+    font-variation-settings:"opsz" 144, "SOFT" 80;
+  }
+
+  /* Buttons */
+  .btn{
+    display:inline-flex; align-items:center; gap:.6rem;
+    padding: 0.95rem 1.6rem;
+    border-radius: 999px;
+    font-weight:500;
+    font-size:.95rem;
+    letter-spacing:.005em;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, background-color .25s, color .25s;
+    will-change: transform;
+  }
+  .btn-primary{
+    background: var(--ink);
+    color: #FDFAF4;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 18px 30px -18px rgba(15,50,50,0.55);
+  }
+  .btn-primary:hover{ transform: translateY(-2px); background:#0E4242; box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 24px 40px -18px rgba(15,50,50,0.7); }
+  .btn-primary:active{ transform: translateY(0); }
+  .btn-primary:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+
+  .btn-ghost{
+    background: transparent;
+    color: var(--ink);
+    border:1px solid rgba(26,31,30,0.18);
+  }
+  .btn-ghost:hover{ transform: translateY(-2px); border-color:rgba(26,31,30,0.45); background: rgba(255,255,255,0.5); }
+  .btn-ghost:focus-visible{ outline:2px solid var(--teal); outline-offset:3px; }
+
+  .btn-light{
+    background: rgba(253,250,244,0.96);
+    color: #0E4242;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.4), 0 18px 30px -18px rgba(0,0,0,0.5);
+  }
+  .btn-light:hover{ transform: translateY(-2px); background:#FFFFFF; }
+
+  /* Eyebrow label */
+  .eyebrow{
+    font-size: .72rem;
+    font-weight:500;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color: var(--teal);
+    display:inline-flex;
+    align-items:center;
+    gap:.55rem;
+  }
+  .eyebrow::before{
+    content:""; width:24px; height:1px; background: currentColor; opacity:.55;
+  }
+
+  /* Card */
+  .card{
+    background: #FFFFFF;
+    border-radius: 22px;
+    padding: 2rem;
+    box-shadow: 0 1px 0 rgba(31,111,111,0.06), 0 12px 32px -16px rgba(20,60,60,0.18), 0 32px 64px -40px rgba(20,60,60,0.22);
+    border: 1px solid rgba(26,31,30,0.05);
+    transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s;
+  }
+  .card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 1px 0 rgba(31,111,111,0.08), 0 24px 48px -20px rgba(15,50,50,0.30), 0 60px 100px -60px rgba(10,40,40,0.35);
+  }
+
+  /* Comparison table */
+  .ctable{ width:100%; border-collapse:separate; border-spacing:0; }
+  .ctable th, .ctable td{ padding: 1.1rem 1.25rem; text-align:left; }
+  .ctable thead th{
+    font-family:'DM Sans',sans-serif;
+    font-weight:500;
+    font-size:.78rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color: rgba(26,31,30,0.55);
+    border-bottom: 1px solid rgba(26,31,30,0.10);
+  }
+  .ctable thead th.featured{
+    color: var(--teal);
+    background: linear-gradient(180deg, rgba(31,111,111,0.06), rgba(31,111,111,0.02));
+    border-radius: 16px 16px 0 0;
+  }
+  .ctable tbody tr td:first-child{ color: var(--ink); font-weight:500; }
+  .ctable tbody td.featured{ background: rgba(31,111,111,0.04); }
+  .ctable tbody tr:last-child td.featured{ border-radius: 0 0 16px 16px; }
+  .ctable tbody tr + tr td{ border-top:1px dashed rgba(26,31,30,0.08); }
+  .yes{ width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:999px; background:rgba(31,111,111,0.12); color:var(--teal); }
+  .yes-strong{ background:var(--teal); color:#FBF7EE; }
+  .no{ width:24px; height:24px; display:inline-flex; align-items:center; justify-content:center; border-radius:999px; background:rgba(26,31,30,0.05); color:rgba(26,31,30,0.30); }
+
+  /* Step number */
+  .stepnum{
+    font-family:'Fraunces',serif;
+    font-variation-settings:"opsz" 144, "SOFT" 80;
+    font-style: italic;
+    font-weight:300;
+    font-size: 4.8rem;
+    line-height:1;
+    color: var(--gold);
+  }
+
+  /* Hand annotation */
+  .hand{
+    font-family:'Caveat', cursive;
+    font-weight:600;
+    color: rgba(31,111,111,0.7);
+    font-size: 1.55rem;
+    line-height:1;
+  }
+  .hand-lg{ font-size: 2rem; }
+
+  /* Animated reveal */
+  @keyframes rise { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform:none; } }
+  .rise{ animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+  .d1{ animation-delay:.05s } .d2{ animation-delay:.15s } .d3{ animation-delay:.25s } .d4{ animation-delay:.35s } .d5{ animation-delay:.45s } .d6{ animation-delay:.55s }
+
+  /* Header */
+  .nav-link{
+    position:relative; padding:.4rem 0; color:rgba(26,31,30,0.72); font-size:.92rem; font-weight:500;
+    transition: color .25s;
+  }
+  .nav-link:hover{ color:var(--ink); }
+  .nav-link::after{
+    content:""; position:absolute; left:0; right:0; bottom:-2px; height:1px;
+    background: var(--gold); transform: scaleX(0); transform-origin:left;
+    transition: transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .nav-link:hover::after{ transform: scaleX(1); }
+
+  /* Marquee */
+  .marquee{ overflow:hidden; mask-image:linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent); }
+  .marquee-track{
+    display:flex; gap:4rem; width:max-content;
+    animation: scroll 38s linear infinite;
+  }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* Decorative arch (mirrors logo arch) */
+  .arch{
+    position:absolute; pointer-events:none;
+    border:1px solid rgba(184,146,74,0.35);
+    border-radius:50% 50% 0 0 / 100% 100% 0 0;
+  }
+
+  /* Letter card (built by) */
+  .letter{
+    background: #FDFAF4;
+    border-radius: 28px;
+    padding: 3rem 3.25rem 3.25rem;
+    box-shadow:
+      0 1px 0 rgba(31,111,111,0.08),
+      0 24px 48px -20px rgba(15,50,50,0.22),
+      0 60px 100px -60px rgba(10,40,40,0.30),
+      inset 0 0 0 1px rgba(26,31,30,0.05);
+    position:relative;
+  }
+  .letter::before{
+    content:""; position:absolute; top:0; left:3rem; right:3rem; height:6px;
+    background: linear-gradient(90deg, transparent, rgba(184,146,74,0.55), transparent);
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ====================== HEADER ====================== -->
+<header class="absolute top-0 left-0 right-0 z-50">
+  <div class="mx-auto max-w-[1240px] px-6 md:px-10 pt-7 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3 group">
+      <img src="public/logo.png" alt="" class="h-11 w-11 object-contain transition-transform duration-500 group-hover:rotate-[-3deg]" />
+      <span class="font-display text-2xl tracking-tight text-ink">waylight</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-9">
+      <a href="#how" class="nav-link">How it works</a>
+      <a href="#what" class="nav-link">What we handle</a>
+      <a href="#who" class="nav-link">Who we serve</a>
+      <a href="#story" class="nav-link">Our story</a>
+    </nav>
+    <a href="#contact" class="hidden md:inline-flex btn btn-ghost !py-2.5 !px-5 !text-sm">Talk to us</a>
+  </div>
+</header>
+
+<!-- ====================== HERO ====================== -->
+<section class="relative overflow-hidden atmos grain pt-36 md:pt-44 pb-28 md:pb-36">
+  <!-- Decorative arch echoing the logo -->
+  <div class="arch hidden md:block" style="right:-160px; top:60px; width:520px; height:260px;"></div>
+  <div class="arch hidden md:block" style="right:-80px; top:140px; width:380px; height:190px; opacity:.55;"></div>
+
+  <div class="relative mx-auto max-w-[1240px] px-6 md:px-10 grid md:grid-cols-12 gap-10 items-end">
+    <div class="md:col-span-8 relative z-10">
+      <p class="eyebrow rise d1">NDIS Plan Management · Queensland</p>
+
+      <h1 class="font-display text-[2.8rem] sm:text-6xl md:text-[5.2rem] leading-[0.96] mt-7 rise d2" style="font-variation-settings:'opsz' 144, 'SOFT' 60;">
+        Your plan,<br/>
+        <span class="italic font-light text-teal-600" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">managed</span> by
+        <span class="ink-mark">a real person</span>.
+      </h1>
+
+      <p class="mt-9 text-lg md:text-xl text-ink-soft max-w-[58ch] leading-[1.7] rise d3">
+        One dedicated plan manager who knows your name, answers your calls, and handles every invoice. No call centres. No ticket systems. Just direct, personal service — the way it ought to be.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-start gap-4 rise d4">
+        <a href="#contact" class="btn btn-primary">
+          Talk to a real person
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#how" class="btn btn-ghost">See how it works</a>
+      </div>
+
+      <ul class="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-ink-muted rise d5">
+        <li class="flex items-center gap-2"><span class="yes !w-5 !h-5"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Funded by your NDIS plan</li>
+        <li class="flex items-center gap-2"><span class="yes !w-5 !h-5"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>No cost to your other supports</li>
+        <li class="flex items-center gap-2"><span class="yes !w-5 !h-5"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Queensland based</li>
+      </ul>
+    </div>
+
+    <!-- Vertical "promise" card -->
+    <aside class="md:col-span-4 relative z-10 rise d6">
+      <div class="card !p-0 overflow-hidden">
+        <div class="px-7 pt-7 pb-5 border-b border-ink/5">
+          <p class="eyebrow !text-gold-600 before:!bg-gold-500/60">A small promise</p>
+          <p class="font-display text-[1.45rem] leading-snug mt-3 text-ink">
+            "When you call us, <em class="italic text-teal-500">we pick up</em>. The same person, every time."
+          </p>
+        </div>
+        <div class="px-7 py-5 flex items-center gap-3">
+          <div class="h-10 w-10 rounded-full bg-teal-500/10 flex items-center justify-center text-teal-600 font-display text-lg italic">w</div>
+          <div class="text-sm">
+            <p class="font-medium text-ink">Waylight</p>
+            <p class="text-ink-faint">Plan management, Brisbane QLD</p>
+          </div>
+        </div>
+      </div>
+      <p class="hand hand-lg -rotate-2 mt-6 ml-3">scroll down — it gets better</p>
+    </aside>
+  </div>
+</section>
+
+<!-- ====================== STATS / PROMISE BAR ====================== -->
+<section class="relative -mt-14 z-20">
+  <div class="mx-auto max-w-[1180px] px-6 md:px-10">
+    <div class="bg-white rounded-[28px] shadow-card border border-ink/5 grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-ink/10 overflow-hidden">
+      <div class="px-8 py-9">
+        <p class="font-display text-5xl text-ink" style="font-variation-settings:'opsz' 144, 'SOFT' 80;">2<span class="text-2xl text-ink-faint align-top ml-1">days</span></p>
+        <p class="text-sm text-ink-muted mt-2">Onboarding turnaround</p>
+      </div>
+      <div class="px-8 py-9">
+        <p class="font-display text-5xl text-ink italic" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">one</p>
+        <p class="text-sm text-ink-muted mt-2">Dedicated plan manager</p>
+      </div>
+      <div class="px-8 py-9">
+        <p class="font-display text-5xl text-ink" style="font-variation-settings:'opsz' 144, 'SOFT' 80;">0<span class="text-2xl text-ink-faint align-top ml-1">queues</span></p>
+        <p class="text-sm text-ink-muted mt-2">No call centres, ever</p>
+      </div>
+      <div class="px-8 py-9">
+        <p class="font-display text-5xl text-ink italic" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">frontline</p>
+        <p class="text-sm text-ink-muted mt-2">Built by a support worker</p>
+      </div>
+    </div>
+    <p class="hand text-center mt-5 rotate-1">not just numbers — promises</p>
+  </div>
+</section>
+
+<!-- ====================== FOR SUPPORT COORDINATORS ====================== -->
+<section id="who" class="py-28 md:py-36">
+  <div class="mx-auto max-w-[1180px] px-6 md:px-10">
+    <div class="grid md:grid-cols-12 gap-12 md:gap-16 items-start">
+      <div class="md:col-span-5">
+        <p class="eyebrow">For support coordinators</p>
+        <h2 class="font-display text-4xl md:text-[3.4rem] leading-[1.02] mt-6 text-ink" style="font-variation-settings:'opsz' 144, 'SOFT' 60;">
+          A plan manager you can <span class="italic text-teal-500" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">actually reach</span>.
+        </h2>
+        <p class="mt-7 text-lg leading-[1.75] text-ink-muted max-w-[44ch]">
+          When you refer a participant to Waylight, you get a direct line to their plan manager. No call centre queues, no ticket numbers, no chasing emails that go unanswered.
+        </p>
+        <a href="#contact" class="mt-9 btn btn-primary">
+          Refer a participant
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <p class="hand -rotate-1 mt-7">support coordinators love this part</p>
+      </div>
+
+      <ol class="md:col-span-7 space-y-2">
+        <li class="group flex items-start gap-6 p-7 rounded-2xl border border-ink/8 hover:border-teal-500/30 hover:bg-white transition-all duration-500">
+          <div class="font-display text-3xl italic text-gold-500 leading-none w-10" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">i</div>
+          <div>
+            <h3 class="font-display text-2xl text-ink leading-tight">Fast onboarding</h3>
+            <p class="text-ink-muted mt-2 leading-relaxed">Participants set up within 2 business days of referral. No paperwork purgatory.</p>
+          </div>
+          <svg class="ml-auto opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500 text-teal-500" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </li>
+        <li class="group flex items-start gap-6 p-7 rounded-2xl border border-ink/8 hover:border-teal-500/30 hover:bg-white transition-all duration-500">
+          <div class="font-display text-3xl italic text-gold-500 leading-none w-10" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">ii</div>
+          <div>
+            <h3 class="font-display text-2xl text-ink leading-tight">You stay informed</h3>
+            <p class="text-ink-muted mt-2 leading-relaxed">Budget updates and claims progress shared with you directly — not buried in a portal you'll never log into.</p>
+          </div>
+          <svg class="ml-auto opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500 text-teal-500" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </li>
+        <li class="group flex items-start gap-6 p-7 rounded-2xl border border-ink/8 hover:border-teal-500/30 hover:bg-white transition-all duration-500">
+          <div class="font-display text-3xl italic text-gold-500 leading-none w-10" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">iii</div>
+          <div>
+            <h3 class="font-display text-2xl text-ink leading-tight">One point of contact</h3>
+            <p class="text-ink-muted mt-2 leading-relaxed">The same plan manager for every conversation. You always know exactly who to call.</p>
+          </div>
+          <svg class="ml-auto opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-500 text-teal-500" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== WHAT WE HANDLE ====================== -->
+<section id="what" class="relative py-28 md:py-36 overflow-hidden">
+  <div class="absolute inset-0 bg-ivory-200/40"></div>
+  <div class="absolute inset-0 grain"></div>
+  <div class="relative mx-auto max-w-[1180px] px-6 md:px-10">
+
+    <div class="max-w-[34ch] mb-16">
+      <p class="eyebrow">What we handle</p>
+      <h2 class="font-display text-4xl md:text-[3.6rem] leading-[1.02] mt-6 text-ink" style="font-variation-settings:'opsz' 144, 'SOFT' 60;">
+        The boring bits, <span class="italic text-teal-500" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">handled</span>.
+      </h2>
+      <p class="mt-6 text-lg leading-[1.7] text-ink-muted">
+        We take on invoices, budgets, claims, and provider payments — so you can focus on your goals, your supports, and your life.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <article class="card group">
+        <div class="h-12 w-12 rounded-2xl bg-teal-500/10 text-teal-500 flex items-center justify-center mb-7 group-hover:bg-teal-500 group-hover:text-ivory-50 transition-colors duration-500">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+        </div>
+        <h3 class="font-display text-2xl text-ink leading-tight">Invoice processing</h3>
+        <p class="text-ink-muted mt-3 leading-relaxed text-[15px]">We receive provider invoices, verify them against current NDIS rates, and process payment. Reimbursements handled the same way.</p>
+      </article>
+      <article class="card group">
+        <div class="h-12 w-12 rounded-2xl bg-teal-500/10 text-teal-500 flex items-center justify-center mb-7 group-hover:bg-teal-500 group-hover:text-ivory-50 transition-colors duration-500">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+        </div>
+        <h3 class="font-display text-2xl text-ink leading-tight">Budget tracking</h3>
+        <p class="text-ink-muted mt-3 leading-relaxed text-[15px]">Monthly statements with spending breakdowns by category. You always know exactly where your plan balance stands.</p>
+      </article>
+      <article class="card group">
+        <div class="h-12 w-12 rounded-2xl bg-teal-500/10 text-teal-500 flex items-center justify-center mb-7 group-hover:bg-teal-500 group-hover:text-ivory-50 transition-colors duration-500">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </div>
+        <h3 class="font-display text-2xl text-ink leading-tight">Budget alerts</h3>
+        <p class="text-ink-muted mt-3 leading-relaxed text-[15px]">We track your spending against your plan timeline and flag when funding is running ahead or behind schedule.</p>
+      </article>
+      <article class="card group">
+        <div class="h-12 w-12 rounded-2xl bg-teal-500/10 text-teal-500 flex items-center justify-center mb-7 group-hover:bg-teal-500 group-hover:text-ivory-50 transition-colors duration-500">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="font-display text-2xl text-ink leading-tight">Provider choice</h3>
+        <p class="text-ink-muted mt-3 leading-relaxed text-[15px]">Plan-managed participants can use both registered and unregistered providers. More choice. More flexibility.</p>
+      </article>
+    </div>
+
+    <p class="hand rotate-2 mt-10 ml-2">the boring stuff? handled.</p>
+  </div>
+</section>
+
+<!-- ====================== FOR FAMILIES & CARERS (asymmetric editorial split) ====================== -->
+<section class="py-28 md:py-36 relative">
+  <div class="mx-auto max-w-[1180px] px-6 md:px-10">
+    <div class="grid md:grid-cols-12 gap-12 md:gap-20 items-center">
+
+      <!-- Image / atmospheric panel -->
+      <div class="md:col-span-6 relative order-2 md:order-1">
+        <div class="relative aspect-[4/5] rounded-[28px] overflow-hidden shadow-lift">
+          <img src="https://placehold.co/720x900/1F6F6F/FBF7EE?text=+" alt="" class="absolute inset-0 w-full h-full object-cover"/>
+          <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(14,66,66,0) 40%, rgba(14,66,66,0.85) 100%); mix-blend-multiply;"></div>
+          <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(184,146,74,0.15), rgba(31,111,111,0.10));"></div>
+          <div class="absolute bottom-8 left-8 right-8 text-ivory-50">
+            <p class="font-display italic text-2xl leading-tight" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">"Finally — a plan manager who actually answers."</p>
+            <p class="text-sm mt-3 text-ivory-100/80">— what we want every family to say</p>
+          </div>
+        </div>
+        <div class="hidden md:block absolute -top-6 -right-6 w-32 h-32 rounded-full border border-gold-500/40"></div>
+        <div class="hidden md:block absolute -bottom-8 -left-8 w-20 h-20 rounded-full bg-gold-500/15"></div>
+      </div>
+
+      <!-- Copy -->
+      <div class="md:col-span-6 order-1 md:order-2">
+        <p class="eyebrow">For families & carers</p>
+        <h2 class="font-display text-4xl md:text-[3.4rem] leading-[1.02] mt-6 text-ink" style="font-variation-settings:'opsz' 144, 'SOFT' 60;">
+          You'll always know <span class="italic text-teal-500" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">where the funding stands</span>.
+        </h2>
+        <p class="mt-7 text-lg leading-[1.75] text-ink-muted max-w-[52ch]">
+          If you help manage a family member's NDIS plan, you need a plan manager who keeps you in the loop. Waylight sends monthly statements, answers your questions directly, and makes sure you never have to guess.
+        </p>
+
+        <div class="mt-9 space-y-5">
+          <div class="flex gap-4">
+            <div class="mt-1 h-2 w-2 rounded-full bg-gold-500 shrink-0"></div>
+            <div><p class="font-medium text-ink">Monthly statements</p><p class="text-ink-muted text-[15px] leading-relaxed">Spending breakdowns by category, sent to you and the participant each month.</p></div>
+          </div>
+          <div class="flex gap-4">
+            <div class="mt-1 h-2 w-2 rounded-full bg-gold-500 shrink-0"></div>
+            <div><p class="font-medium text-ink">Direct access</p><p class="text-ink-muted text-[15px] leading-relaxed">Call, email, or message your plan manager directly. The same person, every single time.</p></div>
+          </div>
+          <div class="flex gap-4">
+            <div class="mt-1 h-2 w-2 rounded-full bg-gold-500 shrink-0"></div>
+            <div><p class="font-medium text-ink">Plan review support</p><p class="text-ink-muted text-[15px] leading-relaxed">Before a plan review, we prepare a funding summary so you know exactly what was used.</p></div>
+          </div>
+        </div>
+
+        <a href="#contact" class="mt-10 btn btn-primary">
+          Talk to us about your family member's plan
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <p class="hand -rotate-2 mt-6">families deserve answers, not hold music</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== COMPARISON ====================== -->
+<section class="relative py-28 md:py-36 overflow-hidden">
+  <div class="absolute inset-0 bg-ivory-200/40"></div>
+  <div class="absolute inset-0 grain"></div>
+  <div class="relative mx-auto max-w-[1080px] px-6 md:px-10">
+
+    <div class="text-center max-w-[44ch] mx-auto mb-14">
+      <p class="eyebrow !before:hidden justify-center" style="display:flex; justify-content:center;">Why plan management</p>
+      <h2 class="font-display text-4xl md:text-[3.4rem] leading-[1.02] mt-6 text-ink" style="font-variation-settings:'opsz' 144, 'SOFT' 60;">
+        Three ways to manage. <span class="italic text-teal-500" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">One that fits.</span>
+      </h2>
+      <p class="mt-5 text-ink-muted leading-relaxed">There are three ways to manage NDIS funding. Here's how they compare.</p>
+    </div>
+
+    <div class="bg-white rounded-[24px] border border-ink/8 shadow-card overflow-hidden">
+      <table class="ctable">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="featured text-center">Plan-managed</th>
+            <th class="text-center">Self-managed</th>
+            <th class="text-center">NDIA-managed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- rows -->
+          <tr>
+            <td>Use unregistered providers</td>
+            <td class="featured text-center"><span class="yes yes-strong"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td class="text-center"><span class="yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td class="text-center"><span class="no"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></td>
+          </tr>
+          <tr>
+            <td>Someone else handles invoices</td>
+            <td class="featured text-center"><span class="yes yes-strong"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td class="text-center"><span class="no"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></td>
+            <td class="text-center"><span class="yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+          </tr>
+          <tr>
+            <td>Choose from all providers</td>
+            <td class="featured text-center"><span class="yes yes-strong"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td class="text-center"><span class="yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td class="text-center"><span class="no"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></td>
+          </tr>
+          <tr>
+            <td>Monthly budget reporting</td>
+            <td class="featured text-center"><span class="yes yes-strong"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td class="text-center"><span class="no"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></td>
+            <td class="text-center"><span class="no"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></td>
+          </tr>
+          <tr>
+            <td>No financial admin</td>
+            <td class="featured text-center"><span class="yes yes-strong"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td class="text-center"><span class="no"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></td>
+            <td class="text-center"><span class="yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+          </tr>
+          <tr>
+            <td>Funded separately (no cost to supports)</td>
+            <td class="featured text-center"><span class="yes yes-strong"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td class="text-center"><span class="no"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></td>
+            <td class="text-center"><span class="yes"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+          </tr>
+          <tr>
+            <td>A personal plan manager who knows you</td>
+            <td class="featured text-center"><span class="yes yes-strong"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></td>
+            <td class="text-center"><span class="no"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></td>
+            <td class="text-center"><span class="no"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-center text-xs text-ink-faint mt-6 max-w-[60ch] mx-auto leading-relaxed">
+      Plan management is funded under its own NDIS budget category (CB Choice and Control). It does not reduce your core or capacity-building funding.
+    </p>
+    <p class="hand text-center mt-3 -rotate-1">notice all those green checkmarks</p>
+  </div>
+</section>
+
+<!-- ====================== HOW IT WORKS ====================== -->
+<section id="how" class="py-28 md:py-36">
+  <div class="mx-auto max-w-[1180px] px-6 md:px-10">
+
+    <div class="text-center max-w-[34ch] mx-auto mb-20">
+      <p class="eyebrow" style="display:inline-flex;">How it works</p>
+      <h2 class="font-display text-4xl md:text-[3.6rem] leading-[1.02] mt-6 text-ink" style="font-variation-settings:'opsz' 144, 'SOFT' 60;">
+        Three steps. <span class="italic text-teal-500" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">That's the whole thing.</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-10 md:gap-6 relative">
+      <!-- connecting line -->
+      <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-px" style="background: repeating-linear-gradient(90deg, rgba(184,146,74,0.5) 0 6px, transparent 6px 14px);"></div>
+
+      <div class="text-center relative">
+        <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-ivory-100 border border-gold-300/50 relative">
+          <span class="stepnum">i</span>
+        </div>
+        <h3 class="font-display text-2xl mt-7 text-ink">You choose your providers</h3>
+        <p class="text-ink-muted mt-3 leading-relaxed text-[15px] max-w-[32ch] mx-auto">Pick the support workers, therapists, and services that work for you — registered or unregistered.</p>
+      </div>
+
+      <div class="text-center relative">
+        <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-ivory-100 border border-gold-300/50 relative">
+          <span class="stepnum">ii</span>
+        </div>
+        <h3 class="font-display text-2xl mt-7 text-ink">Providers invoice us</h3>
+        <p class="text-ink-muted mt-3 leading-relaxed text-[15px] max-w-[32ch] mx-auto">Your providers send their invoices directly to Waylight. We check everything against NDIS rates and process payment.</p>
+      </div>
+
+      <div class="text-center relative">
+        <div class="inline-flex items-center justify-center w-24 h-24 rounded-full bg-ivory-100 border border-gold-300/50 relative">
+          <span class="stepnum">iii</span>
+        </div>
+        <h3 class="font-display text-2xl mt-7 text-ink">You stay informed</h3>
+        <p class="text-ink-muted mt-3 leading-relaxed text-[15px] max-w-[32ch] mx-auto">Monthly statements, budget alerts, and direct access to your plan manager. No surprises. Ever.</p>
+      </div>
+    </div>
+    <p class="hand text-center mt-12 rotate-1">three steps. that's it.</p>
+  </div>
+</section>
+
+<!-- ====================== WAYLIGHT AI strip ====================== -->
+<section class="relative py-20 overflow-hidden">
+  <div class="mx-auto max-w-[1080px] px-6 md:px-10">
+    <div class="relative rounded-[28px] overflow-hidden border border-ink/8 atmos-deep grain p-10 md:p-14">
+      <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full" style="background:radial-gradient(circle, rgba(217,190,130,0.35), transparent 60%);"></div>
+
+      <div class="relative grid md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-8">
+          <p class="text-xs tracking-[0.22em] uppercase font-medium text-gold-300">Coming soon · Waylight AI</p>
+          <h3 class="font-display text-3xl md:text-[2.6rem] leading-[1.05] mt-4 text-ivory-50" style="font-variation-settings:'opsz' 144, 'SOFT' 70;">
+            AI tools for NDIS providers — <span class="italic text-gold-300" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">less admin, more time with participants.</span>
+          </h3>
+          <p class="mt-5 text-ivory-100/80 leading-[1.7] max-w-[58ch] text-[15px]">
+            Automated progress notes, shift rostering, compliance monitoring, and an instant NDIS knowledge assistant. Different product, same mission.
+          </p>
+        </div>
+        <div class="md:col-span-4 md:justify-self-end">
+          <a href="#" class="btn btn-light">
+            Learn more
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <p class="hand -rotate-2 mt-5 ml-4">patience... these are coming</p>
+  </div>
+</section>
+
+<!-- ====================== STORY (letter) ====================== -->
+<section id="story" class="py-28 md:py-36">
+  <div class="mx-auto max-w-[860px] px-6 md:px-10">
+    <div class="text-center mb-10">
+      <p class="eyebrow" style="display:inline-flex;">A letter from the founder</p>
+    </div>
+    <article class="letter">
+      <h2 class="font-display text-4xl md:text-[3rem] leading-[1.05] text-ink mb-8" style="font-variation-settings:'opsz' 144, 'SOFT' 70;">
+        Built by someone <span class="italic text-teal-500" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">who gets it</span>.
+      </h2>
+      <p class="dropcap text-[1.08rem] leading-[1.85] text-ink-soft">
+        Waylight was started by a practising NDIS support worker who saw the problems from the inside: the dread of calling a plan manager and never getting through, the stress of not knowing where funding stands, the embarrassment when providers chase unpaid invoices.
+      </p>
+      <p class="mt-6 text-[1.08rem] leading-[1.85] text-ink-soft">
+        That frontline experience changes how we operate. We catch errors that desk-only plan managers miss, because we understand what services actually look like on the ground.
+      </p>
+      <div class="candle-rule my-9">
+        <img src="public/logo-icon.png" alt="" class="h-6 w-6 object-contain opacity-80"/>
+      </div>
+      <p class="font-display italic text-xl text-teal-600 leading-relaxed" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">
+        Our promise is simple: when you call, we pick up. When you ask, we answer. When something is wrong, we fix it — usually before you knew it was a problem.
+      </p>
+      <a href="#" class="mt-10 btn btn-ghost">
+        Read our full story
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </article>
+    <p class="hand hand-lg text-center mt-8 rotate-1">(yes, even at 2am)</p>
+  </div>
+</section>
+
+<!-- ====================== FINAL CTA ====================== -->
+<section id="contact" class="relative py-32 md:py-40 overflow-hidden">
+  <div class="absolute inset-0 atmos-deep"></div>
+  <div class="absolute inset-0 grain opacity-30"></div>
+  <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full" style="background:radial-gradient(circle, rgba(217,190,130,0.25), transparent 60%);"></div>
+
+  <div class="relative mx-auto max-w-[820px] px-6 md:px-10 text-center">
+    <img src="public/logo.png" alt="" class="h-14 w-14 object-contain mx-auto mb-8 opacity-90"/>
+    <h2 class="font-display text-4xl md:text-[4rem] leading-[1] text-ivory-50" style="font-variation-settings:'opsz' 144, 'SOFT' 70;">
+      Be one of <span class="italic text-gold-300" style="font-variation-settings:'opsz' 144, 'SOFT' 100;">our first</span><br/> participants.
+    </h2>
+    <p class="mt-8 text-ivory-100/85 text-lg leading-[1.75] max-w-[52ch] mx-auto">
+      We're starting small on purpose. Every participant gets dedicated, personal plan management from day one. Reach out while caseloads are low.
+    </p>
+    <p class="mt-4 text-sm text-ivory-100/55 max-w-[48ch] mx-auto leading-relaxed">
+      Every week with a plan manager who doesn't return calls is a week of invoices sitting unpaid, providers getting frustrated, and funding going untracked.
+    </p>
+    <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#" class="btn btn-light">
+        Register your interest
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#" class="btn" style="background:transparent;color:#FBF7EE;border:1px solid rgba(251,247,238,0.3);">
+        Refer a participant
+      </a>
+    </div>
+    <p class="mt-8 text-xs text-ivory-100/45">NDIS provider registration in progress. Expressions of interest welcome.</p>
+    <p class="hand hand-lg mt-6 -rotate-2" style="color:rgba(217,190,130,0.75);">still scrolling? we like you already.</p>
+  </div>
+</section>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="border-t border-ink/8 py-14">
+  <div class="mx-auto max-w-[1180px] px-6 md:px-10 grid md:grid-cols-12 gap-10 items-start">
+    <div class="md:col-span-5">
+      <div class="flex items-center gap-3">
+        <img src="public/logo.png" alt="" class="h-10 w-10 object-contain"/>
+        <span class="font-display text-2xl tracking-tight text-ink">waylight</span>
+      </div>
+      <p class="mt-4 text-sm text-ink-muted leading-relaxed max-w-[42ch]">
+        NDIS plan management — personal, direct, frontline. Brisbane, Queensland.
+      </p>
+    </div>
+    <div class="md:col-span-2">
+      <p class="text-xs uppercase tracking-[0.18em] text-ink-faint mb-4">Services</p>
+      <ul class="space-y-2 text-sm text-ink-muted">
+        <li><a href="#" class="hover:text-ink">Plan management</a></li>
+        <li><a href="#" class="hover:text-ink">For coordinators</a></li>
+        <li><a href="#" class="hover:text-ink">Waylight AI</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-2">
+      <p class="text-xs uppercase tracking-[0.18em] text-ink-faint mb-4">Company</p>
+      <ul class="space-y-2 text-sm text-ink-muted">
+        <li><a href="#" class="hover:text-ink">About</a></li>
+        <li><a href="#" class="hover:text-ink">Contact</a></li>
+        <li><a href="#" class="hover:text-ink">Resources</a></li>
+      </ul>
+    </div>
+    <div class="md:col-span-3">
+      <p class="text-xs uppercase tracking-[0.18em] text-ink-faint mb-4">Get in touch</p>
+      <p class="text-sm text-ink-muted">A real person picks up.<br/>Always.</p>
+      <a href="#contact" class="mt-4 inline-flex items-center gap-2 text-sm font-medium text-teal-600 hover:text-teal-700">
+        Talk to us
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="mx-auto max-w-[1180px] px-6 md:px-10 mt-12 pt-6 border-t border-ink/8 flex flex-col md:flex-row gap-3 items-center justify-between text-xs text-ink-faint">
+    <p>© 2026 Waylight Plan Management Pty Ltd</p>
+    <p>Made on Yuggera & Turrbal Country, Brisbane.</p>
+  </div>
+</footer>
+
+</body>
+</html>
