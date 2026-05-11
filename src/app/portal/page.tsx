@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Lock, BarChart3, FileText, MessageSquare, Upload, ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Participant Portal | Waylight",
+  title: "Participant Portal",
   description:
     "The Waylight participant portal: real-time budgets, monthly statements, message thread, invoice uploads. Coming with our first participants.",
   openGraph: {
