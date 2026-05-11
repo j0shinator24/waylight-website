@@ -51,7 +51,6 @@ const localBusinessJsonLd = {
     "NDIS Provider Payments",
     "NDIS PRODA Claims",
   ],
-  sameAs: ["https://waylightai.com.au"],
 }
 
 const websiteJsonLd = {

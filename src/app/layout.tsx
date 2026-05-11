@@ -57,6 +57,11 @@ export const metadata: Metadata = {
       "Queensland NDIS plan management. One dedicated plan manager who knows your name.",
     images: ["/og/default"],
   },
+  // GSC + Bing WMT tokens — provision via Chrome MCP (§GSC-VERIFICATION-PROTOCOL)
+  // verification: {
+  //   google: "TODO_GSC_TOKEN",
+  //   other: { "msvalidate.01": "TODO_BING_TOKEN" },
+  // },
 }
 
 export default function RootLayout({
