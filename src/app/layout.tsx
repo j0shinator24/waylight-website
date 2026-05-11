@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "uqY_G90UcjvGj2rVkog3sswrOGWN6TDr-lp8q5LZaDs",
-    // other: { "msvalidate.01": "TODO_BING_TOKEN" },
+    // Bing WMT: verified via GSC import — no msvalidate.01 token needed
   },
 }
 
