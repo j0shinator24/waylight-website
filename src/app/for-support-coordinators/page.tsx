@@ -16,7 +16,7 @@ import { BASE_URL } from "@/lib/constants"
 import { SCHEMA_IDS } from "@/components/seo/json-ld"
 
 export const metadata: Metadata = {
-  title: { absolute: "For Support Coordinators | Refer NDIS Participants to Waylight" },
+  title: { absolute: "For Support Coordinators | Refer to Waylight" },
   description:
     "Refer NDIS participants to a plan manager who actually picks up. Two-day onboarding, live coordinator portal view, monthly reports. QLD-based.",
   alternates: { canonical: `${BASE_URL}/for-support-coordinators` },

@@ -14,12 +14,12 @@ import { BASE_URL } from "@/lib/constants"
 import { SCHEMA_IDS } from "@/components/seo/json-ld"
 
 export const metadata: Metadata = {
-  title: { absolute: "About Waylight | NDIS Plan Manager Founded by a Support Worker" },
+  title: { absolute: "About Waylight | Started by a Support Worker" },
   description:
-    "Waylight Plan Management was started by a practising NDIS support worker in Queensland. Small on purpose. Built around the participant. Read how and why it exists.",
+    "Waylight was started by a practising NDIS support worker in Queensland. Small on purpose. Built around the participant. Read how and why it exists.",
   alternates: { canonical: `${BASE_URL}/about` },
   openGraph: {
-    title: "About Waylight | NDIS Plan Manager Founded by a Support Worker",
+    title: "About Waylight | Started by a Support Worker",
     description:
       "Waylight is a Queensland NDIS plan manager started by a frontline support worker. Read how and why it exists.",
     url: `${BASE_URL}/about`,

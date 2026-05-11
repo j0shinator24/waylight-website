@@ -9,7 +9,7 @@ const PAGE_URL = `${BASE_URL}/resources/how-to-switch-plan-managers`
 export const metadata: Metadata = {
   title: { absolute: "How to Switch NDIS Plan Managers | Waylight Guide" },
   description:
-    "How to switch NDIS plan managers in four steps. No lock-in, no exit fees, no penalty. Your plan and funding stay the same. What to look for in a new plan manager.",
+    "How to switch NDIS plan managers in four steps. No lock-in, no exit fees. Your plan and funding stay the same. What to look for in a new plan manager.",
   alternates: { canonical: PAGE_URL },
   openGraph: {
     title: "How to Switch NDIS Plan Managers | Waylight Guide",
